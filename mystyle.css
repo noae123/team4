@@ -1,0 +1,119 @@
+*{
+    padding: 0; margin: 0;
+    font-family: Arial;
+}
+
+/*text design*/
+h1{
+    font-size: 5.25em;
+    font-family: 'Fredoka One', cursive;
+}
+h2{
+    font-size: 3.75em;
+    font-family: 'Fredoka One', cursive;
+}
+h3{
+    font-size: 3em;
+    font-family: 'Averia Sans Libre', cursive;
+    font-weight: bold;
+}
+h4{
+    font-size: 2em;
+    font-family: 'Averia Sans Libre', cursive;
+}
+p{
+    font-size: 1.125em;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* colors */
+#color1{
+    background-color: #F4F4F4;
+}
+#color2{
+    background-color:  #F8DD05;
+}
+#color3{
+    background-color: #F31066;
+}
+#color4{
+    background-color: #124E78;
+}
+#color5{
+    background-color: #403233;
+}
+#hue1{
+    background: #F4F4F4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F4F4F4, #ffffff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F4F4F4, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.hue2{
+    background: #F7971E;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F8DD05, #F7971E);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F8DD05, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.hue3{
+    background: #F31066;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F8DD05, #F31066);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F8DD05, #F31066); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#hue4{
+    background: #124E78;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #237ace, #124E78);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #237ace, #124E78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#hue5{
+    background: #403233;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #9a8478, #403233);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #9a8478, #403233); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* components */
+.card1{
+    width: 450px;
+    height: 650px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    outline: 2px solid rgba(255, 255, 255, 0.7);
+}
+.card2{
+    width: 450px;
+    height: 650px;
+    border-radius: 15px;
+    background-color: #F4F4F4;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/*other*/
+.rowDiv{
+    display: inline-block;
+    margin-right: 20px;
+}
+.cardTitle{
+    color: #F4F4F4;
+}
+.color{
+    width: 80px;
+    height: 80px;
+    background-color: black;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 0.5em;
+}
+.colorTitle{
+    margin-top: 2em;
+    margin-left: 20px;
+}
+.colors{
+    margin-left: 20px;
+}
+.components{
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
