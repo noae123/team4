@@ -1,0 +1,73 @@
+.UserProfileName {
+    margin-left: 12px;
+}
+
+.userUploader {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.user_img {
+    margin-left: 5%;
+    width: 32px;
+    height: 32px;
+}
+
+.player {
+    margin-top: 20px;
+    position: relative;
+    width: 100vw;
+    max-width: 614px;
+    max-height: 1021px;
+    height: 110vh;
+    background-color: #f1f3f4;
+}
+
+.player .imgbox {
+    position: relative;
+    width: 100%;
+    height: 76vh;
+    max-height: 750px;
+    cursor: pointer;
+}
+
+.player .imgbox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player audio {
+    width: 100%;
+    outline: none;
+    text-align: center;
+}
+
+.Audio_Title {
+    margin-left: 5%;
+    display: flex;
+    position: relative;
+    padding-top: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 90%;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+.Audio_Title ul {
+    width: 48.6vw;
+    display: flex;
+}

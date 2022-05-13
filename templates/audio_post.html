@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/audio.css">
+    <link rel="stylesheet" href="../static/css/mystyle.css">
+    <script src="../static/lib/p5/p5.js"></script>
+    <script src="../static/lib/p5/addons/p5.sound.js"></script>
+    <script src="../static/javascript/audio_canvas.js"></script>
+
+</head>
+<body>
+    <main>
+        <div class="player">
+            <div class="userUploader">
+                <img alt='userProfile' src="../static/images/BarakLav.png" class="user_img">
+                <span class="UserProfileName">UserProfile</span>
+            </div>
+            <div class="imgbox" >
+                <img alt='background_music' src="../static/images/sunFlowers.jpg" class="mmg">
+            </div>
+            <div class="Audio_Title">
+                <div class="scrollTitle">{{ songName }}sdasdnkjasndjknasjdnkajsndkjasndnaskjdnkjasndjkasnkjdnasjkndjkasndjkasndjkasnbdjkasnbdjknasjkdnjkasndjkasndjkasndjkasndjkasnjkdasjkdnjkasndkjasndjkasndkjasndkjasndkandjkasndkjandjksenfkj.sdnvjosdnoihoisehvio</div>
+            </div>
+            <div class="Audio_Author">
+                <div>{{ SongAuthor }}</div>
+            </div>
+            <audio src="../static/music/sting_shape_of_my_heart_official_music_video_-2000703457510585365.mp3"
+                   controls controlsList="nodownload" onplay="onPlay"></audio>
+            <div class="actionLine">
+                <img alt="like" src="../static/images/Like.svg">
+                <img alt="comment" src="../static/images/Comment.svg">
+                <img alt="save" src="../static/images/Save.svg">
+            </div>
+        </div>
+    </main>
+
+<script>
+    // This script will be changed by the server using SSR
+    // this is just a placeholder to make the page run locally without the servers help
+
+    // load all the "player" elements in the page
+    const players = [...document.querySelectorAll(".player")];
+
+    // animate all the players in the players array
+    players.forEach(animateElement);
+</script>
+</body>
+</html>
