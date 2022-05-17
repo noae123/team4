@@ -8,7 +8,7 @@
     <script src="../static/lib/p5/p5.js"></script>
     <script src="../static/lib/p5/addons/p5.sound.js"></script>
     <script src="../static/javascript/audio_canvas.js"></script>
-
+    <script src="../static/javascript/animatorCaller.js"></script>
 </head>
 <body>
     <main>
@@ -23,7 +23,7 @@
             <div class="Audio_Title">
                 <div class="scrollTitle">{{ songName }}sdasdnkjasndjknasjdnkajsndkjasndnaskjdnkjasndjkasnkjdnasjkndjkasndjkasndjkasnbdjkasnbdjknasjkdnjkasndjkasndjkasndjkasndjkasnjkdasjkdnjkasndkjasndjkasndkjasndkjasndkandjkasndkjandjksenfkj.sdnvjosdnoihoisehvio</div>
             </div>
-            <div class="Audio_Author">
+            <div class="Audio_Title">
                 <div>{{ SongAuthor }}</div>
             </div>
             <audio src="../static/music/sting_shape_of_my_heart_official_music_video_-2000703457510585365.mp3"
@@ -34,17 +34,17 @@
                 <img alt="save" src="../static/images/Save.svg">
             </div>
         </div>
+        <div id="red" class="color" style="background: var(--red); cursor: pointer;"></div>
+        <div id="orange" class="color" style="background: var(--orange); cursor: pointer;"></div>
+        <div id="yellow" class="color" style="background: var(--yellow); cursor: pointer;"></div>
+        <div id="green" class="color" style="background: var(--green); cursor: pointer;"></div>
+        <div id="blue" class="color" style="background: var(--blue); cursor: pointer;"></div>
+        <div id="purple" class="color" style="background: var(--purple); cursor: pointer;"></div>
+        <div id="pink" class="color" style="background: var(--pink); cursor: pointer;"></div>
+        <div id="brown" class="color" style="background: var(--brown); cursor: pointer;"></div>
+        <div id="black" class="color" style="background: black; cursor: pointer;"></div>
+        <div id="white" class="color" style="background: white; cursor: pointer;"></div>
     </main>
 
-<script>
-    // This script will be changed by the server using SSR
-    // this is just a placeholder to make the page run locally without the servers help
-
-    // load all the "player" elements in the page
-    const players = [...document.querySelectorAll(".player")];
-
-    // animate all the players in the players array
-    players.forEach(animateElement);
-</script>
 </body>
 </html>

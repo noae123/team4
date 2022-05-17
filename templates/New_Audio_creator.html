@@ -3,18 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>New Audio Creator</title>
-    <link rel="stylesheet" href="../static/css/mystyle.css"> <!-- this is the connection link-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@700&family=Averia+Serif+Libre:ital,wght@0,700;1,400&family=Fredoka+One&family=Martel+Sans:wght@600&family=Ruluko&family=Work+Sans&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="../static/css/audio.css">
+    <link rel="stylesheet" href="../static/css/mystyle.css">
+    <script src="../static/lib/p5/p5.js"></script>
+    <script src="../static/lib/p5/addons/p5.sound.js"></script>
+    <script src="../static/javascript/audio_canvas.js"></script>
+    <script src="../static/javascript/animatorCaller.js"></script></head>
 <body>
     <header>
     </header>
     <nav>
     </nav>
     <main>
-        <button class="button-77">Upload Audio</button>
+        <!--make the two sections as 2 Div’s and hide and unhide them as you go-->
+        <div id="firstCreationPart" style="display: none">
+            <button class="uploadMusic">Upload Audio</button>
+            <h2>Choose Image</h2>
+            <button>Upload Image</button>
+            <form action="דף%20הבית.html" method="POST" class="inner-form-grid">
+                <div id="input1">
+                    <label for="Audio_Name">Audio Name</label><br>
+                    <input type="text" id="Audio_Name" name="Audio_Name" class="formInput">
+                </div>
+                <div id="input2">
+                    <label for="Author_Name">Author Name</label><br>
+                    <input type="text" id="Author_Name" name="Author_Name" class="formInput">
+                </div>
+                <div id="input3">
+                    <label for="Choose_Categories">Choose Categories</label><br>
+                    <textarea rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput"></textarea>
+                </div>
+                <input id="input4" type="submit" value="Submit" class="submitButton">
+            </form>
+        </div>
+        <div id="secondCreationPart">
+            <h2>preview</h2>
+            <div class="player">
+                <div class="userUploader">
+                    <img alt='userProfile' src="../static/images/BarakLav.png" class="user_img">
+                    <span class="UserProfileName">UserProfile</span>
+                </div>
+                <div class="imgbox" >
+                    <img alt='background_music' src="../static/images/sunFlowers.jpg" class="mmg">
+                </div>
+                <div class="Audio_Title">
+                    <div class="scrollTitle">{{ songName }}sdasdnkjasndjknasjdnkajsndkjasndnaskjdnkjasndjkasnkjdnasjkndjkasndjkasndjkasnbdjkasnbdjknasjkdnjkasndjkasndjkasndjkasndjkasnjkdasjkdnjkasndkjasndjkasndkjasndkjasndkandjkasndkjandjksenfkj.sdnvjosdnoihoisehvio</div>
+                </div>
+                <div class="Audio_Title">
+                    <div>{{ SongAuthor }}</div>
+                </div>
+                <audio src="../static/music/sting_shape_of_my_heart_official_music_video_-2000703457510585365.mp3"
+                       controls controlsList="nodownload" onplay="onPlay"></audio>
+                <div class="actionLine">
+                    <img alt="like" src="../static/images/Like.svg">
+                    <img alt="comment" src="../static/images/Comment.svg">
+                    <img alt="save" src="../static/images/Save.svg">
+                </div>
+            </div>
+            <div id="red" class="color" style="background: var(--red); cursor: pointer;"></div>
+            <div id="orange" class="color" style="background: var(--orange); cursor: pointer;"></div>
+            <div id="yellow" class="color" style="background: var(--yellow); cursor: pointer;"></div>
+            <div id="green" class="color" style="background: var(--green); cursor: pointer;"></div>
+            <div id="blue" class="color" style="background: var(--blue); cursor: pointer;"></div>
+            <div id="purple" class="color" style="background: var(--purple); cursor: pointer;"></div>
+            <div id="pink" class="color" style="background: var(--pink); cursor: pointer;"></div>
+            <div id="brown" class="color" style="background: var(--brown); cursor: pointer;"></div>
+            <div id="black" class="color" style="background: black; cursor: pointer;"></div>
+            <div id="white" class="color" style="background: white; cursor: pointer;"></div>
+            <button>Publish</button>
+        </div>
     </main>
     <aside>
         <div class="userProfile">

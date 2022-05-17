@@ -1,7 +1,7 @@
 :root{
     /*space vars*/
     --pading_asside: 30px;
-    --nav_height: 8vh;
+    --nav_height: 55px;
     --img_size: 80px;
 
     /*colors var*/
@@ -13,6 +13,12 @@
     --lighter_blue: #237ace;
     --brown: #403233;
     --light_brown: #9a8478;
+
+    /*colors for audio animation*/
+    --red: #eb2513;
+    --green: #96d130;
+    --purple: #B32784;
+
 
     /*hue var*/
     --webkit_grad_white: -webkit-linear-gradient(to left, var(--white), white);
@@ -121,6 +127,7 @@ body{
     grid-template-columns: 60% auto;
     grid-template-areas: 'head nav'
     'main aside';
+    overflow: hidden;
 }
 header{
     height: var(--nav_height);
@@ -135,21 +142,20 @@ nav{
 main{
     height: calc(100vh - var(--nav_height));
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: var(--white);
     grid-area: main;
 }
 aside{
     grid-area: aside;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: var(--pading_asside);
 }
 
 /*phone display*/
 @media only screen and (max-width: 768px){
     body{
-        display: grid;
         grid-template-columns: 100%;
         grid-template-areas: 'head'
         'main'
@@ -255,6 +261,21 @@ button:active {
     transform: translateY(2px);
 }
 
+/******************SPECIFICS*********************************/
+/******************Audio creator*********************************/
+#firstCreationPart{
+    width: calc(100% - 2*var(--pading_asside));
+    max-width: 720px;
+    display: grid;
+    grid-template-areas: 'audio_upload';
+    float: right;
+    margin-right: var(--pading_asside);
+    padding-top: var(--pading_asside);
+}
+.uploadMusic{
+    grid-area: audio_upload;
+    width:100%;
+}
 /*other*/
 .rowDiv{
     display: inline-block;

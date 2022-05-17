@@ -1,19 +1,36 @@
-// let songName;
-// let songSrc;
-// let SongAuthor;
-// let imgSrc;
-// let likes;
-// let UserProfile;
-// let UserImg;
-// let backword;
-
 function onPlay() {
   userStartAudio();
 }
 
+function translateColor(colorA){
+  switch(colorA) {
+    case "red":
+      return colorA = [235, 37, 19, 255];
+    case "orange":
+      return colorA = [247, 151, 30, 255];
+    case "yellow":
+      return colorA = [248, 221, 5, 255];
+    case "green":
+      return colorA = [150, 209, 48, 255];
+    case "blue":
+      return colorA = [18, 78, 120, 255];
+    case "purple":
+      return colorA = [179, 39, 132,255];
+    case "black":
+      return colorA = [0, 0, 0,255];
+    case "brown":
+      return colorA = [64, 50, 51,255];
+    case "pink":
+      return colorA = [243, 16, 102,255];
+    default:
+      return colorA = [255, 255, 255,255];
+  }
+}
+
 function animateElement(
   /**HTMLDivElement*/ mainDiv,
-  /**string*/ backwards = "{{ backwards }}"
+  /**string*/ backwards = "{{ backwards }}",
+  /**string {{color}}*/ colorA= "{{ colorA }}"
 ) {
   // region element selection
   if (backwards === "{{ backwards }}") {
@@ -24,6 +41,64 @@ function animateElement(
   const element = mainDiv.querySelector("div.imgbox");
   const audioNode = mainDiv.querySelector("audio");
   const titleText = mainDiv.querySelector(".scrollTitle");
+  const audioTitle = mainDiv.querySelector(".Audio_Title");
+  const colorChanger = document.querySelectorAll(".color");
+  //create a color for animation to make more "cool" and "diverse" though look at this code and tell me that the client don't get an additional value
+  colorA = translateColor(colorA);
+  // endregion
+
+  //region text animation
+  let defaultDelay = 75;
+  let defaultWidth = 3734;
+  if (titleText.offsetWidth > audioTitle.offsetWidth) {
+    let width = titleText.offsetWidth;
+    this.newDelay = defaultDelay * (width / defaultWidth) * 1000;
+    if (this.backword == "true") {
+      titleText.animate(
+          [
+            // keyframes
+            { transform: "translate(-90%, 0)" },
+            { transform: "translate(10%, 0)" },
+          ],
+          {
+            // timing options
+            duration: this.newDelay,
+            iterations: Infinity,
+          }
+      );
+    } else {
+      titleText.animate(
+          [
+            // keyframes
+            { transform: "translate(0, 0)" },
+            { transform: "translate(-90%, 0)" },
+          ],
+          {
+            // timing options
+            delay: 2000,
+            duration: this.newDelay,
+            iterations: Infinity,
+          }
+      );
+    }
+  }
+  if (titleText.offsetWidth > audioTitle.offsetWidth) {
+    let width = titleText.offsetWidth;
+    this.newDelay = defaultDelay * (width / defaultWidth) * 1000;
+    titleText.animate(
+        [
+          // keyframes
+          { transform: "translate(0, 0)" },
+          { transform: "translate(-90%, 0)" },
+        ],
+        {
+          // timing options
+          delay: 2000,
+          duration: this.newDelay,
+          iterations: Infinity,
+        }
+    );
+  }
   // endregion
 
   // region P5
@@ -32,6 +107,14 @@ function animateElement(
     myP5.userStartAudio();
     audioNode[audioNode.paused ? "play" : "pause"]();
   };
+
+  for(let i =0; i< colorChanger.length; i++){
+    colorChanger[i].onclick = theirName;
+    function theirName(){
+      colorA = translateColor(this.id);
+    }
+  }
+
   const sketch = (sp5) => {
     // eslint-disable-next-line no-unused-vars
     let can, fft, amp;
@@ -69,7 +152,7 @@ function animateElement(
 
       fft.analyze();
       amp = fft.getEnergy(20, [200]);
-      sp5.stroke([255, 255, 255, 255]);
+      sp5.stroke(colorA); /**TODO color her*/
 
       sp5.translate(sp5.width / 2, sp5.height / 2);
 
@@ -105,17 +188,17 @@ function animateElement(
       }
 
       if (!audioNode.paused) {
-        let p = new Particle(amp, sp5);
+        let p = new Particle(amp, sp5, colorA);
 
         particles.push(p);
         if (amp > 180) {
-          let a = new Particle(amp, sp5);
+          let a = new Particle(amp, sp5, colorA);
           particles.push(a);
         }
         if (amp > 220) {
-          let a = new Particle(amp, sp5);
+          let a = new Particle(amp, sp5, colorA);
           particles.push(a);
-          a = new Particle(amp, sp5);
+          a = new Particle(amp, sp5, colorA);
           particles.push(a);
         }
         for (let i = particles.length - 1; i >= 0; i--) {
@@ -136,70 +219,16 @@ function animateElement(
   myP5 = new p5(sketch);
   return myP5;
   // endregion P5
-
-  //region text animation
-  let defaultDelay = 75;
-  let defaultWidth = 3734;
-
-  if (this.$refs.scrollTitle.offsetWidth > this.$refs.audioTitle.offsetWidth) {
-    let width = this.$refs.scrollTitle.offsetWidth;
-    this.newDelay = defaultDelay * (width / defaultWidth) * 1000;
-    if (this.backword == "true") {
-      this.$refs.scrollTitle.animate(
-        [
-          // keyframes
-          { transform: "translate(-90%, 0)" },
-          { transform: "translate(10%, 0)" },
-        ],
-        {
-          // timing options
-          duration: this.newDelay,
-          iterations: Infinity,
-        }
-      );
-    } else {
-      this.$refs.scrollTitle.animate(
-        [
-          // keyframes
-          { transform: "translate(0, 0)" },
-          { transform: "translate(-90%, 0)" },
-        ],
-        {
-          // timing options
-          delay: 2000,
-          duration: this.newDelay,
-          iterations: Infinity,
-        }
-      );
-    }
-  }
-  if (this.$refs.scrollAT.offsetWidth > this.$refs.audioAT.offsetWidth) {
-    let width = this.$refs.scrollAT.offsetWidth;
-    this.newDelay = defaultDelay * (width / defaultWidth) * 1000;
-    this.$refs.scrollAT.animate(
-      [
-        // keyframes
-        { transform: "translate(0, 0)" },
-        { transform: "translate(-90%, 0)" },
-      ],
-      {
-        // timing options
-        delay: 2000,
-        duration: this.newDelay,
-        iterations: Infinity,
-      }
-    );
-  }
-  // endregion
 }
 
 class Particle {
-  constructor(amp, p5) {
+  constructor(amp, p5, colorA) {
     this.pos = window.p5.Vector.random2D().mult(126);
     this.vel = p5.createVector(p5.random(0.0002, 0.00001));
     this.acc = this.pos.copy().mult(p5.random(0.0002, 0.00001));
     this.w = p5.random(3, 10);
-    this.color = [255, 255, 255, p5.random(255 - amp, 255) + 40];
+    this.color = [...colorA]; /**TODO color her p5.random(255 - amp, 255) + 40*/
+    this.color[3] = p5.random(255 - amp, 255) + 40
   }
 
   update(amp) {
