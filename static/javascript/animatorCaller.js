@@ -4,3 +4,8 @@ window.onload = (event) => {
         animateElement(myP[i], "false", "white");
     }
 };
+
+function addPlayer(){
+    let container = document.getElementById('container');
+    container
+}
