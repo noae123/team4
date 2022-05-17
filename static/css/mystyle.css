@@ -3,6 +3,9 @@
     --pading_asside: 30px;
     --nav_height: 55px;
     --img_size: 80px;
+    --img_size_profile_page: 55vh;
+    --max_img_size_profile_page:178.926px;
+    --min_img_size_profile_page:125.03px;
 
     /*colors var*/
     --white: #F4F4F4;
@@ -131,20 +134,108 @@ body{
 }
 header{
     height: var(--nav_height);
-    background-color: var(--blue);
+    background-color:  var(--yellow);
     grid-area: head;
 }
 nav{
     height: var(--nav_height);
-    background-color: var(--pink);
+    background-color:  var(--yellow);
     grid-area: nav;
 }
+/*nav design - לא בטוחה שצריך!!!!!!*/
+#navtool {
+    font-style: var(--smallFontType);
+    font-size: var(--fontSmall);
+    background-color: var(--webkit_grad_pink);
+ }
+
 main{
     height: calc(100vh - var(--nav_height));
     overflow-x: hidden;
     overflow-y: auto;
     background-color: var(--white);
     grid-area: main;
+}
+
+
+/*details of profile in page profile design*/
+.profilePage{
+    font-family: var(--Averia);
+
+}
+#profileMain{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-areas: 'leftSideProfile rightSideProfile'
+}
+.profilePage img{
+    display: table-cell;
+    height: var( --img_size_profile_page);
+    width: var( --img_size_profile_page);
+    object-fit: cover;
+    border-radius: 10px;
+    max-height: var(--max_img_size_profile_page);
+    max-width: var(--max_img_size_profile_page);
+    min-height: var(--min_img_size_profile_page);
+    min-width:var(--min_img_size_profile_page) ;
+}
+    
+
+
+.profilePage button{
+    width: var( --img_size_profile_page);
+    height: 15vh;
+    border-radius: 10px;
+    max-width: var(--max_img_size_profile_page);
+    /*font: size 12vh;*/
+    
+}
+
+
+#rightSideProfile{
+    grid-area: rightSideProfile;
+}
+#leftSideProfile{
+    grid-area: leftSideProfile;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#profileCheck{
+
+        display: grid;
+        grid-template-areas: 'followersDetails followingDetails audioDetails';
+        justify-content: space-around;
+        background: var(--pink);  /* fallback for old browsers */
+        background: var(--webkit_grad_white); /* Chrome 10-25, Safari 5.1-6 */
+        background: var(--grad_white);
+        border-radius: 15px;
+        opacity: 1;
+        
+    }
+/*records of follower/following/audio design*/    
+    .profileRecords{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: var(--mediumFontType);
+        opacity: 1 ;
+    }
+
+#followersDetails{ 
+    grid-area:followersDetails;
+
+
+}
+#followingDetails{
+    grid-area:followingDetails;
+
+
+}
+#audioDetails{
+    grid-area:audioDetails;
+
+
 }
 aside{
     grid-area: aside;
@@ -303,3 +394,60 @@ aside{
     padding-bottom: 20px;
     margin-top: 20px;
 }
+
+/*search input design*/
+#webIcon{
+    grid-area: webIcon;
+}
+#searchButton{
+    text-indent: -999px;
+    overflow: hidden;
+    width: 10px;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: transparent /*url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center*/;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+
+#site-search {
+    color: var(--brown);
+    display: flex;
+    padding: 2px;
+    border: 1px solid currentColor;
+    border-radius: 5px;
+    margin: 0 0 30px;
+    grid-area: site-search;
+  }
+
+input[type="search"] {
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 7px 8px;
+    font-size: 14px;
+    color: inherit;
+    border: 1px solid transparent;
+    border-radius: inherit;
+  }
+  
+  input[type="search"]::placeholder {
+    color: var(--brown);
+  }
+
+/*.search-icon {
+    text-indent: -999px;
+    overflow: hidden;
+    width: 30px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+    cursor: pointer;
+    opacity: 0.7;
+  } */
+
