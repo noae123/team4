@@ -16,10 +16,10 @@
     </nav>
     <main>
         <!--make the two sections as 2 Div’s and hide and unhide them as you go-->
-        <div id="firstCreationPart" style="display: none">
-            <button class="uploadMusic">Upload Audio</button>
+        <div id="firstCreationPart" >
+            <button class="uploadMusic Button">Upload Audio</button>
             <h2>Choose Image</h2>
-            <button>Upload Image</button>
+            <button class="Button">Upload Image</button>
             <form action="דף%20הבית.html" method="POST" class="inner-form-grid">
                 <div id="input1">
                     <label for="Audio_Name">Audio Name</label><br>
@@ -33,16 +33,12 @@
                     <label for="Choose_Categories">Choose Categories</label><br>
                     <textarea rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput"></textarea>
                 </div>
-                <input id="input4" type="submit" value="Submit" class="submitButton">
+                <input id="input4" type="submit" value="Submit" class="submitButton Button"">
             </form>
         </div>
-        <div id="secondCreationPart">
+        <div id="secondCreationPart" style="display: none">
             <h2>preview</h2>
             <div class="player">
-                <div class="userUploader">
-                    <img alt='userProfile' src="../static/images/BarakLav.png" class="user_img">
-                    <span class="UserProfileName">UserProfile</span>
-                </div>
                 <div class="imgbox" >
                     <img alt='background_music' src="../static/images/sunFlowers.jpg" class="mmg">
                 </div>
@@ -54,11 +50,6 @@
                 </div>
                 <audio src="../static/music/sting_shape_of_my_heart_official_music_video_-2000703457510585365.mp3"
                        controls controlsList="nodownload" onplay="onPlay"></audio>
-                <div class="actionLine">
-                    <img alt="like" src="../static/images/Like.svg">
-                    <img alt="comment" src="../static/images/Comment.svg">
-                    <img alt="save" src="../static/images/Save.svg">
-                </div>
             </div>
             <div id="red" class="color" style="background: var(--red); cursor: pointer;"></div>
             <div id="orange" class="color" style="background: var(--orange); cursor: pointer;"></div>
@@ -70,7 +61,7 @@
             <div id="brown" class="color" style="background: var(--brown); cursor: pointer;"></div>
             <div id="black" class="color" style="background: black; cursor: pointer;"></div>
             <div id="white" class="color" style="background: white; cursor: pointer;"></div>
-            <button>Publish</button>
+            <button class="Button">Publish</button>
         </div>
     </main>
     <aside>
