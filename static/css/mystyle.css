@@ -234,7 +234,7 @@ aside{
 
 
 /*html components*/
-button{
+.Button{
     font-size: var(--fontBB);
     width: 250px;
     height: 60px;
@@ -251,12 +251,11 @@ button{
     margin-top: 2px;
     margin-bottom: 2px;
 }
-
-button:hover {
+.Button:hover {
     box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, green 0 -6px 0 inset;
     transform: translateY(-2px);
 }
-button:active {
+.Button:active {
     box-shadow: green 0 3px 7px inset;
     transform: translateY(2px);
 }
