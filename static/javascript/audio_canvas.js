@@ -1,36 +1,138 @@
 function onPlay() {
   userStartAudio();
 }
-
+/* color mapping*/
+const colorMap = {
+  red: [235, 37, 19, 255],
+  orange: [247, 151, 30, 255],
+  yellow: [248, 221, 5, 255],
+  green: [150, 209, 48, 255],
+  blue: [18, 78, 120, 255],
+  purple: [179, 39, 132,255],
+  black: [0, 0, 0,255],
+  brown: [64, 50, 51,255],
+  pink: [243, 16, 102,255]
+}
+const colorDefault = [255, 255, 255,255];
 function translateColor(colorA){
-  switch(colorA) {
-    case "red":
-      return colorA = [235, 37, 19, 255];
-    case "orange":
-      return colorA = [247, 151, 30, 255];
-    case "yellow":
-      return colorA = [248, 221, 5, 255];
-    case "green":
-      return colorA = [150, 209, 48, 255];
-    case "blue":
-      return colorA = [18, 78, 120, 255];
-    case "purple":
-      return colorA = [179, 39, 132,255];
-    case "black":
-      return colorA = [0, 0, 0,255];
-    case "brown":
-      return colorA = [64, 50, 51,255];
-    case "pink":
-      return colorA = [243, 16, 102,255];
-    default:
-      return colorA = [255, 255, 255,255];
+  return colorMap[colorA] || colorDefault;
+}
+
+/*shapes*/
+function translateShape(shapeA, index, sp5){
+  switch (shapeA){
+    case("tear_M"):
+      return sp5.map(index, -1, 1, 40, 70);
+    case("tear_S"):
+      return sp5.map(index, -1, 1, 30, 50);
+    case("butterfly_S"):
+      return sp5.map(index, -1, 1, 60, 140);
+    case("butterfly_M"):
+      return sp5.map(index, -1, 1, 120, 180);
+    case ("triangle_S"):
+    case("square_S"):
+      return sp5.map(index, -1, 1, 60, 140);
+    case ("triangle_M"):
+    case("square_M"):
+      return sp5.map(index, -1, 1, 140, 220);
+    case ("circle_S"):
+      return sp5.map(index, -1, 1, 120, 180);
+    case ("circle_M"):
+      return sp5.map(index, -1, 1, 180, 300);
+    case ("heart_S"):
+      return sp5.map(index, -1, 1, 5, 10);
+    default :
+      return sp5.map(index, -1, 1, 10, 15);
   }
 }
 
+function X_calc(shape, r, i, t, sp5){
+  switch (shape){
+    case('tear'):
+      return r* 7 * sp5.sin(i) ** 4 * sp5.cos(i) * t;
+    case('butterfly'):
+      return r* 4 * sp5.sin(i) ** 2 * sp5.cos(i) ** 2 * t;
+    case ("circle"):
+      return r * sp5.sin(i) * 0.5 * t;
+    case ("square"):
+      return r * sp5.sin(i) ** 3 * t;
+    case ('triangle'):
+      return r * sp5.sin(i) ** 2 * t;
+    default:
+      return r* 16 * sp5.sin(i) ** 3 * t;
+  }
+}
+
+function Y_calc(shape, r, i, sp5){
+  let y;
+  if(shape.startsWith("circle")){
+    y = r * sp5.cos(i) * 0.5;
+  }
+  else if (shape.startsWith("square")){
+    y = r * sp5.cos(i) ** 3;
+  }
+  else if (shape.startsWith("triangle")){
+    y = -r * sp5.cos(i) ** 2 +40;
+  }
+  else if(shape.startsWith("tear")){
+    y = -r*( 4 * sp5.sin(i) ** 2 * sp5.cos(i) ** 2 + 3*sp5.cos(2*i));
+  }
+  else if(shape.startsWith("butterfly")){
+    y = r* 4 * sp5.sin(i) ** 4 * sp5.cos(i);
+  }
+  else{
+    let y_move;
+    if(shape == "heart_S"){
+      y_move = 15;
+    }
+    else{
+      y_move = 30;
+    }
+    y = -r*(13 * sp5.cos(i) - 5*sp5.cos(2*i) - 2*sp5.cos(3*i) -sp5.cos(4*i)) - y_move;
+  }
+  return y;
+}
+
+function getRandPos(shape, sp5){
+  let r;
+  switch (shape){
+    case('tear'):
+      r=55;
+      break;
+    case ("butterfly"):
+    case ("triangle"):
+    case ("square"):
+      r = 190;
+      break;
+    default:
+      r = 13;
+  }
+  if(shape == "circle"){
+    return p5.Vector.random2D().mult(126);
+  }
+  else{
+    let i = sp5.random(0,360);
+    let x = X_calc(shape, r, i, 1, sp5);
+    let y = Y_calc(shape+'_M', r, i, sp5);
+    if(shape == "triangle" || shape =='butterfly'){
+      let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+      x = x * plusOrMinus;
+
+      let p2 = Math.random() < 0.5 ? -1 : 1;
+      if (p2<0 & shape == "triangle"){
+        y = r - 141.3;
+      }
+    }
+    return sp5.createVector(x, y);
+  }
+}
+
+/*main animate function*/
 function animateElement(
   /**HTMLDivElement*/ mainDiv,
   /**string*/ backwards = "{{ backwards }}",
-  /**string {{color}}*/ colorA= "{{ colorA }}"
+  /**string {{color}}*/ colorA= "{{ colorA }}",
+  /**string {{color}}*/ shapeA = "{{ colorA }}"
 ) {
   // region element selection
   if (backwards === "{{ backwards }}") {
@@ -173,38 +275,51 @@ function animateElement(
         sp5.beginShape();
         for (let i = 0; i <= 180; i += 1) {
           let index = Math.floor(sp5.map(i, 0, 180, 0, wave.length - 1));
-          let r = sp5.map(wave[index], -1, 1, 180, 300);
-          let x = r * sp5.sin(i) * 0.5 * t;
-          let y = r * sp5.cos(i) * 0.5;
+          let r = translateShape(shapeA + '_M', wave[index], sp5);
+          let x = X_calc(shapeA, r, i,t, sp5);
+          let y = Y_calc(shapeA + '_M', r, i, sp5);
           sp5.vertex(x, y);
         }
         sp5.endShape();
+      }
+      if (shapeA == "triangle"){
+        for (let t = -1; t <= 1; t += 2) {
+          sp5.beginShape();
+          for (let i = 0; i <= 180; i += 1) {
+            let index = Math.floor(sp5.map(i, 0, 180, 0, wave.length - 1));
+            let r = translateShape(shapeA + '_M', wave[index], sp5);
+            let x = X_calc(shapeA, r, i,t, sp5);
+            let y = r - 141.3;
+            sp5.vertex(x, y);
+          }
+          sp5.endShape();
+        }
       }
       sp5.strokeWeight(2);
       for (let t = -1; t <= 1; t += 2) {
         sp5.beginShape();
         for (let i = 0; i <= 180; i += 1) {
           let index = Math.floor(sp5.map(i, 0, 180, 0, wave.length - 1));
-          let r = sp5.map(wave[index], -1, 1, 120, 180);
-          let x = r * sp5.sin(i) * 0.5 * t;
-          let y = r * sp5.cos(i) * 0.5;
+          let r = translateShape(shapeA + '_S', wave[index], sp5);
+          let x = X_calc(shapeA, r, i,t, sp5);
+          let y = Y_calc(shapeA + '_S', r, i, sp5);
           sp5.vertex(x, y);
         }
         sp5.endShape();
       }
 
       if (!audioNode.paused) {
-        let p = new Particle(amp, sp5, colorA);
+        let p = new Particle(amp, sp5, colorA, shapeA);
 
         particles.push(p);
         if (amp > 180) {
-          let a = new Particle(amp, sp5, colorA);
+          let a = new Particle(amp, sp5, colorA, shapeA);
           particles.push(a);
         }
         if (amp > 220) {
-          let a = new Particle(amp, sp5, colorA);
+          let a = new Particle(amp, sp5, colorA, shapeA);
           particles.push(a);
-          a = new Particle(amp, sp5, colorA);
+          a = new Particle(amp, sp5, colorA, shapeA);
           particles.push(a);
         }
         for (let i = particles.length - 1; i >= 0; i--) {
@@ -227,9 +342,10 @@ function animateElement(
   // endregion P5
 }
 
+/* flying partical class*/
 class Particle {
-  constructor(amp, p5, colorA) {
-    this.pos = window.p5.Vector.random2D().mult(126);
+  constructor(amp, p5, colorA, shape) {
+    this.pos = getRandPos(shape, p5);
     this.vel = p5.createVector(p5.random(0.0002, 0.00001));
     this.acc = this.pos.copy().mult(p5.random(0.0002, 0.00001));
     this.w = p5.random(3, 10);

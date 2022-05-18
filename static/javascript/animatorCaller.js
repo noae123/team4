@@ -2,14 +2,14 @@ let myP;
 function loadAnime(){
     myP = [...document.querySelectorAll(".player")];
     for (let i=0; i<myP.length; i++){
-        animateElement(myP[i], "false", "black");
+        animateElement(myP[i], "false", "white", "butterfly");
     }
 }
 
 function changeDisplay(){
     let myPDisplay = window.getComputedStyle(myP[0]);
     if(myPDisplay.getPropertyValue('display') == "block"){
-        let music = [...document.querySelectorAll("audio")][0];
+        let music = document.querySelector("audio");
         music.pause();
         myP[0].style.display = "none";
         document.getElementById('audioPreview').innerText = 'Open Preview';
@@ -21,15 +21,13 @@ function changeDisplay(){
 }
 
 function replace_music(smthing){
-    let music = [...document.querySelectorAll("audio")][0];
-    music.setAttribute('src', '../static/music/' + smthing[0].name);
-    if(document.getElementById("Audio_Name").value == ""){
-        document.getElementById("Audio_Name").setAttribute('value',smthing[0].name);
-    }
+    let music = document.querySelector("audio");
+    music.setAttribute('src', URL.createObjectURL(smthing[0]));///'../static/music/' + smthing[0].name);
 }
 
 function replace_image(smthing){
-    let image = [...document.querySelectorAll(".mmg")][0];
-    image.setAttribute('src', '../static/images/' + smthing[0].name);
+    let image = document.querySelector(".mmg");
+    image.setAttribute('src', URL.createObjectURL(smthing[0]));
 }
+
 

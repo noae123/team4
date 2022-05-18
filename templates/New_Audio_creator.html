@@ -12,76 +12,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body onload="loadAnime()">
-    <header>
-    </header>
-    <nav>
-        <div class="w3-bar  w3-border" id="navtool">
-            <a href="..\templates\feed.html" class="w3-bar-item w3-button"><i class="fa fa-home">Home</i></a>
-            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true">New post</i></a>
-            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-heart" aria-hidden="true">Saved</i></a>
-            <a href="..\templates\profile.html" class="w3-bar-item w3-button"><i class="fa fa-user-circle" aria-hidden="true">Profile</i></a>
+    <button id="audioPreview" onclick="changeDisplay()" class="Button">Close Preview</button>
+    <div class="player">
+        <div class="imgbox">
+            <img alt='background_music' src="../static/images/Black.png" class="mmg">
         </div>
-    </nav>
-    <main>
-        <button id="audioPreview" onclick="changeDisplay()" class="Button">Close Preview</button>
-        <div class="player">
-            <div class="imgbox">
-                <img alt='background_music' src="../static/images/Black.png" class="mmg">
-            </div>
-            <div class="Audio_Title">
+            <div class="Audio_Title" dir="rtl">
                 <h1 class="scrollTitle">תודה רבה לנעמה ולשי שתמכו ועזרו ונתנו את כל מה שהן יכלו!</h1>
             </div>
             <div class="Audio_Title">
                 <h1 class="scrollTitle">ממשפחת קבוצה 4</h1>
             </div>
-            <audio src="{{Audio_src}}"
-                   controls controlsList="nodownload" onplay="onPlay"></audio>
-        </div>
-        <form action="" method="POST" class="Audio_post_desc">
-            <label for="audio-upload" class="custom-file-upload">
-                <span>Upload Audio</span>
-                <span>{{Audio path}}</span>
-            </label>
-            <input required id="audio-upload" onchange="replace_music(this.files)" type="file" accept=".mp3,audio/*">
-            <label for="file-upload" class="custom-file-upload">
-                <span>Upload Image</span>
-                <span>{{Image path}}</span>
-            </label>
-            <input required id="file-upload" onchange="replace_image(this.files)" type="file">
-            <label for="Audio_Name">Audio Name</label><br>
-            <input required type="text" id="Audio_Name" name="Audio_Name" class="formInput">
-            <label for="Author_Name">Author Name</label><br>
-            <input required type="text" id="Author_Name" name="Author_Name" class="formInput">
-            <label for="Choose_Categories">Add Description</label><br>
-            <textarea rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput"></textarea>
-            <input name="playerColor" type="radio" id="red" class="color" style="background: var(--red); cursor: pointer;">
-            <input name="playerColor" type="radio" id="orange" class="color" style="background: var(--orange); cursor: pointer;">
-            <input name="playerColor" type="radio"  id="yellow" class="color" style="background: var(--yellow); cursor: pointer;">
-            <input name="playerColor" type="radio"  id="green" class="color" style="background: var(--green); cursor: pointer;">
-            <input name="playerColor" type="radio"  id="blue" class="color" style="background: var(--blue); cursor: pointer;">
-            <input name="playerColor" type="radio"  id="purple" class="color" style="background: var(--purple); cursor: pointer;">
-            <input name="playerColor" type="radio"  id="pink" class="color" style="background: var(--pink); cursor: pointer;">
-            <input name="playerColor" type="radio"  id="brown" class="color" style="background: var(--brown); cursor: pointer;">
-            <input name="playerColor" checked type="radio"  id="black" class="color" style="background: black; cursor: pointer;">
-            <input name="playerColor" type="radio"  id="white" class="color" style="background: white; cursor: pointer;">
-            <input id="input4" type="submit" value="Publish" class="submitButton Button">
-        </form>
-    </main>
-    <aside>
-        <div class="userProfile">
-            <img src="../static/images/user.jpeg">
-            <div class="userProfileText">
-                <h1>Jamey123_awsomefonter11111111</h1>
-                <p>Jamey Fonter</p>
-            </div>
-        </div>
-        <div class="userProfile">
-            <img src="../static/images/user.jpeg" class="smaller">
-            <div class="userProfileText">
-                <h1>Jamey123_awsomefonter11111111</h1>
-                <p>Jamey Fonter</p>
-            </div>
-        </div>
-    </aside>
+        <audio src="" controls controlsList="nodownload" onplay="onPlay"></audio>
+    </div>
+    <form action="" method="POST" class="Audio_post_desc">
+        <label for="audio-upload" class="custom-file-upload">
+            <span>Upload Audio</span>
+            <span>{{Audio path}}</span>
+        </label>
+        <input required id="audio-upload" onchange="replace_music(this.files)" type="file" accept=".mp3,audio/*">
+        <label for="file-upload" class="custom-file-upload">
+            <span>Upload Image</span>
+            <span>{{Image path}}</span>
+        </label>
+        <input required id="file-upload" onchange="replace_image(this.files)" type="file">
+        <label for="Audio_Name">Audio Name</label><br>
+        <input required type="text" id="Audio_Name" name="Audio_Name" class="formInput">
+        <label for="Author_Name">Author Name</label><br>
+        <input required type="text" id="Author_Name" name="Author_Name" class="formInput">
+        <label for="Choose_Categories">Add Description</label><br>
+        <textarea rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput"></textarea>
+        <input name="playerColor" type="radio" id="red" class="color" style="background: var(--red); cursor: pointer;">
+        <input name="playerColor" type="radio" id="orange" class="color" style="background: var(--orange); cursor: pointer;">
+        <input name="playerColor" type="radio"  id="yellow" class="color" style="background: var(--yellow); cursor: pointer;">
+        <input name="playerColor" type="radio"  id="green" class="color" style="background: var(--green); cursor: pointer;">
+        <input name="playerColor" type="radio"  id="blue" class="color" style="background: var(--blue); cursor: pointer;">
+        <input name="playerColor" type="radio"  id="purple" class="color" style="background: var(--purple); cursor: pointer;">
+        <input name="playerColor" type="radio"  id="pink" class="color" style="background: var(--pink); cursor: pointer;">
+        <input name="playerColor" type="radio"  id="brown" class="color" style="background: var(--brown); cursor: pointer;">
+        <input name="playerColor" checked type="radio"  id="black" class="color" style="background: black; cursor: pointer;">
+        <input name="playerColor" type="radio"  id="white" class="color" style="background: white; cursor: pointer;">
+        <input id="input4" type="submit" value="Publish" class="submitButton Button">
+    </form>
 </body>
 </html>
