@@ -133,8 +133,14 @@ function animateElement(
 
       let audioContext = sp5.getAudioContext();
       // // wire all media elements up to the p5.sound AudioContext
-      let mediaSource = audioContext.createMediaElementSource(audioNode);
-      mediaSource.connect(sp5.soundOut);
+      let mediaSource;
+      try{
+        mediaSource = audioContext.createMediaElementSource(audioNode);
+
+        mediaSource.connect(sp5.soundOut);
+      }
+      catch(error){
+      }
 
       fft = new p5.FFT();
       wave_paused = fft.waveform();
