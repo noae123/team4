@@ -12,47 +12,123 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body onload="loadAnime()">
-    <button id="audioPreview" onclick="changeDisplay()" class="Button">Close Preview</button>
-    <div class="player">
-        <div class="imgbox">
-            <img alt='background_music' src="../static/images/Black.png" class="mmg">
+    <header></header>
+    <nav></nav>
+    <section>
+        <button id="audioPreview" onclick="changeDisplay()" class="Button"><!--Close Preview--></button>
+    </section>
+    <main>
+        <div class="player">
+            <div class="imgbox">
+                <img alt='background_music' src="../static/images/black.png" class="mmg">
+            </div>
+                <div class="Audio_Title">
+                    <h1 class="scrollTitle" id="message">תודה רבה לנעמה ולשי שתמכו ועזרו ונתנו את כל מה שהן יכלו!</h1>
+                </div>
+                <div class="Audio_Title">
+                    <h1 class="scrollTitle" id="sender"> ממשפחת קבוצה 4</h1>
+                </div>
+            <audio src="../static/music/sting_shape_of_my_heart_official_music_video_-2000703457510585365.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
         </div>
-            <div class="Audio_Title" dir="rtl">
-                <h1 class="scrollTitle">תודה רבה לנעמה ולשי שתמכו ועזרו ונתנו את כל מה שהן יכלו!</h1>
+    </main>
+    <aside>
+        <form action="" method="POST" class="Audio_post_desc">
+            <h1>Customize Your Card</h1>
+            <label for="audio-upload" class="Button">Upload Audio</label>
+            <input id="audio-upload" onchange="replace_music(this.files)" type="file" accept=".mp3,audio/*">
+            <label for="file-upload" class="Button">Add Image</label>
+            <input id="file-upload" onchange="replace_image(this.files)" type="file">
+            <label for="Audio_Name"><h2>Add Sender Name:</h2></label><br>
+            <input required maxlength="30" type="text" id="Audio_Name" name="Audio_Name" class="formInput" onchange="change_sender(this.value)">
+            <label for="Audio_Name"><h2>Add Card Banner:</h2></label><br>
+            <textarea rows="10" id="Choose_Categories" class="formInput" onchange="change_message(this.value)"></textarea></br>
+            <h2>Choose Color:</h2>
+            <div class="colors">
+                <label for="radioWhite">
+                    <input name="playerColor" type="radio" id="radioWhite">
+                    <button id="white" class="color" type="button"></button>
+                </label>
+                <label for="radioGreen">
+                    <input name="playerColor" type="radio" id="radioGreen">
+                    <button id="green" class="color" type="button"></button>
+                </label>
+                <label for="radioYellow">
+                    <input name="playerColor" type="radio" id="radioYellow">
+                    <button id="yellow" class="color" type="button"></button>
+                </label>
+                <label for="radioOrange">
+                    <input name="playerColor" type="radio" id="radioOrange">
+                    <button id="orange" class="color" type="button"></button>
+                </label>
+                <label for="radioRed">
+                    <input name="playerColor" type="radio" id="radioRed">
+                    <button id="red" class="color" type="button"></button>
+                </label>
+                <label for="radioBlack">
+                    <input name="playerColor" type="radio" id="radioBlack">
+                    <button id="black" class="color" type="button"></button>
+                </label>
+                <label for="radioBrown">
+                    <input name="playerColor" type="radio" id="radioBrown">
+                    <button id="brown" class="color" type="button"></button>
+                </label>
+                <label for="radioPink">
+                    <input name="playerColor" type="radio" id="radioPink">
+                    <button id="pink" class="color" type="button"></button>
+                </label>
+                <label for="radioPurple">
+                    <input name="playerColor" type="radio" id="radioPurple">
+                    <button id="purple" class="color" type="button"></button>
+                </label>
+                <label for="radioBlue">
+                    <input name="playerColor" type="radio" id="radioBlue">
+                    <button id="blue" class="color" type="button"></button>
+                </label>
             </div>
-            <div class="Audio_Title">
-                <h1 class="scrollTitle">ממשפחת קבוצה 4</h1>
+            <h2>Choose Shape:</h2>
+            <div class="shapes">
+                <label for="radioCircle">
+                    <input name="playerShape" type="radio" id="radioCircle">
+                    <button id="circle" class="shape" type="button">
+                        <img src="../static/images/circle.png" alt="circle" />
+                    </button>
+                </label>
+                <label for="radioSquare">
+                    <input name="playerShape" type="radio" id="radioSquare">
+                    <button id="square" class="shape" type="button">
+                        <img src="../static/images/square.png" alt="square" />
+                    </button>
+                </label>
+                <label for="radioTri">
+                    <input name="playerShape" type="radio" id="radioTri">
+                    <button id="tri" class="shape" type="button">
+                        <img src="../static/images/triangle.png" alt="triangle" />
+                    </button>
+                </label>
+                <label for="radioButterfly">
+                    <input name="playerShape" type="radio" id="radioButterfly">
+                    <button id="butterfly" class="shape" type="button">
+                        <img src="../static/images/butterfly.png" alt="butterfly" />
+                    </button>
+                </label>
+                <label for="radioHeart">
+                    <input name="playerShape" type="radio" id="radioHeart">
+                    <button id="heart" class="shape" type="button">
+                        <img src="../static/images/heart.png" alt="heart" />
+                    </button>
+                </label>
+                <label for="radioTear">
+                    <input name="playerShape" type="radio" id="radioTear">
+                    <button id="tear" class="shape" type="button">
+                        <img src="../static/images/tear.png" alt="tear" />
+                    </button>
+                </label>
             </div>
-        <audio src="" controls controlsList="nodownload" onplay="onPlay"></audio>
-    </div>
-    <form action="" method="POST" class="Audio_post_desc">
-        <label for="audio-upload" class="custom-file-upload">
-            <span>Upload Audio</span>
-            <span>{{Audio path}}</span>
-        </label>
-        <input required id="audio-upload" onchange="replace_music(this.files)" type="file" accept=".mp3,audio/*">
-        <label for="file-upload" class="custom-file-upload">
-            <span>Upload Image</span>
-            <span>{{Image path}}</span>
-        </label>
-        <input required id="file-upload" onchange="replace_image(this.files)" type="file">
-        <label for="Audio_Name">Audio Name</label><br>
-        <input required type="text" id="Audio_Name" name="Audio_Name" class="formInput">
-        <label for="Author_Name">Author Name</label><br>
-        <input required type="text" id="Author_Name" name="Author_Name" class="formInput">
-        <label for="Choose_Categories">Add Description</label><br>
-        <textarea rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput"></textarea>
-        <input name="playerColor" type="radio" id="red" class="color" style="background: var(--red); cursor: pointer;">
-        <input name="playerColor" type="radio" id="orange" class="color" style="background: var(--orange); cursor: pointer;">
-        <input name="playerColor" type="radio"  id="yellow" class="color" style="background: var(--yellow); cursor: pointer;">
-        <input name="playerColor" type="radio"  id="green" class="color" style="background: var(--green); cursor: pointer;">
-        <input name="playerColor" type="radio"  id="blue" class="color" style="background: var(--blue); cursor: pointer;">
-        <input name="playerColor" type="radio"  id="purple" class="color" style="background: var(--purple); cursor: pointer;">
-        <input name="playerColor" type="radio"  id="pink" class="color" style="background: var(--pink); cursor: pointer;">
-        <input name="playerColor" type="radio"  id="brown" class="color" style="background: var(--brown); cursor: pointer;">
-        <input name="playerColor" checked type="radio"  id="black" class="color" style="background: black; cursor: pointer;">
-        <input name="playerColor" type="radio"  id="white" class="color" style="background: white; cursor: pointer;">
-        <input id="input4" type="submit" value="Publish" class="submitButton Button">
-    </form>
+            </br>
+            <label for="radioDir"><h3>Change text direction right to left</h3></label>
+            <input name="textDir" onchange="changTextDir(this.value)" type="checkbox" id="radioDir">
+            <input id="input4" type="submit" value="Publish" class="submitButton Button">
+        </form>
+    </aside>
 </body>
 </html>

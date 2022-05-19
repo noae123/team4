@@ -22,27 +22,27 @@ function translateColor(colorA){
 function translateShape(shapeA, index, sp5){
   switch (shapeA){
     case("tear_M"):
-      return sp5.map(index, -1, 1, 40, 70);
+      return sp5.map(index, -1, 1, 45, 60);
     case("tear_S"):
-      return sp5.map(index, -1, 1, 30, 50);
+      return sp5.map(index, -1, 1, 30, 42);
     case("butterfly_S"):
-      return sp5.map(index, -1, 1, 60, 140);
+      return sp5.map(index, -1, 1, 60, 130);
     case("butterfly_M"):
-      return sp5.map(index, -1, 1, 120, 180);
-    case ("triangle_S"):
+      return sp5.map(index, -1, 1, 110, 160);
+    case ("tri_S"):
     case("square_S"):
-      return sp5.map(index, -1, 1, 60, 140);
-    case ("triangle_M"):
+      return sp5.map(index, -1, 1, 60, 130);
+    case ("tri_M"):
     case("square_M"):
-      return sp5.map(index, -1, 1, 140, 220);
+      return sp5.map(index, -1, 1, 140, 180);
     case ("circle_S"):
       return sp5.map(index, -1, 1, 120, 180);
     case ("circle_M"):
       return sp5.map(index, -1, 1, 180, 300);
     case ("heart_S"):
-      return sp5.map(index, -1, 1, 5, 10);
+      return sp5.map(index, -1, 1, 3, 8);
     default :
-      return sp5.map(index, -1, 1, 10, 15);
+      return sp5.map(index, -1, 1, 8, 12);
   }
 }
 
@@ -56,7 +56,7 @@ function X_calc(shape, r, i, t, sp5){
       return r * sp5.sin(i) * 0.5 * t;
     case ("square"):
       return r * sp5.sin(i) ** 3 * t;
-    case ('triangle'):
+    case ('tri'):
       return r * sp5.sin(i) ** 2 * t;
     default:
       return r* 16 * sp5.sin(i) ** 3 * t;
@@ -71,7 +71,7 @@ function Y_calc(shape, r, i, sp5){
   else if (shape.startsWith("square")){
     y = r * sp5.cos(i) ** 3;
   }
-  else if (shape.startsWith("triangle")){
+  else if (shape.startsWith("tri")){
     y = -r * sp5.cos(i) ** 2 +40;
   }
   else if(shape.startsWith("tear")){
@@ -82,7 +82,7 @@ function Y_calc(shape, r, i, sp5){
   }
   else{
     let y_move;
-    if(shape == "heart_S"){
+    if(shape === "heart_S"){
       y_move = 15;
     }
     else{
@@ -100,62 +100,43 @@ function getRandPos(shape, sp5){
       r=55;
       break;
     case ("butterfly"):
-    case ("triangle"):
+      r = 140;
+      break;
+    case ("tri"):
     case ("square"):
-      r = 190;
+      r = 170;
       break;
     default:
-      r = 13;
+      r = 10.5;
   }
-  if(shape == "circle"){
+  if(shape === "circle"){
     return p5.Vector.random2D().mult(126);
   }
   else{
     let i = sp5.random(0,360);
     let x = X_calc(shape, r, i, 1, sp5);
     let y = Y_calc(shape+'_M', r, i, sp5);
-    if(shape == "triangle" || shape =='butterfly'){
+    if(shape === "tri" || shape ==='butterfly'){
       let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
       x = x * plusOrMinus;
 
       let p2 = Math.random() < 0.5 ? -1 : 1;
-      if (p2<0 & shape == "triangle"){
-        y = r - 141.3;
+      if (p2<0 && shape === "tri"){
+        y = r - 123.3;
       }
     }
     return sp5.createVector(x, y);
   }
 }
 
-/*main animate function*/
-function animateElement(
-  /**HTMLDivElement*/ mainDiv,
-  /**string*/ backwards = "{{ backwards }}",
-  /**string {{color}}*/ colorA= "{{ colorA }}",
-  /**string {{color}}*/ shapeA = "{{ colorA }}"
-) {
-  // region element selection
-  if (backwards === "{{ backwards }}") {
-    // if we're not rendered by a server set this to false
-    backwards = "false";
-  }
-  backwards = backwards === "true";
-  const element = mainDiv.querySelector("div.imgbox");
-  const audioNode = mainDiv.querySelector("audio");
-  const titleText = mainDiv.querySelector(".scrollTitle");
-  const audioTitle = mainDiv.querySelector(".Audio_Title");
-  const colorChanger = document.querySelectorAll(".color");
-  //create a color for animation to make more "cool" and "diverse" though look at this code and tell me that the client don't get an additional value
-  colorA = translateColor(colorA);
-  // endregion
-
-  //region text animation
+function create_text_animation(titleText, audioTitle, backword){
+  titleText.getAnimations().forEach(a => a.cancel());
   let defaultDelay = 75;
   let defaultWidth = 3734;
   if (titleText.offsetWidth > audioTitle.offsetWidth) {
     let width = titleText.offsetWidth;
     this.newDelay = defaultDelay * (width / defaultWidth) * 1000;
-    if (this.backword == "true") {
+    if (backword === true) {
       titleText.animate(
           [
             // keyframes
@@ -184,38 +165,70 @@ function animateElement(
       );
     }
   }
-  if (titleText.offsetWidth > audioTitle.offsetWidth) {
-    let width = titleText.offsetWidth;
-    this.newDelay = defaultDelay * (width / defaultWidth) * 1000;
-    titleText.animate(
-        [
-          // keyframes
-          { transform: "translate(0, 0)" },
-          { transform: "translate(-90%, 0)" },
-        ],
-        {
-          // timing options
-          delay: 2000,
-          duration: this.newDelay,
-          iterations: Infinity,
-        }
-    );
+}
+
+/*main animate function*/
+function animateElement(
+  /**HTMLDivElement*/ mainDiv,
+  /**string*/ backwards = "{{ backwards }}",
+  /**string {{color}}*/ colorA= "{{ colorA }}",
+  /**string {{color}}*/ shapeA = "{{ colorA }}"
+) {
+  // region element selection
+  if (backwards === "{{ backwards }}") {
+    // if we're not rendered by a server set this to false
+    backwards = "false";
   }
+  backwards = backwards === "true";
+  const element = mainDiv.querySelector("div.imgbox");
+  const audioNode = mainDiv.querySelector("audio");
+  const titleText = mainDiv.querySelector(".scrollTitle");
+  const audioTitle = mainDiv.querySelector(".Audio_Title");
+  const colorChanger = document.querySelectorAll(".color");
+  const shapeChanger = document.querySelectorAll(".shape");
+  //create a color for animation to make more "cool" and "diverse" though look at this code and tell me that the client don't get an additional value
+  colorA = translateColor(colorA);
   // endregion
 
-  // region P5
-  let myP5;
-  element.onclick = () => {
-    myP5.userStartAudio();
-    audioNode[audioNode.paused ? "play" : "pause"]();
-  };
+  //region text animation
+  create_text_animation(titleText, audioTitle, backwards);
+  // endregion
 
+  //region color changer
   for(let i =0; i< colorChanger.length; i++){
-    colorChanger[i].onclick = theirName;
-    function theirName(){
+    colorChanger[i].onclick = theirColor;
+    function theirColor(){
+      let audio_mode = audioNode.paused;
+      audioNode.pause();
+      if (audio_mode !== true){
+        setTimeout(play_pause_music, 10);
+      }
       colorA = translateColor(this.id);
     }
   }
+  //endregion
+
+  //region color changer
+  for(let i =0; i< shapeChanger.length; i++){
+    shapeChanger[i].onclick = theirShape;
+    function theirShape(){
+      let audio_mode = audioNode.paused;
+      audioNode.pause();
+      if (audio_mode !== true){
+        setTimeout(play_pause_music, 10);
+      }
+      shapeA = this.id;
+    }
+  }
+  //endregion
+
+  // region P5
+  let myP5;
+  function play_pause_music(){
+    myP5.userStartAudio();
+    audioNode[audioNode.paused ? "play" : "pause"]();
+  }
+  element.onclick = play_pause_music;
 
   const sketch = (sp5) => {
     // eslint-disable-next-line no-unused-vars
@@ -255,7 +268,7 @@ function animateElement(
     sp5.draw = () => {
       sp5.clear();
       sp5.noFill();
-      sp5.strokeWeight(4);
+      sp5.strokeWeight(6);
       let wave;
 
       fft.analyze();
@@ -282,20 +295,20 @@ function animateElement(
         }
         sp5.endShape();
       }
-      if (shapeA == "triangle"){
+      if (shapeA === "tri"){
         for (let t = -1; t <= 1; t += 2) {
           sp5.beginShape();
           for (let i = 0; i <= 180; i += 1) {
             let index = Math.floor(sp5.map(i, 0, 180, 0, wave.length - 1));
             let r = translateShape(shapeA + '_M', wave[index], sp5);
             let x = X_calc(shapeA, r, i,t, sp5);
-            let y = r - 141.3;
+            let y = r - 121.3;
             sp5.vertex(x, y);
           }
           sp5.endShape();
         }
       }
-      sp5.strokeWeight(2);
+      sp5.strokeWeight(4);
       for (let t = -1; t <= 1; t += 2) {
         sp5.beginShape();
         for (let i = 0; i <= 180; i += 1) {
@@ -368,14 +381,10 @@ class Particle {
   }
 
   delete(p5) {
-    if (
-      this.pos.x < -p5.width / 2 ||
-      this.pos.x > p5.width / 2 ||
-      this.pos.y < -p5.height / 2 ||
-      this.pos.y > p5.height / 2
-    ) {
-      return true;
-    }
-    return false;
+    return this.pos.x < -p5.width / 2 ||
+        this.pos.x > p5.width / 2 ||
+        this.pos.y < -p5.height / 2 ||
+        this.pos.y > p5.height / 2;
+
   }
 }
