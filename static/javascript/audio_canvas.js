@@ -161,12 +161,6 @@ function animateElement(
   /**string {{color}}*/ colorA= "{{ colorA }}",
   /**string {{color}}*/ shapeA = "{{ colorA }}"
 ) {
-  // region element selection
-  if (backwards === "{{ backwards }}") {
-    // if we're not rendered by a server set this to false
-    backwards = "false";
-  }
-  backwards = backwards === "true";
   const element = mainDiv.querySelector("div.imgbox");
   const audioNode = mainDiv.querySelector("audio");
   const titleText = mainDiv.querySelector(".scrollTitle");

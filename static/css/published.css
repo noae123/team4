@@ -1,0 +1,13 @@
+#goBackEdit{
+    margin-bottom: calc(2*var(--pading_asside));
+}
+/*********************phone display********************************/
+@media only screen and (max-width: 768px){
+    #audioPreview::before {
+        content: "Read before you share";
+    }
+
+    .previewClosed #audioPreview::before {
+        content: "watch Preview";
+    }
+}

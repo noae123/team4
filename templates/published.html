@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Published</title>
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/audio.css">
+    <link rel="stylesheet" href="../static/css/published.css">
+    <link rel="stylesheet" href="../static/css/mobile_change_mode.css">
+    <script src="../static/lib/p5/p5.js"></script>
+    <script src="../static/lib/p5/addons/p5.sound.js"></script>
+    <script src="../static/javascript/audio_canvas.js"></script>
+    <script src="../static/javascript/publish.js"></script>
+</head>
+<body onload="loadAnime()">
+    <header>
+    <div>
+        <img alt='logo' src="../static/images/more%20graphics/blackLogo.png" class="mmg">
+    </div>
+</header>
+    <nav></nav>
+    <section>
+    <button id="audioPreview" onclick="changeDisplay()" class="Button"><!--Close Preview--></button>
+</section>
+    <main>
+    <div class="player">
+        <div class="imgbox">
+            <img alt='background_music' src="../static/images/card4you.png" class="mmg">
+        </div>
+        <div dir="rtl" class="Audio_Title">
+            <h1 class="scrollTitle" id="message">תודה רבה למרצה נעמה ולמתרגלת שי, תודה על תשומת הלב ההכוונה העזרה והתמיכה המדהימה! נהננו מאוד בפרויקט ואנחנו כל כך גאות בתוצר, תודה על ההקשבה העזרה וההכוונה מקוות מאוד שאתן נהנות מהתוצר! </h1>
+        </div>
+        <div dir="rtl" class="Audio_Title">
+            <h1 class="scrollTitle" id="sender">ממשפחת קבוצה 4</h1>
+        </div>
+        <audio src="../static/music/thankyou.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
+    </div>
+    </main>
+    <aside>
+        <h1>Before You Share Your Card</h1></br>
+        <h2>Amazing! congratulations  on creating such a beautiful card!</h2></br>
+        <p>You did such an amazing job! We really hope you enjoyed making this card, <b>CARD4YOU</b> wishing you best of luck with that card and hope it will achieve your goal!</p></br></br>
+        <h3>Now, all you need to do is copy this link and share it!</h3>
+        <button class="Button" onclick="copyTextToClipboard()">copy link</button>
+        <input type="text" class="formInput" readonly id="CiteLink"></br></br></br>
+        <h3>Want to keep edit it? you can! click here to keep editing</h3>
+        <a href="New_Audio_creator.html"><button class="Button" id="goBackEdit">keep editing</button></a>
+    </aside>
+</body>
+</html>

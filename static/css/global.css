@@ -1,0 +1,221 @@
+:root{
+    /*space vars*/
+    --pading_asside: 30px;
+    --nav_height: 55px;
+    --img_size: 80px;
+    --img-corner: 15px;
+    --img_color_phone_size: calc((100vw  - var(--pading_asside))/5 - 1em - 1px);
+    --img_color_size: calc((40vw  - var(--pading_asside))/5 - 1em);
+    --img_shape_size: calc((40vw  - var(--pading_asside))/3 - 1.5em);
+    --img_shape_phone_size: calc((100vw  - var(--pading_asside))/3 - 1.5em);
+
+    /*colors var*/
+    --white: #f5f6fa;
+    --yellow: #FCCC04;
+    --orange:#E76914;
+    --pink: #F31066;
+    --blue: #124E78;
+    --lighter_blue: #237ace;
+    --brown: #403233;
+    --light_brown: #9a8478;
+
+    /*colors for audio animation*/
+    --red: #eb2513;
+    --green: #96d130;
+    --purple: #B32784;
+
+    /*hue var*/
+    --webkit_grad_white: -webkit-linear-gradient(to left, var(--white), white);
+    --grad_white: linear-gradient(to left, var(--white), white);
+    --webkit_grad_orane: -webkit-linear-gradient(to left, var(--yellow), var(--orange));
+    --grad_orange: linear-gradient(to left, var(--yellow), var(--orange));
+    --webkit_grad_Main: -webkit-linear-gradient(to bottom, var(--mainColor), var( --darkMain));
+    --grad_Main: linear-gradient(to bottom, var(--mainColor), var( --darkMain));
+
+    --bordderColorButton: #DF451A;
+    --yellowNav: #F7BA0A;
+    --cardWhite:#F1F3F4;
+    --lighterMain: #8F94B7;
+    --mainColor: #585E8A;
+    --darkMain: #4a4f79;
+    --darkMain3: #3E4165;
+
+    /*font size var*/
+    --fontH1: 2.5em;
+    --fontH2: 2em;
+    --fontButton: 1.5em;
+    --fontH3: 1.25em;
+    --fontp: 1.125em;
+    --fontSmall: 1.05em;
+
+    /*resizing rule*/
+    --resizeR: 0.6;
+
+    /*fonts*/
+    --bigFontType: 'Fredoka One', cursive;
+    --mediumFontType: 'Averia Sans Libre', cursive;
+    --smallFontType: 'Work Sans', sans-serif;
+
+    --previewOpenInMoblie: inherit;
+}
+
+*{
+    padding: 0; margin: 0;
+    font-family: var(--smallFontType);
+}
+
+/*text design*/
+h1{
+    font-size: var(--fontH1);
+    font-family: var(--bigFontType);
+}
+h2{
+    font-size: var(--fontH2);
+    font-family: var(--mediumFontType);
+    font-weight: bold;
+}
+h3{
+    font-size: var(--fontH3);
+    font-family: var(--mediumFontType);
+    font-weight: bold;
+}
+p{
+    font-size: var(--fontp);
+    font-family: var(--smallFontType);
+}
+
+/*page structure designs*/
+body{
+    display: grid;
+    grid-template-columns: 40% auto;
+    grid-template-areas: 'head nav'
+    'aside main';
+    overflow: hidden;
+}
+
+section{
+    background: var(--white);
+    display: none;
+}
+
+/***************header design************/
+header{
+    height: var(--nav_height);
+    background-color:  var(--yellowNav);
+    grid-area: head;
+    display: flex;
+    align-items: center;
+}
+header div{
+    height: calc(80%);
+    padding-left: var(--pading_asside);
+
+}
+header div img{
+    height: var(--nav_height);
+}
+
+nav{
+    height: var(--nav_height);
+    background-color:  var(--yellowNav);
+    grid-area: nav;
+}
+
+main{
+    height: calc(100vh - var(--nav_height));
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: var(--mainColor);
+    grid-area: main;
+    background: var(--webkit_grad_Main);
+    background: var(--grad_Main);
+}
+aside{
+    grid-area: aside;
+    height: calc(100vh - var(--nav_height));
+    overflow-y: auto;
+    background: var(--white);
+    padding: var(--pading_asside);
+}
+/*html components*/
+/* cards */
+.card1{
+    width: 450px;
+    height: 650px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    outline: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.card2{
+    width: 450px;
+    height: 650px;
+    border-radius: 15px;
+    background-color: #F4F4F4;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+}
+
+/*button*/
+.Button{
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: var(--fontButton);
+    width: 100%;
+    line-height: calc(2* var(--pading_asside));
+    height: calc(2* var(--pading_asside));
+    text-transform: uppercase;
+    font-family: var(--mediumFontType);
+    font-weight: bolder;
+    color: var(--white);
+    background-image: radial-gradient(100% 100% at 100% 0, var(--yellow) 0, var(--orange) 100%);;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, var(--bordderColorButton) 0 -6px 0 inset;
+    transition: box-shadow .15s ease-in,transform .15s ease-out;
+    margin-top: var(--img-corner);
+    margin-bottom: var(--img-corner);
+}
+.Button:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, var(--bordderColorButton) 0 -6px 0 inset;
+    transform: translateY(-2px);
+}
+.Button:active {
+    box-shadow: var(--mainColor) 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+a{
+    text-decoration: none;
+}
+
+/************Form design**********/
+.formInput{
+    display: block;
+    font-size: 16px;
+    border-radius: calc(var(--img-corner)*0.75);
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px solid var(--lighterMain);
+    padding-left: 4%;
+}
+
+input.formInput{
+    height: calc(1.5* var(--pading_asside));
+    padding: 0 4%;
+}
+
+/****** phone  *******/
+@media only screen and (max-width: 768px){
+    header {
+        justify-content: center;
+
+    }
+    header div{
+        height: calc(80%);
+        padding-left: 0;
+    }
+}
