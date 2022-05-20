@@ -4,8 +4,8 @@ function onPlay() {
 /* color mapping*/
 const colorMap = {
   red: [235, 37, 19, 255],
-  orange: [247, 151, 30, 255],
-  yellow: [248, 221, 5, 255],
+  orange: [231, 105, 20, 255],
+  yellow: [252, 204, 4, 255],
   green: [150, 209, 48, 255],
   blue: [18, 78, 120, 255],
   purple: [179, 39, 132,255],

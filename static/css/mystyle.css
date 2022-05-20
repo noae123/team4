@@ -10,9 +10,9 @@
     --img_shape_phone_size: calc((100vw  - var(--pading_asside))/3 - 1.5em);
 
     /*colors var*/
-    --white: #F4F4F4;
-    --yellow: #F8DD05;
-    --orange:#F7971E;
+    --white: #f5f6fa;
+    --yellow: #FCCC04;
+    --orange:#E76914;
     --pink: #F31066;
     --blue: #124E78;
     --lighter_blue: #237ace;
@@ -24,18 +24,19 @@
     --green: #96d130;
     --purple: #B32784;
 
-
     /*hue var*/
     --webkit_grad_white: -webkit-linear-gradient(to left, var(--white), white);
     --grad_white: linear-gradient(to left, var(--white), white);
     --webkit_grad_orane: -webkit-linear-gradient(to left, var(--yellow), var(--orange));
     --grad_orange: linear-gradient(to left, var(--yellow), var(--orange));
-    --webkit_grad_pink: -webkit-linear-gradient(to left, var(--yellow), var(--pink));
-    --grad_pink: linear-gradient(to left, var(--yellow), var(--pink));
-    --webkit_grad_blue: -webkit-linear-gradient(to right, var(--lighter_blue), var(--blue));
-    --grad_blue: linear-gradient(to right, var(--lighter_blue), var(--blue));
-    --webkit_grad_brown: -webkit-linear-gradient(to left, var(--light_brown), var(--brown));
-    --grad_brown: linear-gradient(to left, var(--light_brown), var(--brown));
+    --webkit_grad_Main: -webkit-linear-gradient(to bottom, var(--mainColor), var( --darkMain));
+    --grad_Main: linear-gradient(to bottom, var(--mainColor), var( --darkMain));
+
+    --bordderColorButton: #DF451A;
+    --yellowNav: #F7BA0A;
+    --cardWhite:#F1F3F4;
+    --mainColor: #585E8A;
+    --darkMain: #4a4f79;
 
     /*font size var*/
     --fontH1: 2.5em;
@@ -96,12 +97,12 @@ section{
 
 header{
     height: var(--nav_height);
-    background-color:  var(--yellow);
+    background-color:  var(--yellowNav);
     grid-area: head;
 }
 nav{
     height: var(--nav_height);
-    background-color:  var(--yellow);
+    background-color:  var(--yellowNav);
     grid-area: nav;
 }
 
@@ -109,13 +110,16 @@ main{
     height: calc(100vh - var(--nav_height));
     overflow-x: hidden;
     overflow-y: hidden;
-    background-color: var(--white);
+    background: var(--mainColor);
     grid-area: main;
+    background: var(--webkit_grad_Main);
+    background: var(--grad_Main);
 }
 aside{
     grid-area: aside;
     height: calc(100vh - var(--nav_height));
     overflow-y: auto;
+    background: var(--white);
 }
 
 /* cards */
@@ -153,17 +157,17 @@ aside{
     cursor: pointer;
     border: none;
     border-radius: 20px;
-    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, green 0 -6px 0 inset;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, var(--bordderColorButton) 0 -6px 0 inset;
     transition: box-shadow .15s ease-in,transform .15s ease-out;
     margin-top: var(--img-corner);
     margin-bottom: var(--img-corner);
 }
 .Button:hover {
-    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, green 0 -6px 0 inset;
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, var(--bordderColorButton) 0 -6px 0 inset;
     transform: translateY(-2px);
 }
 .Button:active {
-    box-shadow: green 0 3px 7px inset;
+    box-shadow: var(--bordderColor) 0 3px 7px inset;
     transform: translateY(2px);
 }
 
@@ -224,7 +228,7 @@ aside{
     background: black;
 }
 #white{
-    background: var(--white);
+    background: white;
 }
 
 .shapes{
@@ -266,8 +270,8 @@ button img{
     margin: var(--pading_asside);
     position: relative;
     height: calc(100% - 2*var(--pading_asside));
-    background-color: var(--white);
-    border: 2px solid green;
+    background-color: var(--cardWhite);
+    border: 2px solid var(--bordderColor);
 }
 
 .player .imgbox {
@@ -326,12 +330,11 @@ input[type="radio"] {
 /***************************form design***********************************/
 .formInput{
     display: block;
-    border: green ;
     font-size: 16px;
     border-radius: calc(var(--img-corner)*0.75);
     box-sizing: border-box;
     width: 100%;
-    border: 2px solid green;
+    border: 2px solid var(--bordderColor);
     padding-left: 4%;
 }
 
@@ -366,7 +369,7 @@ input[type="checkbox"] {
     section{
         display: block;
         grid-area: btn;
-        padding: 0 var(--pading_asside);
+        padding: 0 var(--pading_asside) var(--img-corner) var(--pading_asside);
     }
     main {
         height: calc(100vh - 2*var(--nav_height) - 2* var(--pading_asside));
