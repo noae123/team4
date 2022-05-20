@@ -23,10 +23,10 @@
                 <img alt='background_music' src="../static/images/black.png" class="mmg">
             </div>
                 <div class="Audio_Title">
-                    <h1 class="scrollTitle" id="message">תודה רבה לנעמה ולשי שתמכו ועזרו ונתנו את כל מה שהן יכלו!</h1>
+                    <h1 class="scrollTitle" id="message">Card Banner</h1>
                 </div>
                 <div class="Audio_Title">
-                    <h1 class="scrollTitle" id="sender"> ממשפחת קבוצה 4</h1>
+                    <h1 class="scrollTitle" id="sender">Sender Name</h1>
                 </div>
             <audio src="../static/music/sting_shape_of_my_heart_official_music_video_-2000703457510585365.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
         </div>
@@ -37,54 +37,54 @@
             <label for="audio-upload" class="Button">Upload Audio</label>
             <input id="audio-upload" onchange="replace_music(this.files)" type="file" accept=".mp3,audio/*">
             <label for="file-upload" class="Button">Add Image</label>
-            <input id="file-upload" onchange="replace_image(this.files)" type="file">
-            <label for="Audio_Name"><h2>Add Sender Name:</h2></label><br>
-            <input required maxlength="30" type="text" id="Audio_Name" name="Audio_Name" class="formInput" onchange="change_sender(this.value)">
-            <label for="Audio_Name"><h2>Add Card Banner:</h2></label><br>
-            <textarea rows="10" id="Choose_Categories" class="formInput" onchange="change_message(this.value)"></textarea></br>
+            <input id="file-upload" onchange="replace_image(this.files)" type="file"></br>
+            <label for="Audio_Name"><h2>Add Sender Name:</h2></label>
+            <input placeholder="Enter Sender Name..." required maxlength="30" type="text" id="Audio_Name" name="Audio_Name" class="formInput" onchange="change_sender(this.value)"></br>
+            <label for="Choose_Categories"><h2>Add Card Banner:</h2></label>
+            <textarea required placeholder="Enter Card Banner..." rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput" maxlength="2500" onchange="change_message(this.value)"></textarea></br>
             <h2>Choose Color:</h2>
             <div class="colors">
-                <label for="radioWhite">
-                    <input name="playerColor" type="radio" id="radioWhite">
-                    <button id="white" class="color" type="button"></button>
-                </label>
-                <label for="radioGreen">
-                    <input name="playerColor" type="radio" id="radioGreen">
-                    <button id="green" class="color" type="button"></button>
-                </label>
-                <label for="radioYellow">
-                    <input name="playerColor" type="radio" id="radioYellow">
-                    <button id="yellow" class="color" type="button"></button>
+                <label for="radioRed">
+                    <input name="playerColor" type="radio" id="radioRed">
+                    <button id="red" class="color" type="button"></button>
                 </label>
                 <label for="radioOrange">
                     <input name="playerColor" type="radio" id="radioOrange">
                     <button id="orange" class="color" type="button"></button>
                 </label>
-                <label for="radioRed">
-                    <input name="playerColor" type="radio" id="radioRed">
-                    <button id="red" class="color" type="button"></button>
+                <label for="radioYellow">
+                    <input name="playerColor" type="radio" id="radioYellow">
+                    <button id="yellow" class="color" type="button"></button>
                 </label>
-                <label for="radioBlack">
-                    <input name="playerColor" type="radio" id="radioBlack">
-                    <button id="black" class="color" type="button"></button>
+                <label for="radioGreen">
+                    <input name="playerColor" type="radio" id="radioGreen">
+                    <button id="green" class="color" type="button"></button>
                 </label>
-                <label for="radioBrown">
-                    <input name="playerColor" type="radio" id="radioBrown">
-                    <button id="brown" class="color" type="button"></button>
-                </label>
-                <label for="radioPink">
-                    <input name="playerColor" type="radio" id="radioPink">
-                    <button id="pink" class="color" type="button"></button>
-                </label>
-                <label for="radioPurple">
-                    <input name="playerColor" type="radio" id="radioPurple">
-                    <button id="purple" class="color" type="button"></button>
+                <label for="radioWhite">
+                    <input name="playerColor" type="radio" id="radioWhite">
+                    <button id="white" class="color" type="button"></button>
                 </label>
                 <label for="radioBlue">
                     <input name="playerColor" type="radio" id="radioBlue">
                     <button id="blue" class="color" type="button"></button>
                 </label>
-            </div>
+                <label for="radioPurple">
+                    <input name="playerColor" type="radio" id="radioPurple">
+                    <button id="purple" class="color" type="button"></button>
+                </label>
+                <label for="radioPink">
+                    <input name="playerColor" type="radio" id="radioPink">
+                    <button id="pink" class="color" type="button"></button>
+                </label>
+                <label for="radioBrown">
+                    <input name="playerColor" type="radio" id="radioBrown">
+                    <button id="brown" class="color" type="button"></button>
+                </label>
+                <label for="radioBlack">
+                    <input name="playerColor" type="radio" id="radioBlack">
+                    <button id="black" class="color" type="button"></button>
+                </label>
+            </div></br>
             <h2>Choose Shape:</h2>
             <div class="shapes">
                 <label for="radioCircle">
@@ -123,10 +123,9 @@
                         <img src="../static/images/tear.png" alt="tear" />
                     </button>
                 </label>
-            </div>
-            </br>
+            </div></br>
+            <input name="textDir" onchange="changTextDir(this.checked)" type="checkbox" id="radioDir">
             <label for="radioDir"><h3>Change text direction right to left</h3></label>
-            <input name="textDir" onchange="changTextDir(this.value)" type="checkbox" id="radioDir">
             <input id="input4" type="submit" value="Publish" class="submitButton Button">
         </form>
     </aside>

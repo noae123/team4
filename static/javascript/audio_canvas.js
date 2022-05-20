@@ -135,26 +135,14 @@ function create_text_animation(titleText, audioTitle, backword){
   let defaultWidth = 3734;
   if (titleText.offsetWidth > audioTitle.offsetWidth) {
     let width = titleText.offsetWidth;
-    this.newDelay = defaultDelay * (width / defaultWidth) * 1000;
-    if (backword === true) {
-      titleText.animate(
-          [
-            // keyframes
-            { transform: "translate(-90%, 0)" },
-            { transform: "translate(10%, 0)" },
-          ],
-          {
-            // timing options
-            duration: this.newDelay,
-            iterations: Infinity,
-          }
-      );
-    } else {
-      titleText.animate(
+    this.newDelay = defaultDelay * (width / defaultWidth) * 1000
+    let precTrans = 90;
+    precTrans = backword ? precTrans : -precTrans;
+    titleText.animate(
           [
             // keyframes
             { transform: "translate(0, 0)" },
-            { transform: "translate(-90%, 0)" },
+            { transform: "translate(" + precTrans + "%, 0)" },
           ],
           {
             // timing options
@@ -163,7 +151,6 @@ function create_text_animation(titleText, audioTitle, backword){
             iterations: Infinity,
           }
       );
-    }
   }
 }
 

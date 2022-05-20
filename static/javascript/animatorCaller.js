@@ -2,7 +2,9 @@ let myP;
 
 function loadAnime(){
     myP = document.querySelector(".player");
-    animateElement(myP, "true", "white", "circle");
+    document.getElementById("message").classList.add("place_holder");
+    document.getElementById("sender").classList.add("place_holder");
+    animateElement(myP, "false", "white", "circle");
 }
 
 function changeDisplay(){
@@ -22,27 +24,46 @@ function replace_image(img_file){
 
 function change_sender(sender_name){
     const sender = document.getElementById("sender");
-    sender.innerHTML = sender_name;
+    if(sender_name == ""){
+        sender.innerHTML = "Sender Name";
+        sender.classList.add("place_holder");
+    }
+    else{
+        sender.innerHTML = sender_name;
+        sender.classList.remove("place_holder");
+    }
 }
 
 function change_message(message_txt){
+    const checkText = document.getElementById("radioDir").checked;
     const message = document.getElementById("message");
-    message.innerHTML = message_txt;
-    create_text_animation(message, document.querySelector(".Audio_Title"));
+    if(message_txt == ""){
+        message.innerHTML = "Card Banner";
+        message.classList.add("place_holder");
+    }
+    else{
+        message.innerHTML = message_txt;
+        message.classList.remove("place_holder");
+    }
+    create_text_animation(message, document.querySelector(".Audio_Title"), checkText);
 }
 
 function changTextDir(change_dir){
-    const text = document.querySelectorAll(".Audio_Title");
+    let myText = [...document.querySelectorAll(".Audio_Title")];
     const message = document.getElementById("message");
-    for(let i =0; i<text.length; i++){
-        if(text[i].getAttribute('dir')!=='rtl'){
-            text[i].setAttribute('dir', 'rtl');
+    const Audio_Name = document.getElementById("Audio_Name");
+    const Choose_Categories = document.getElementById("Choose_Categories");
+    myText.push(Audio_Name);
+    myText.push(Choose_Categories);
+    for(let i =0; i<myText.length; i++){
+        if(myText[i].getAttribute('dir')!=='rtl'){
+            myText[i].setAttribute('dir', 'rtl');
         }
         else{
-            text[i].setAttribute('dir', 'ltr');
+            myText[i].setAttribute('dir', 'ltr');
         }
     }
-    create_text_animation(message, document.querySelector(".Audio_Title"), Boolean(change_dir));
+    create_text_animation(message, document.querySelector(".Audio_Title"), change_dir);
 }
 
 
