@@ -207,6 +207,12 @@ function animateElement(
   let myP5;
   function play_pause_music(){
     myP5.userStartAudio();
+    let audios = document.querySelectorAll("audio");
+    for (let i = 0; i < audios.length; i++) {
+      if(audios[i]!==audioNode){
+        audios[i].pause();
+      }
+    }
     audioNode[audioNode.paused ? "play" : "pause"]();
   }
   element.onclick = play_pause_music;

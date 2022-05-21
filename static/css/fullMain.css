@@ -1,0 +1,57 @@
+/*page structure designs*/
+body{
+    grid-template-areas: 'head nav'
+    'main main';
+}
+.templateHeader{
+    margin: var(--pading_asside) auto;
+    width: calc(60vw - 2*var(--pading_asside));
+    color: var(--white);
+}
+h2{
+    color: var(--white);
+}
+ul{
+    margin: var(--pading_asside) auto;
+    width: calc(60vw - 2*var(--pading_asside));
+    list-style-type: none;
+}
+li{
+    height: calc(90vh - 2*var(--pading_asside));
+    margin-bottom: calc(4*var(--pading_asside));
+}
+.player {
+    margin:0;
+}
+
+main{
+    overflow-y: auto;
+}
+
+@media only screen and (max-width: 768px){
+    body{
+        grid-template-columns: 100%;
+        grid-template-areas: 'head'
+        'main'
+        'nav';
+    }
+    main {
+        height: calc(100vh - 2*var(--nav_height));
+        text-align: center;
+    }
+    .templateHeader{
+        margin: var(--pading_asside) auto;
+        width: auto;
+        color: var(--white);
+    }
+    ul{;
+        width: auto;
+    }
+    li{
+        height: calc(90vh - 2*var(--pading_asside));
+        margin-bottom: calc(4*var(--pading_asside));
+    }
+    .player {
+        margin:auto;
+    }
+}

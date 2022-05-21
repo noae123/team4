@@ -4,7 +4,7 @@ function loadAnime(){
     myP = document.querySelector(".player");
     document.getElementById("message").classList.add("place_holder");
     document.getElementById("sender").classList.add("place_holder");
-    animateElement(myP, "false", "white", "circle");
+    animateElement(myP, false, "white", "circle");
 }
 
 function changeDisplay(){
