@@ -1,5 +1,5 @@
 section{
-    background: var(--white);
+    background: var(--cardWhite);
     display: none;
 }
 
@@ -75,7 +75,7 @@ section{
     border-radius: var(--img-corner);
     cursor: pointer;
     border:none;
-    box-shadow: calc(var(--img-corner)/8) calc(var(--img-corner)/8) calc(var(--img-corner)/3) var(--mainColor);
+    box-shadow: calc(var(--img-corner)/8) calc(var(--img-corner)/8) calc(var(--img-corner)/3) var(--bordderColorButton);
 }
 .shape:hover {
     box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, black 0 -6px 0 inset;
@@ -111,6 +111,9 @@ input[type="radio"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+}
+#input4{
+    margin-bottom: calc(2*var(--pading_asside));
 }
 /***************************form design***********************************/
 textarea{

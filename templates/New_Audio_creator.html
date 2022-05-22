@@ -15,7 +15,7 @@
 <body onload="loadAnime()">
     <header>
         <div>
-            <img alt='logo' src="../static/images/more%20graphics/blackLogo.png">
+            <img alt='logo' src="../static/images/more%20graphics/whiteLogo.png">
         </div>
     </header>
     <nav></nav>
@@ -33,20 +33,20 @@
                 <div class="Audio_Title">
                     <h1 class="scrollTitle" id="sender">Sender Name</h1>
                 </div>
-            <audio src="../static/music/you-can-do-more-108602.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
+            <audio src="../static/music/happybday.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
         </div>
     </main>
     <aside>
         <form action="published.html" method="POST" >
-            <h1>Customize Your Card</h1>
+            <h1>Customize </br>Your Card</h1></br></br></br>
             <label for="audio-upload" class="Button">Upload Audio</label>
             <input id="audio-upload" onchange="replace_music(this.files)" type="file" accept="audio/*">
             <label for="file-upload" class="Button">Add Image</label>
-            <input id="file-upload" onchange="replace_image(this.files)" type="file" accept="image/*"></br>
+            <input id="file-upload" onchange="replace_image(this.files)" type="file" accept="image/*"></br></br>
             <label for="Audio_Name"><h2>Add Sender Name:</h2></label>
             <input placeholder="Enter Sender Name..." required maxlength="30" type="text" id="Audio_Name" name="Audio_Name" class="formInput" onchange="change_sender(this.value)"></br>
             <label for="Choose_Categories"><h2>Add Card Banner:</h2></label>
-            <textarea required placeholder="Enter Card Banner..." rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput" maxlength="2500" onchange="change_message(this.value)"></textarea></br>
+            <textarea required placeholder="Enter Card Banner..." rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput" maxlength="2500" onchange="change_message(this.value)"></textarea></br></br>
             <h2>Choose Color:</h2>
             <div class="colors">
                 <label for="radioRed">
@@ -89,7 +89,7 @@
                     <input name="playerColor" type="radio" id="radioBlack">
                     <button id="black" class="color" type="button"></button>
                 </label>
-            </div></br>
+            </div></br></br>
             <h2>Choose Shape:</h2>
             <div class="shapes">
                 <label for="radioCircle">
@@ -128,11 +128,11 @@
                         <img src="../static/images/tear.png" alt="tear" />
                     </button>
                 </label>
-            </div></br>
+            </div></br></br>
             <input name="textDir" onchange="changTextDir(this.checked)" type="checkbox" id="radioDir">
-            <label for="radioDir"><h3>Change text direction right to left</h3></label>
+            <label for="radioDir"><h3>Change text direction right to left</h3></label></br>
             <a href="published.html">
-                <input id="input4" type="submit" value="Publish" class="submitButton Button">
+                <input id="input4" type="submit" value="Get Done!" class="submitButton Button">
             </a>
         </form>
     </aside>

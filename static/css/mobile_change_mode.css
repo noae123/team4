@@ -16,7 +16,7 @@
         height: calc(100vh - 2*var(--nav_height) - 3* var(--pading_asside));
     }
     aside {
-        height: calc(100vh - 2*var(--nav_height) - 3* var(--pading_asside));
+        height: calc(100vh - 2*var(--nav_height) - 5* var(--pading_asside));
     }
 
     .previewClosed {

@@ -4,12 +4,13 @@ body{
     'main main';
 }
 .templateHeader{
+    font-size: 4em;
     margin: var(--pading_asside) auto;
-    width: calc(60vw - 2*var(--pading_asside));
-    color: var(--white);
+    width: calc(100vw - 2*var(--pading_asside) - 350px);
+    color: white;
 }
 h2{
-    color: var(--white);
+    color: white;
 }
 ul{
     margin: var(--pading_asside) auto;
@@ -17,8 +18,11 @@ ul{
     list-style-type: none;
 }
 li{
-    height: calc(90vh - 2*var(--pading_asside));
-    margin-bottom: calc(4*var(--pading_asside));
+    height: calc(100vh - 2*var(--pading_asside));
+    margin-bottom: calc(7*var(--pading_asside));
+}
+li .Button{
+    margin-top: calc(1.25* var(--pading_asside));
 }
 .player {
     margin:0;
@@ -42,7 +46,6 @@ main{
     .templateHeader{
         margin: var(--pading_asside) auto;
         width: auto;
-        color: var(--white);
     }
     ul{;
         width: auto;

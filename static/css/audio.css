@@ -12,7 +12,7 @@
 .player .imgbox {
     position: relative;
     width: 100%;
-    height: calc(100% - 4.2*var(--pading_asside));
+    height: calc(100% - 4.8*var(--pading_asside));
     cursor: pointer;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .Audio_Title {
-    font-size: var(--fontSmall);
+    font-size: var(--fontH3);
     font-family: var(--mediumFontType);
     margin-left: 5%;
     display: flex;
@@ -38,12 +38,11 @@
     height: var(--fontButton);
 }
 .scrollTitle{
-    font-size: var(--fontSmall);
+    font-size: var(--fontH3);
     font-family: var(--mediumFontType);
 }
 .place_holder{
-    color: var(--brown);
-    opacity: 0.6;
+    color: var(--greyBlue);
 }
 .UserProfileName {
     margin-left: 12px;
@@ -80,6 +79,10 @@
 .Audio_Title ul {
     width: 48.6vw;
     display: flex;
+}
+
+.player h1{
+    letter-spacing: 0;
 }
 
 @media only screen and (max-width: 768px){
