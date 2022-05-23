@@ -35,7 +35,6 @@
     overflow: hidden;
     white-space: nowrap;
     width: 90%;
-    height: var(--fontButton);
 }
 .scrollTitle{
     font-size: var(--fontH3);
