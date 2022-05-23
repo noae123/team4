@@ -75,7 +75,7 @@ section{
     border-radius: var(--img-corner);
     cursor: pointer;
     border:none;
-    box-shadow: calc(var(--img-corner)/8) calc(var(--img-corner)/8) calc(var(--img-corner)/3) var(--bordderColorButton);
+    box-shadow: calc(var(--img-corner)/8) calc(var(--img-corner)/8) calc(var(--img-corner)/3) var(--greyBlue);
 }
 .shape:hover {
     box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, black 0 -6px 0 inset;
