@@ -29,6 +29,7 @@
 
     --bordderColorButton: #e14f25;
     --yellowNav: #C7552F;
+    --brightNav:#fada96;
     --cardWhite:#F1F3F4;
     --darkMain3: rgba(248, 105, 43, 0.42);
 
@@ -123,7 +124,52 @@ nav{
     height: var(--nav_height);
     background-color:  var(--yellowNav);
     grid-area: nav;
+    display: grid;
+    align-content: center;
 }
+#navtool{
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    justify-content: flex-start;
+    height: (--nav_height);   
+    margin-left: 30px;
+  }
+
+  
+  nav li{
+    display: grid;
+    padding-top: 0px;
+    margin-top: 0px;
+    height: var(--nav_height);
+    align-items: center;
+    width: 250px;
+    justify-items: center;
+    
+    
+}
+nav a{
+    text-decoration: none;
+    color: white;
+    height: var(--nav_height);
+    display: flex;
+    align-items: center;
+    
+}
+
+nav a h2{
+    color: white;
+    font-size: var(--fontH3);
+    margin-left: 8px;
+}
+nav li a:hover h2{
+    color: var(--Darkestblue);
+   
+}
+nav li a:hover{
+    color: var(--Darkestblue);
+    background-color: var(--brightNav);
+   }
 
 main{
     height: calc(100vh - var(--nav_height));
