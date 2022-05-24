@@ -69,6 +69,10 @@ h1{
     letter-spacing: 4px;
     line-height: var(--fontButton);
 }
+main>h1{
+    color: white;
+    margin-left: var(--pading_asside);
+}
 h2{
     font-size: var(--fontH2);
     font-family: var(--mediumFontType);
@@ -88,7 +92,9 @@ p{
     color: var(--Darkestblue);
     line-height: var(--fontButton);
 }
-
+em{
+    font-weight: bold;
+}
 /*page structure designs*/
 body{
     display: grid;
@@ -132,7 +138,7 @@ nav{
     flex-direction: row;
     margin-top: 0;
     justify-content: flex-start;
-    height: (--nav_height);   
+    height: var(--nav_height);
     margin-left: 30px;
   }
 
@@ -182,6 +188,19 @@ main{
     grid-area: main;
 
 }
+
+main ul{
+    margin: var(--pading_asside) auto;
+    list-style-type: none;
+}
+main li{
+    height: calc(100vh - 2*var(--pading_asside));
+    margin-bottom: calc(7*var(--pading_asside));
+}
+main li .Button{
+    margin-top: calc(1.25* var(--pading_asside));
+}
+
 aside{
     grid-area: aside;
     height: calc(100vh - var(--nav_height));

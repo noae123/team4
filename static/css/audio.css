@@ -12,7 +12,7 @@
 .player .imgbox {
     position: relative;
     width: 100%;
-    height: calc(100% - 4.8*var(--pading_asside));
+    height: calc(100% - 5*var(--pading_asside));
     cursor: pointer;
 }
 
