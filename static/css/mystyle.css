@@ -1,0 +1,552 @@
+:root{
+    /*space vars*/
+    --pading_asside: 30px;
+    --nav_height: 55px;
+    --icon_height:50px;
+    --img_size: 80px;
+    --img-corner: 15px;
+    --img_color_phone_size: calc((100vw  - var(--pading_asside))/5 - 1em - 1px);
+    --img_color_size: calc((40vw  - var(--pading_asside))/5 - 1em);
+    --img_shape_size: calc((40vw  - var(--pading_asside))/3 - 1.5em);
+    --img_shape_phone_size: calc((100vw  - var(--pading_asside))/3 - 1.5em);
+
+    /*colors var*/
+    --white: #F4F4F4;
+    --yellow: #F8DD05;
+    --orange:#F7971E;
+    --pink: #F31066;
+    --blue: #124E78;
+    --lighter_blue: #237ace;
+    --brown: #403233;
+    --light_brown: #9a8478;
+
+    /*colors for audio animation*/
+    --red: #eb2513;
+    --green: #96d130;
+    --purple: #B32784;
+
+
+    /*hue var*/
+    --webkit_grad_white: -webkit-linear-gradient(to left, var(--white), white);
+    --grad_white: linear-gradient(to left, var(--white), white);
+    --webkit_grad_orane: -webkit-linear-gradient(to left, var(--yellow), var(--orange));
+    --grad_orange: linear-gradient(to left, var(--yellow), var(--orange));
+    --webkit_grad_pink: -webkit-linear-gradient(to left, var(--yellow), var(--pink));
+    --grad_pink: linear-gradient(to left, var(--yellow), var(--pink));
+    --webkit_grad_blue: -webkit-linear-gradient(to right, var(--lighter_blue), var(--blue));
+    --grad_blue: linear-gradient(to right, var(--lighter_blue), var(--blue));
+    --webkit_grad_brown: -webkit-linear-gradient(to left, var(--light_brown), var(--brown));
+    --grad_brown: linear-gradient(to left, var(--light_brown), var(--brown));
+
+    /*font size var*/
+    --fontH1: 2.5em;
+    --fontH2: 2em;
+    --fontButton: 1.5em;
+    --fontH3: 1.25em;
+    --fontp: 1.125em;
+    --fontSmall: 1.05em;
+
+    /*resizing rule*/
+    --resizeR: 0.6;
+
+    /*fonts*/
+    --bigFontType: 'Fredoka One', cursive;
+    --mediumFontType: 'Averia Sans Libre', cursive;
+    --smallFontType: 'Work Sans', sans-serif;
+
+    --previewOpenInMoblie: inherit;
+}
+
+*{
+    padding: 0; margin: 0;
+    font-family: var(--smallFontType);
+}
+
+/*text design*/
+h1{
+    font-size: var(--fontH1);
+    font-family: var(--bigFontType);
+}
+h2{
+    font-size: var(--fontH2);
+    font-family: var(--mediumFontType);
+    font-weight: bold;
+}
+h3{
+    font-size: var(--fontH3);
+    font-family: var(--mediumFontType);
+    font-weight: bold;
+}
+p{
+    font-size: var(--fontp);
+    font-family: var(--smallFontType);
+}
+
+/*page structure designs*/
+body{
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-areas: 'head nav'
+    ' main aside';
+    overflow: hidden;
+}
+
+section{
+    display: none;
+}
+
+header{
+    height: var(--nav_height);
+    background-color:  var(--yellow);
+    grid-area: head;
+    display: grid;
+    align-items: center;
+}
+/* icon design */
+header img{
+    height: var(--icon_height);
+    margin: 5px;
+}
+nav{
+    height: var(--nav_height);
+    background-color:  var(--yellow);
+    grid-area: nav;
+    display: grid;
+    align-content: center;
+}
+
+/* nav bar design */
+#navtool{
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    justify-content: space-around;
+    height: (--nav_height);
+    
+  }
+   nav li{
+       display: grid;
+       padding-top: 0px;
+       margin-top: 0px;
+       height: var(--nav_height);
+       align-items: center;
+   }
+   nav a{
+       text-decoration: none;
+       color: black;
+       
+   }
+   nav li:hover{
+    background-color: var(--pink);
+   }
+
+   
+
+main{
+    height: calc(100vh - var(--nav_height));
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: var(--white);
+    grid-area: main;
+}
+aside{
+    background-color: var(--white);
+    grid-area: aside;
+    height: calc(100vh - var(--nav_height));
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: 80% auto;
+    grid-template-areas: 'animationDiv''homeButtonDiv';
+}
+/***** home page elements design *****/
+#homeTitle{
+    font-size: xxx-large;
+    margin-left: 20vw;
+}
+
+#homaParagraph{
+    width: 35vw;
+    height: 50vh;
+    background-image: linear-gradient( var(--yellow),var(--orange), var(--pink)) ;
+    margin-left: 3vw;
+    padding: 3vw;
+    margin-top: 10vh;
+    text-align: center;
+}
+em{
+    font-weight: bold;
+}
+
+.animationImg {
+    height: 200px;
+    width: 200px;
+    margin: 0px;
+}
+
+.divImgAnimation{
+    height: 200px;
+    width: 200px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+#divimg1{
+    
+    /* bottom: 0%; */
+    animation-name: topBottom;
+    animation-duration: 10s;
+    animation-delay: 0s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+
+}
+
+#divimg2{
+    /* bottom: 0%; */
+    left: 60%;
+    animation-name: topBottom;
+    animation-duration: 7s;
+    animation-delay: 2s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+
+}
+
+#divimg3{
+    bottom: 20%; 
+    left: 45%;
+    animation-name: topBottom;
+    animation-duration: 12s;
+    animation-delay: 0s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+
+}
+
+#divimg4{
+    bottom: 20%;
+    left: 30%;
+    animation-name: topBottom;
+    animation-duration: 6s;
+    animation-delay: 0s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+
+}
+
+#divimg5{
+    bottom: 70%; 
+    left: 15%;
+    animation-name: topBottom;
+    animation-duration: 9s;
+    animation-delay: 1s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+
+}
+@keyframes topBottom {
+    
+        0%   { Bottom:0%; }
+
+        100% {Bottom:100%; }
+        
+      
+}
+/***** end of home page elements design *****/
+
+
+/* cards */
+.card1{
+    width: 450px;
+    height: 650px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    outline: 2px solid rgba(255, 255, 255, 0.7);
+}
+.card2{
+    width: 450px;
+    height: 650px;
+    border-radius: 15px;
+    background-color: #F4F4F4;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+}
+
+/*html components*/
+.Button{
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: var(--fontButton);
+    width: 100%;
+    line-height: calc(2* var(--pading_asside));
+    height: calc(2* var(--pading_asside));
+    text-transform: uppercase;
+    font-family: var(--mediumFontType);
+    font-weight: bolder;
+    color: var(--white);
+    background-image: radial-gradient(100% 100% at 100% 0, var(--yellow) 0, var(--orange) 100%);;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, green 0 -6px 0 inset;
+    transition: box-shadow .15s ease-in,transform .15s ease-out;
+    margin-top: var(--img-corner);
+    margin-bottom: var(--img-corner);
+}
+.Button:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, green 0 -6px 0 inset;
+    transform: translateY(-2px);
+}
+.Button:active {
+    box-shadow: green 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+/******************Audio creator*********************************/
+.uploadMusic{
+    grid-area: audio_upload;
+    width:100%;
+}
+
+.colors{
+    text-align: center;
+}
+
+.color{
+    width: calc(var(--img_color_size) - 0.1em);
+    height: calc(var(--img_color_size) - 0.1em);
+    display: inline-block;
+    margin-top: 0.5em;
+    margin-right: 0.1em;
+    border-radius: var(--img-corner);
+    cursor: pointer;
+    border:none;
+}
+
+#red{
+    background: var(--red);
+}
+.color:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px,  rgb(0,0,0,0.2) 0 -4px 4px inset;
+    transform: translateY(-2px);
+}
+.color:active {
+    box-shadow: rgb(0,0,0,0.2) 0 3px 7px inset;
+    transform: translateY(2px);
+}
+#orange{
+    background: var(--orange);
+}
+#yellow{
+    background: var(--yellow);
+}
+#green{
+    background: var(--green);
+}
+#blue{
+    background: var(--blue);
+}
+#purple{
+    background: var(--purple);
+}
+#pink{
+    background: var(--pink);
+}
+#brown{
+    background: var(--brown);
+}
+#black{
+    background: black;
+}
+#white{
+    background: var(--white);
+}
+
+.shapes{
+    text-align: center;
+}
+.shape{
+    width: calc(var(--img_shape_size) - 0.1em);
+    height: calc(var(--img_shape_size) - 0.1em);
+    display: inline-block;
+    margin-top: 0.5em;
+    margin-right: 0.1em;
+    border-radius: var(--img-corner);
+    cursor: pointer;
+    border:none;
+}
+.shape:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, black 0 -6px 0 inset;
+    transform: translateY(-2px);
+}
+.shape:active {
+    box-shadow: black 0 3px 7px inset;
+    transform: translateY(2px);
+}
+button img{
+    width: var(--img_shape_size);
+    height: var(--img_shape_size);
+    object-fit: cover;
+    user-drag: none;
+    -webkit-user-drag: none;
+    border-radius: var(--img-corner);
+}
+
+#radioDir{
+    display: inline-block;
+}
+
+/******************media player design*********************************/
+.player {
+    margin: var(--pading_asside);
+    position: relative;
+    height: calc(100% - 2*var(--pading_asside));
+    background-color: var(--white);
+    border: 2px solid green;
+}
+
+.player .imgbox {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 4.2*var(--pading_asside));
+    cursor: pointer;
+}
+
+.player .imgbox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Audio_Title {
+    font-size: var(--fontSmall);
+    font-family: var(--mediumFontType);
+    margin-left: 5%;
+    display: flex;
+    position: relative;
+    padding-top: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 90%;
+    height: var(--fontButton);
+}
+.scrollTitle{
+    font-size: var(--fontSmall);
+    font-family: var(--mediumFontType);
+}
+.Audio_post_desc{
+    margin: var(--pading_asside);
+}
+.place_holder{
+    color: var(--brown);
+    opacity: 0.6;
+}
+/* media editor*/
+
+input[type="file"] {
+    display: none;
+}
+input[type="radio"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+/***************************form design***********************************/
+.formInput{
+    display: block;
+    border: green ;
+    font-size: 16px;
+    border-radius: calc(var(--img-corner)*0.75);
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px solid green;
+    padding-left: 4%;
+}
+
+input.formInput{
+    height: calc(1.5* var(--pading_asside));
+    padding: 0 4%;
+}
+
+textarea{
+    padding: 4%;
+    resize: none;
+}
+
+label h3{
+    display: inline-block;
+}
+
+input[type="checkbox"] {
+    width: var(--fontH3);
+    height: var(--fontH3);
+}
+/*********************phone display********************************/
+@media only screen and (max-width: 768px){
+    body{
+        grid-template-columns: 100%;
+        grid-template-areas: 'head'
+        'btn'
+        'main'
+        'nav';
+        text-align: center;
+    }
+    section{
+        display: block;
+        grid-area: btn;
+        padding: 0 var(--pading_asside);
+    }
+    main {
+        height: calc(100vh - 2*var(--nav_height) - 2* var(--pading_asside));
+    }
+    aside {
+        height: calc(100vh - 2*var(--nav_height) - 2* var(--pading_asside));
+    }
+
+    .previewClosed {
+        grid-template-areas: 'head'
+        'btn'
+        'aside'
+        'nav';
+    }
+
+    #audioPreview::before {
+        content: "Close Preview";
+    }
+
+    .previewClosed #audioPreview::before {
+        content: "Open Preview";
+    }
+
+    #audioPreview{
+        margin-bottom: 0;
+    }
+
+    textarea{
+        padding: 12px 4%;
+    }
+
+    .color{
+        width: var(--img_color_phone_size);
+        height: var(--img_color_phone_size);
+    }
+
+    .shape{
+        width: var(--img_shape_phone_size);
+        height: var(--img_shape_phone_size);
+    }
+
+    button img{
+        width: var(--img_shape_phone_size);
+        height: var(--img_shape_phone_size);
+    }
+}
