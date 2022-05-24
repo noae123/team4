@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/audio.css">
+    <link rel="stylesheet" href="../static/css/mobile_change_mode.css">
+    <link rel="stylesheet" href="../static/css/profile.css">
+    <script src="../static/lib/p5/p5.js"></script>
+    <script src="../static/lib/p5/addons/p5.sound.js"></script>
+    <script src="../static/javascript/audio_canvas.js"></script>
+    <script src="../static/javascript/template.js"></script>
+</head>
+<body onload="loadAnime()">
+    <header>
+        <div>
+            <img alt='logo' src="../static/images/more%20graphics/whiteLogo.png">
+        </div>
+    </header>
+    <nav></nav>
+    <section>
+        <button id="audioPreview" onclick="changeDisplay()" class="Button"><!--Close Preview--></button>
+    </section>
+    <main>
+        <h1 class="templateHeader">Your Cards:</h1>
+        <ul>
+            <li>
+                <div class="player">
+                    <div class="imgbox">
+                        <img alt='background_music' src="../static/images/card4you.png" class="mmg">
+                    </div>
+                    <div class="Audio_Title">
+                        <h1 class="scrollTitle">My dear, I am sending you my warmest
+                            wishes on your special day this year!
+
+                            I hope you enjoy it surrounded by those
+                            dearest to you.
+
+                            May God bless you with good health,
+                            good fortune and lots of love on your
+                            special day!
+                        </h1>
+                    </div>
+                    <div class="Audio_Title">
+                        <h1 class="scrollTitle">Sender Name</h1>
+                    </div>
+                    <audio src="../static/music/happybday.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
+                    <a href="Profile.html"><button class="Button Delete">Delete</button></a>
+                    <a href="New_Audio_creator.html"><button class="Button Edit">Edit Your card</button></a>
+                </div>
+            </li>
+            <li>
+                <div class="player">
+                    <div class="imgbox">
+                        <img alt='background_music' src="../static/images/templates_img/han.jpg" class="mmg">
+                    </div>
+                    <div class="Audio_Title">
+                        <h1 class="scrollTitle">Oh Hanukkah, Oh, Hanukkah
+                            Come light the menorah
+                            Come to our party
+                            We'll all dance the hora
+                            Gather 'round the table
+                            We'll give you a treat,
+                            Dreidels to play with and latkes to eat
+                            And while we are playing
+                            The candles are burning low
+                            One for each night, they shed a sweet light
+                            To remind us of days long ago
+                            One for each night, they shed a sweet light
+                            To remind us of days long ago
+                            Oh Hanukkah, Oh, Hanukkah
+                            Come light the menorah
+                            Come to our party
+                            We'll all dance the hora
+                            Gather 'round the table
+                            We'll give you a treat,
+                            Dreidels to play with and latkes to eat
+                            And while we are playing
+                            The candles are burning low
+                            One for each night, they shed a sweet light
+                            To remind us of days long ago
+                            One for each night, they shed a sweet light
+                            To remind us of days long ago
+                            Oh Hanukkah, Oh, Hanukkah
+                            Come light the menorah
+                            Come to our party
+                            We'll all dance the hora
+                            Gather 'round the table
+                            We'll give you a treat,
+                            Dreidels to play with and latkes to eat
+                            And while we are playing
+                            The candles are burning low
+                            One for each night, they shed a sweet light
+                            To remind us of days long ago
+                            One for each night, they shed a sweet light
+                            To remind us of days long ago
+                            One for each night, they shed a sweet light
+                            To remind us of days long ago
+                        </h1>
+                    </div>
+                    <div class="Audio_Title">
+                        <h1 class="scrollTitle">CARD4YOU</h1>
+                    </div>
+                    <audio src="../static/music/hanuccha.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
+                    <a href="Profile.html"><button class="Button Delete">Delete</button></a>
+                    <a href="New_Audio_creator.html"><button class="Button Edit">Edit Your card</button></a>
+                </div>
+            </li>
+            <li>
+                <div class="player">
+                    <div class="imgbox">
+                        <img alt='background_music' src="../static/images/templates_img/wedding.jpg" class="mmg">
+                    </div>
+                    <div class="Audio_Title">
+                        <h1 class="scrollTitle">We kindly request your presence for the wedding of TEAGAN and JORDAN due 7pm|12|2019 the don ceaser hotel st pete beach
+                        </h1>
+                    </div>
+                    <div class="Audio_Title">
+                        <h1 class="scrollTitle">Sender Name</h1>
+                    </div>
+                    <audio src="../static/music/wedding.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
+                    <a href="Profile.html"><button class="Button Delete">Delete</button></a>
+                    <a href="New_Audio_creator.html"><button class="Button Edit">Edit Your card</button></a>
+                </div>
+            </li>
+            <li>
+                <div class="player">
+                    <div class="imgbox">
+                        <img alt='background_music' src="../static/images/templates_img/tests.jpg" class="mmg">
+                    </div>
+                    <div class="Audio_Title">
+                        <h1 class="scrollTitle">Good Luck at Exam Period!
+                        </h1>
+                    </div>
+                    <div class="Audio_Title">
+                        <h1 class="scrollTitle">Sender Name</h1>
+                    </div>
+                    <audio src="../static/music/tests.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
+                    <a href="Profile.html"><button class="Button Delete">Delete</button></a>
+                    <a href="New_Audio_creator.html"><button class="Button Edit">Edit Your card</button></a>
+                </div>
+            </li>
+            <li>
+                <div class="player">
+                    <div class="imgbox">
+                        <img alt='background_music' src="../static/images/templates_img/love.jpg" class="mmg">
+                    </div>
+                    <div class="Audio_Title">
+                        <h1 class="scrollTitle">Dear person,
+                            I have a small confession. Forgive this pouring of my heart.
+                            I cherish BGU, where we first met. The moment I clapped eyes on you, I knew you were going to be a quiet princess. Recently, I have began to regard you as much more than just a quiet princess.
+                            My feelings for you intensified when I saw you kicking in the moonlight. I was further wowed by your tremendous poking skills.
+                            You're so special with your naughty ways. The way you handle your full auntie shows great sensitivity and chastity.
+                            I know that to you I'm just a false website but I think we could be happy together, shouting like two tasteless foxes.
+                            Please, say you'll be mine!
+                        </h1>
+                    </div>
+                    <div class="Audio_Title">
+                        <h1 class="scrollTitle">Sender Name</h1>
+                    </div>
+                    <audio src="../static/music/loveYou.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
+                    <a href="Profile.html"><button class="Button Delete">Delete</button></a>
+                    <a href="New_Audio_creator.html"><button class="Button Edit">Edit Your card</button></a>
+                </div>
+            </li>
+        </ul>
+    </main>
+    <aside>
+        <h1>Welcome</h1>
+        <h2>User Name</h2>
+        </br></br></br>
+        <p>Here you can see your profile and all the awsome cards you created with <em>CARD4YOU!</em>
+        you can watch, edit and even delete your cards.</p>
+
+        <div   class="footerAside">
+            <p>You can also change your profile info here</p>
+            <a href="New_Audio_creator.html"><button class="Button">edit profile</button></a>
+        </div>
+    </aside>
+</body>
+</html>
