@@ -55,16 +55,32 @@
     </main>
 
     <aside>
-        <h1 >CARD4YOU</h1>
-        <p  >Winnie the Pooh once said: <br> <em> you dont spell love, you feel it</em>. 
-            <br> And what better way to feel if not through <em> music</em>? <br> Here you will create a <em> greeting card</em>. <br>
-            choose any  <em>audio</em> you want in order to delight, excite and show love to your loved one. <br>
-            We have put a lot of effort into giving you the best exprience. <br>
-            <em> So what you are waiting for?</em> 
-
-            <div id="homeButtonDiv">
-                <button class="Button" id="logInButton">log In</button>
+            <form action="">
+                <h1 >Log In</h1>
+            <div>
+                <label for="inputUserName">User Name</label>
+                <input type="text" id="inputUserName" autocomplete="on" required>
             </div>
+            <div>
+                    <label for="inputNickname">User Name</label>
+                    <input type="text" id="inputNickname" autocomplete="on" required></div>
+            <div>
+            <div>
+                <label for="inputPassword">Password</label>
+                <input type="password" id="inputPassword" required></div>
+            </div>
+
+            <div>
+                <label for="inputEmail">Password</label>
+                <input type="email" id="inputEmail" required></div>
+            </div>
+                <input id="inputLogin" type="submit" value="log in" class="submitButton Button">
+            </form>
+
+        <div>
+            <h4>Don't have user yet?</h4>
+            <button class="Button" id="RegisterButton">Register</button>
+        </div>
         
     </aside>
     
