@@ -109,10 +109,10 @@ aside{
 #divimg8{
     z-index: 0;
     position: absolute;
-    right: 17vw;
-    bottom: -20vh;
-    height: 58vw;
-    width: 58vw;
+    right: 20vw;
+    bottom: -15vh;
+    height: 40vw;
+    width: 40vw;
     display: flex;
 }
 
