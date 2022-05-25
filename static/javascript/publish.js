@@ -12,7 +12,7 @@ function changeDisplay(){
 }
 
 function fallbackCopyTextToClipboard(text) {
-    var textArea = document.createElement("textarea");
+    let textArea = document.createElement("textarea");
     textArea.value = text;
 
     // Avoid scrolling to bottom
@@ -25,8 +25,8 @@ function fallbackCopyTextToClipboard(text) {
     textArea.select();
 
     try {
-        var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
+        let successful = document.execCommand('copy');
+        let msg = successful ? 'successful' : 'unsuccessful';
         console.log('Fallback: Copying text command was ' + msg);
     } catch (err) {
         console.error('Fallback: Oops, unable to copy', err);

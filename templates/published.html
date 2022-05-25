@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../static/css/published.css">
     <link rel="stylesheet" href="../static/css/mobile_change_mode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../static/images/favicon.ico">
     <script src="../static/lib/p5/p5.js"></script>
     <script src="../static/lib/p5/addons/p5.sound.js"></script>
     <script src="../static/javascript/audio_canvas.js"></script>
@@ -25,7 +26,7 @@
     <nav>
         <ul id="navtool">
             <li><a href="homePage.html"><i class="fa fa-home fa-lg"></i><h2>HOME</h2></a></li>
-            <li><a href="templates.html"><i class="fa fa-file-audio-o fa-lg" aria-hidden="true"></i><h2>TEMPLATES</h2></a></li>
+            <li><a href="templates.html"><i class="fa fa-file-audio-o fa-lg" aria-hidden="true"></i><h2>TEMPLATE</h2></a></li>
             <li><a href="New_Audio_creator.html"><i class="fa fa-plus-square-o fa-lg" aria-hidden="true"></i><h2>CREATE</h2></a></li>
             <li><a href="Profile.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><h2>PROFILE</h2></a></li>
         </ul>
@@ -44,17 +45,17 @@
         <div dir="rtl" class="Audio_Title">
             <h1 class="scrollTitle" id="sender">ממשפחת קבוצה 4</h1>
         </div>
-        <audio src="../static/music/thankyou.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
+        <audio src="../static/music/thankyou.mp3" controls controlsList="nodownload"></audio>
     </div>
     </main>
     <aside>
-        <h1>Before You Share Your Card</h1></br>
-        <h2>Amazing! congratulations  on creating such a beautiful card!</h2></br></br></br>
-        <p>You did such an amazing job! We really hope you enjoyed making this card, <b>CARD4YOU</b> wishing you best of luck with that card and hope it will achieve your goal!</p></br></br></br>
-        <h3>Now, all you need to do is copy this link and share it!</h3></br>
+        <h1>Before You Share Your Card</h1><br>
+        <h2>Amazing! congratulations  on creating such a beautiful card!</h2><br><br><br>
+        <p>You did such an amazing job! We really hope you enjoyed making this card, <b>CARD4YOU</b> wishing you best of luck with that card and hope it will achieve your goal!</p><br><br><br>
+        <h3>Now, all you need to do is copy this link and share it!</h3><br>
         <button class="Button" onclick="copyTextToClipboard()">copy link</button>
-        <input type="text" class="formInput" readonly id="CiteLink"></br></br></br></br>
-        <h3>Want to keep edit it? you can! click here to keep editing</h3></br>
+        <input type="text" class="formInput" readonly id="CiteLink"><br><br><br><br>
+        <h3>Want to keep edit it? you can! click here to keep editing</h3><br>
         <a href="New_Audio_creator.html"><button class="Button" id="goBackEdit">keep editing</button></a>
     </aside>
 </body>

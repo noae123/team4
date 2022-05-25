@@ -24,7 +24,7 @@ function replace_image(img_file){
 
 function change_sender(sender_name){
     const sender = document.getElementById("sender");
-    if(sender_name == ""){
+    if(sender_name === ""){
         sender.innerHTML = "Sender Name";
         sender.classList.add("place_holder");
     }
@@ -37,7 +37,7 @@ function change_sender(sender_name){
 function change_message(message_txt){
     const checkText = document.getElementById("radioDir").checked;
     const message = document.getElementById("message");
-    if(message_txt == ""){
+    if(message_txt === ""){
         message.innerHTML = "Card Banner";
         message.classList.add("place_holder");
     }

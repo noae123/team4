@@ -157,7 +157,7 @@ function create_text_animation(titleText, audioTitle, backword){
 /*main animate function*/
 function animateElement(
   /**HTMLDivElement*/ mainDiv,
-  /**string*/ backwards = "{{ backwards }}",
+  /**boolean*/ backwards = false,
   /**string {{color}}*/ colorA= "{{ colorA }}",
   /**string {{color}}*/ shapeA = "{{ colorA }}"
 ) {

@@ -80,6 +80,17 @@ h2{
     color: var(--Darkerblue);
     line-height: var(--fontH3);
 }
+label{
+    font-size: var(--fontH2);
+    font-family: var(--mediumFontType);
+    font-weight: bold;
+    color: var(--Darkerblue);
+    line-height: var(--fontH3);
+}
+.Lsmall{
+    font-size: var(--fontH3);
+    color: var(--Darkestblue);
+}
 h3{
     font-size: var(--fontH3);
     font-family: var(--mediumFontType);
@@ -141,15 +152,14 @@ nav{
     margin-top: 0;
     justify-content: flex-start;
     height: var(--nav_height);
-    margin-left: 30px;
 }
 nav li{
     display: grid;
-    padding-top: 0px;
-    margin-top: 0px;
+    padding-top: 0;
+    margin-top: 0;
     height: var(--nav_height);
     align-items: center;
-    width: calc((100% - 2*var(--pading_asside))/4);
+    width: 25%;
     justify-items: center;
 }
 nav a{
@@ -197,7 +207,7 @@ main ul{
 }
 main li{
     height: calc(100vh - 2*var(--pading_asside));
-    margin-bottom: calc(7*var(--pading_asside));
+    margin-bottom: calc(10*var(--pading_asside));
 }
 main li .Button{
     margin-top: calc(1.25* var(--pading_asside));
@@ -242,7 +252,7 @@ aside{
     text-transform: uppercase;
     font-family: var(--mediumFontType);
     font-weight: bolder;
-    color: var(--cardWhite);
+    color: white;
     background-image: radial-gradient(100% 100% at 100% 0, var(--yellow) 0, var(--orange) 100%);;
     cursor: pointer;
     border: none;

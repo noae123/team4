@@ -6,23 +6,26 @@ body{
 h2{
     color: white;
 }
+main{
+
+    overflow-y: auto;
+}
 .templateHeader{
     font-size: 4em;
-    margin: var(--pading_asside) auto;
     width: calc(100vw - 2*var(--pading_asside) - 350px);
     color: white;
 }
 main ul{
-    width: calc(60vw - 2*var(--pading_asside));
+    width: calc(100vw - 2*var(--pading_asside));
+}
+li>h2{
+    margin-left: calc((100vw - min(80vw, 768px))/2 - var(--pading_asside));
 }
 .player {
-    margin:0;
+    margin: var(--pading_asside) auto;
+    width: 80vw;
+    max-width: 768px;
 }
-
-main{
-    overflow-y: auto;
-}
-
 @media only screen and (max-width: 768px){
     body{
         grid-template-columns: 100%;
@@ -40,10 +43,6 @@ main{
     }
     main ul{;
         width: auto;
-    }
-    li{
-        height: calc(90vh - 2*var(--pading_asside));
-        margin-bottom: calc(4*var(--pading_asside));
     }
     .player {
         margin:auto;

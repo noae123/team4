@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../static/css/New_Audio.css">
     <link rel="stylesheet" href="../static/css/mobile_change_mode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../static/images/favicon.ico">
     <script src="../static/lib/p5/p5.js"></script>
     <script src="../static/lib/p5/addons/p5.sound.js"></script>
     <script src="../static/javascript/audio_canvas.js"></script>
@@ -25,7 +26,7 @@
     <nav>
         <ul id="navtool">
             <li><a href="homePage.html"><i class="fa fa-home fa-lg"></i><h2>HOME</h2></a></li>
-            <li><a href="templates.html"><i class="fa fa-file-audio-o fa-lg" aria-hidden="true"></i><h2>TEMPLATES</h2></a></li>
+            <li><a href="templates.html"><i class="fa fa-file-audio-o fa-lg" aria-hidden="true"></i><h2>TEMPLATE</h2></a></li>
             <li><a href="New_Audio_creator.html"><i class="fa fa-plus-square-o fa-lg" aria-hidden="true"></i><h2>CREATE</h2></a></li>
             <li><a href="Profile.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><h2>PROFILE</h2></a></li>
         </ul>
@@ -36,7 +37,7 @@
     <main>
         <div class="player">
             <div class="imgbox">
-                <img alt='background_music' src="../static/images/black.png" class="mmg">
+                <img alt='background_music' src="../static/images/Black.png" class="mmg">
             </div>
                 <div class="Audio_Title">
                     <h1 class="scrollTitle" id="message">Card Banner</h1>
@@ -44,20 +45,20 @@
                 <div class="Audio_Title">
                     <h1 class="scrollTitle" id="sender">Sender Name</h1>
                 </div>
-            <audio src="../static/music/happybday.mp3" controls controlsList="nodownload" onplay="onPlay"></audio>
+            <audio src="../static/music/happybday.mp3" controls controlsList="nodownload"></audio>
         </div>
     </main>
     <aside>
         <form action="published.html" method="POST" >
-            <h1>Customize </br>Your Card</h1></br></br></br>
+            <h1>Customize <br>Your Card</h1><br><br><br>
             <label for="audio-upload" class="Button">Upload Audio</label>
             <input id="audio-upload" onchange="replace_music(this.files)" type="file" accept="audio/*">
             <label for="file-upload" class="Button">Add Image</label>
-            <input id="file-upload" onchange="replace_image(this.files)" type="file" accept="image/*"></br></br>
-            <label for="Audio_Name"><h2>Add Sender Name:</h2></label>
-            <input placeholder="Enter Sender Name..." required maxlength="30" type="text" id="Audio_Name" name="Audio_Name" class="formInput" onchange="change_sender(this.value)"></br>
-            <label for="Choose_Categories"><h2>Add Card Banner:</h2></label>
-            <textarea required placeholder="Enter Card Banner..." rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput" maxlength="2500" onchange="change_message(this.value)"></textarea></br></br>
+            <input id="file-upload" onchange="replace_image(this.files)" type="file" accept="image/*"><br><br>
+            <label for="Audio_Name">Add Sender Name:</label>
+            <input placeholder="Enter Sender Name..." required maxlength="30" type="text" id="Audio_Name" name="Audio_Name" class="formInput" onchange="change_sender(this.value)"><br>
+            <label for="Choose_Categories">Add Card Banner:</label>
+            <textarea required placeholder="Enter Card Banner..." rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput" maxlength="2500" onchange="change_message(this.value)"></textarea><br><br>
             <h2>Choose Your Color:</h2>
             <div class="colors">
                 <label for="radioRed">
@@ -100,7 +101,7 @@
                     <input name="playerColor" type="radio" id="radioBlack">
                     <button id="black" class="color" type="button"></button>
                 </label>
-            </div></br></br>
+            </div><br><br>
             <h2>Choose Your Shape:</h2>
             <div class="shapes">
                 <label for="radioCircle">
@@ -139,9 +140,9 @@
                         <img src="../static/images/tear.png" alt="tear" />
                     </button>
                 </label>
-            </div></br></br>
+            </div><br><br>
             <input name="textDir" onchange="changTextDir(this.checked)" type="checkbox" id="radioDir">
-            <label for="radioDir"><h3>Change text direction right to left</h3></label></br>
+            <label class="Lsmall" for="radioDir">Change text direction right to left</label><br>
             <a href="published.html">
                 <input id="input4" type="submit" value="Get Done!" class="submitButton Button">
             </a>

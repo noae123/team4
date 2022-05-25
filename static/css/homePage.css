@@ -2,7 +2,6 @@
 
 aside{
     background-color: white;
-    display: grid;
     
 }
 #formDiv{
@@ -17,25 +16,25 @@ aside{
     width: 60vw;
 }
 .animationImg {
-    height: 300px;
-    width: 300px;
-    margin: 0px;
+    height: 55vh;
+    width: 55vh;
+    margin: 0;
+    object-fit: cover;
 }
 
 .divImgAnimation{
-    height: 300px;
-    width: 300px;
-    margin: 0px;
-    padding: 0px;
+    height: 55vh;
+    width: 55vh;
     position: relative;
     display: flex;
+    z-index: 1;
     
 }
 /**** divs of image animation ****/
 #divimg1{
 
     animation-name: topBottom;
-    animation-duration: 10s;
+    animation-duration: 11s;
     animation-delay: 0s ;
     animation-iteration-count: infinite;
     animation-direction: normal;
@@ -46,8 +45,7 @@ aside{
 
     left: 60%;
     animation-name: topBottom;
-    animation-duration: 7s;
-    animation-delay: 2s ;
+    animation-duration: 13s;
     animation-iteration-count: infinite;
     animation-direction: normal;
 
@@ -108,14 +106,24 @@ aside{
 
 }
 
+#divimg8{
+    z-index: 0;
+    position: absolute;
+    right: 17vw;
+    bottom: -20vh;
+    height: 58vw;
+    width: 58vw;
+    display: flex;
+}
+
 /***** end of divs of imgage animation *****/
 
 /* the animation */
 @keyframes topBottom {
     
-        0%   { Bottom:0%; }
+        0%   { Bottom:0; }
 
-        100% {Bottom:100%; }
+        100% {Bottom:200%; }
         
       
 }
@@ -131,5 +139,8 @@ aside{
     .templateHeader{
         margin: var(--pading_asside) auto;
         width: auto;
+    }
+    #divimg8{
+        display: none;
     }
 }

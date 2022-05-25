@@ -4,6 +4,8 @@ body{
 }
 .player {
     margin: var(--pading_asside) auto;
+    width: 80vw;
+    max-width: 768px;
 }
 
 main{
