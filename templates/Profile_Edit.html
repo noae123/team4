@@ -179,16 +179,40 @@
         </ul>
     </main>
     <aside>
-        <h1>Welcome</h1>
-        <h2>User Name</h2>
-        </br></br></br>
-        <p>Here you can see your profile and all the awsome cards you created with <em>CARD4YOU!</em>
-        you can watch, edit and even delete your cards.</p>
+        <h1 >Change Info</h1><br><br>
+        <form action="" id="formDiv">
 
-        <div   class="footerAside">
-            <p>You can also change your profile info here</p>
-            <a href="New_Audio_creator.html"><button class="Button">edit profile</button></a>
-        </div>
+            <div id="inputsInformationDiv">
+                <div>
+                    <label for="inputUserName">User Name</label>
+                    <input type="text" id="inputUserName" placeholder="johnDoe" autocomplete="on" value="johnDoe" class="formInput" required><br>
+                </div>
+                <div>
+                    <label for="inputNickname">Nickname</label>
+                    <input class="formInput" type="text" id="inputNickname" placeholder="jonny" value="jonny" autocomplete="on" required></div><br>
+                <div>
+                    <div>
+                        <!-- "Must contain at least one number and one uppercase and lowercase letter, and 4-8 characters"-->
+                        <label for="inputPassword">Password</label>
+                        <input class="formInput" type="password" id="inputPassword" required maxlength="8" minlength="4"
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="********" ><br>
+                    </div>
+
+                    <div>
+                        <label for="inputConfirmPassword">Confirm Password</label>
+                        <input class="formInput" type="password" id="inputConfirmPassword" required maxlength="8" minlength="4" placeholder="********"><br>
+                    </div>
+
+                    <div>
+                        <label for="inputEmail">Email</label>
+                        <input class="formInput" type="email" id="inputEmail" autocomplete="on" value="johnDoe@gmail.com" required placeholder="johnDoe@gmail.com"></div><br>
+                </div>
+            </div>
+            <br>
+            <div id="submitDiv">
+                <a href="Register.html"><input id="inputRegister" type="submit" value="Register" class="submitButton Button"></a><br>
+            </div>
+        </form>
     </aside>
 </body>
 </html>
