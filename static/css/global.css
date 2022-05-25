@@ -328,12 +328,18 @@ input.formInput{
         height: calc(80%);
         padding-left: 0;
     }
+
     aside {
-        height: calc(100vh - 2*var(--nav_height) - 2*var(--pading_asside));
+        height: calc(100vh - 2 * var(--nav_height) - 2 * var(--pading_asside));
     }
-    .footerAside{
-        width: calc(100vw - 2*var(--pading_asside));
+
+    .footerAside {
+        width: calc(100vw - 2 * var(--pading_asside));
         position: relative;
         bottom: 0;
+    }
+
+    nav a h2 {
+        font-size: 14px;
     }
 }
