@@ -194,8 +194,10 @@
                     <div>
                         <!-- "Must contain at least one number and one uppercase and lowercase letter, and 4-8 characters"-->
                         <label for="inputPassword">Password</label>
-                        <input class="formInput" type="password" id="inputPassword" minlength="6" maxlength="30"
-                               pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$" value="cArd4U123456" placeholder="********"
+                        <input class="formInput" type="password" required id="inputPassword" minlength="6"
+                               maxlength="30"
+                               pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$" value="cArd4U123456"
+                               placeholder="********"
                                oninvalid="setCustomValidity('Make sure your password is at least 6 chars. In addition it has at least 1 number, 1 lowercase char and 1 upper case.')"
                                onchange="try{setCustomValidity('')}catch(e){}"><br>
                     </div>
