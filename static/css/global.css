@@ -93,7 +93,8 @@ p{
     line-height: var(--fontButton);
 }
 em{
-    font-weight: bold;
+    font-family: var(--mediumFontType);
+    font-weight: bolder;
 }
 /*page structure designs*/
 body{
@@ -133,6 +134,7 @@ nav{
     display: grid;
     align-content: center;
 }
+
 #navtool{
     display: flex;
     flex-direction: row;
@@ -140,19 +142,15 @@ nav{
     justify-content: flex-start;
     height: var(--nav_height);
     margin-left: 30px;
-  }
-
-  
-  nav li{
+}
+nav li{
     display: grid;
     padding-top: 0px;
     margin-top: 0px;
     height: var(--nav_height);
     align-items: center;
-    width: 250px;
+    width: calc((100% - 2*var(--pading_asside))/4);
     justify-items: center;
-    
-    
 }
 nav a{
     text-decoration: none;
@@ -168,14 +166,18 @@ nav a h2{
     font-size: var(--fontH3);
     margin-left: 8px;
 }
-nav li a:hover h2{
+nav li:hover a{
     color: var(--Darkestblue);
    
 }
-nav li a:hover{
+nav li:hover a h2{
+    color: var(--Darkestblue);
+
+}
+nav li:hover{
     color: var(--Darkestblue);
     background-color: var(--brightNav);
-   }
+}
 
 main{
     height: calc(100vh - var(--nav_height));
@@ -293,8 +295,16 @@ input.formInput{
     color: var(--greyBlue);
 }
 
+.footerAside{
+    width: calc(40vw - 2*var(--pading_asside));
+    position: absolute;
+    bottom: calc(2*var(--pading_asside));
+}
 /****** phone  *******/
 @media only screen and (max-width: 768px){
+    body{
+        text-align: center;
+    }
     header {
         justify-content: center;
 
@@ -302,5 +312,13 @@ input.formInput{
     header div{
         height: calc(80%);
         padding-left: 0;
+    }
+    aside {
+        height: calc(100vh - 2*var(--nav_height) - 2*var(--pading_asside));
+    }
+    .footerAside{
+        width: calc(100vw - 2*var(--pading_asside));
+        position: relative;
+        bottom: 0;
     }
 }

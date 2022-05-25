@@ -38,7 +38,7 @@ main{
         margin: var(--pading_asside) auto;
         width: auto;
     }
-    ul{;
+    main ul{;
         width: auto;
     }
     li{

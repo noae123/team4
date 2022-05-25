@@ -5,7 +5,7 @@ main{
 }
 
 aside{
-    background-color: var(--white);
+    background-color: white;
     display: grid;
     
 }
@@ -130,10 +130,6 @@ aside{
         grid-template-areas: 'head'
         'aside'
         'nav';
-    }
-    aside {
-        height: calc(100vh - 2*var(--nav_height));
-        text-align: center;
     }
     .templateHeader{
         margin: var(--pading_asside) auto;

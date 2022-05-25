@@ -22,17 +22,3 @@ main li{
 .previewClosed #audioPreview::before {
     content: "Watch your Cards";
 }
-
-.footerAside{
-    width: calc(40vw - 2*var(--pading_asside));
-    position: absolute;
-    bottom: calc(2*var(--pading_asside));
-}
-
-@media only screen and (max-width: 768px){
-    .footerAside{
-        margin-top: calc(2*var(--pading_asside));
-        position: relative;
-        bottom: 0;
-    }
-}

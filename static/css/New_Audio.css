@@ -14,8 +14,8 @@ section{
 }
 
 .color{
-    width: calc(var(--img_color_size) - 0.1em);
-    height: calc(var(--img_color_size) - 0.1em);
+    width: calc(var(--img_color_size) - 0.1em - 1px);
+    height: calc(var(--img_color_size) - 0.1em - 1px);
     display: inline-block;
     margin-top: 0.5em;
     margin-right: 0.1em;
@@ -145,7 +145,7 @@ input[type="checkbox"] {
     }
 
     .color{
-        width: var(--img_color_phone_size);
+        width: calc(var(--img_color_phone_size) - 1px);
         height: var(--img_color_phone_size);
     }
 
