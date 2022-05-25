@@ -114,6 +114,7 @@ aside{
     height: 40vw;
     width: 40vw;
     display: flex;
+    user-drag: none;
 }
 
 /***** end of divs of imgage animation *****/

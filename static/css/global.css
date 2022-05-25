@@ -5,8 +5,8 @@
     --img_size: 80px;
     --img-corner: 15px;
     --img_color_phone_size: calc((100vw  - var(--pading_asside))/5 - 1em - 1px);
-    --img_color_size: calc((40vw  - var(--pading_asside))/5 - 1em);
-    --img_shape_size: calc((40vw  - var(--pading_asside))/3 - 1.5em);
+    --img_color_size: calc((40vw  - var(--pading_asside))/5 - 1em - 2px);
+    --img_shape_size: calc((40vw  - var(--pading_asside))/3 - 1.5em - 2px);
     --img_shape_phone_size: calc((100vw  - var(--pading_asside))/3 - 1.5em);
 
     /*colors var*/
@@ -57,7 +57,7 @@
 }
 
 *{
-    z-index: 1;
+    z-index: 2;
     padding: 0; margin: 0;
     font-family: var(--smallFontType);
 }
