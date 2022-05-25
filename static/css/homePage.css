@@ -1,19 +1,17 @@
 
-main{
-    grid-template-rows: 80% auto;
-    grid-template-areas: 'animationDiv''homeButtonDiv';
-}
 
 aside{
     background-color: white;
     display: grid;
     
 }
-/***** home page elements design *****/
+#formDiv{
+    display: grid;
+    grid-template-rows: 80% auto;
+    grid-template-areas: 'inputsInformationDiv''submitDiv';
+}
 
-/* end of main */
-
-/* aside */
+/**** aside ******/
 #animationDiv{
     height: calc(100vh - var(--nav_height));
     width: 60vw;
@@ -33,10 +31,9 @@ aside{
     display: flex;
     
 }
-/* divs of imgage animation */
+/**** divs of image animation ****/
 #divimg1{
-    
-    /* bottom: 0%; */
+
     animation-name: topBottom;
     animation-duration: 10s;
     animation-delay: 0s ;
@@ -46,7 +43,7 @@ aside{
 }
 
 #divimg2{
-    /* bottom: 0%; */
+
     left: 60%;
     animation-name: topBottom;
     animation-duration: 7s;
@@ -111,7 +108,7 @@ aside{
 
 }
 
-/* end of divs of imgage animation */
+/***** end of divs of imgage animation *****/
 
 /* the animation */
 @keyframes topBottom {
@@ -122,7 +119,7 @@ aside{
         
       
 }
-/***** end of home page elements design *****/
+
 
 @media only screen and (max-width: 768px){
     body{

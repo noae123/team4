@@ -53,32 +53,39 @@
     </main>
 
     <aside>
-            <form action="">
-                <h1 >Log In</h1>
+        <h1 >Register</h1>
+            <form action="" id="formDiv">
+                
+            <div id="inputsInformationDiv">
             <div>
                 <label for="inputUserName">User Name</label>
-                <input type="text" id="inputUserName" autocomplete="on" required>
+                <input type="text" id="inputUserName" placeholder="johnDoe" autocomplete="on" required>
             </div>
             <div>
                     <label for="inputNickname">User Name</label>
-                    <input type="text" id="inputNickname" autocomplete="on" required></div>
+                    <input type="text" id="inputNickname" placeholder="jonny" autocomplete="on" required></div>
             <div>
             <div>
                 <label for="inputPassword">Password</label>
-                <input type="password" id="inputPassword" required></div>
+                <input type="password" id="inputPassword" required maxlength="8" minlength="4" 
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="********" title="Must contain at least one number and one uppercase and lowercase letter, and 4-8 characters">>
+            </div>
+
+            <div>
+                <label for="inputConfirmPassword">Confirm Password</label>
+                <input type="password" id="inputConfirmPassword" required maxlength="8" minlength="4" placeholder="********">
             </div>
 
             <div>
                 <label for="inputEmail">Password</label>
-                <input type="email" id="inputEmail" required></div>
+                <input type="email" id="inputEmail" autocomplete="on" required placeholder="johnDoe@gmail.com"></div>
             </div>
-                <input id="inputLogin" type="submit" value="log in" class="submitButton Button">
+        </div>
+        <div id="submitDiv">
+                <a href="Register.html"><input id="inputRegister" type="submit" value="Register" class="submitButton Button"></a>
+        </div>
             </form>
 
-        <div>
-            <h4>Don't have user yet?</h4>
-            <button class="Button" id="RegisterButton">Register</button>
-        </div>
         
     </aside>
     
