@@ -26,6 +26,11 @@ li>h2{
     width: 80vw;
     max-width: 768px;
 }
+.player + a .Button{
+    margin: var(--pading_asside) auto;
+    width: 80vw;
+    max-width: 768px;
+}
 @media only screen and (max-width: 768px){
     body{
         grid-template-columns: 100%;

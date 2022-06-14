@@ -1,33 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="icon" href="../static/images/favicon.ico">
-    <link rel="stylesheet" href="../static/css/global.css">
+    {% include 'components/head_links.html' %}
+    <title>{% block title %}Home Page{% endblock %}</title>
     <link rel="stylesheet" href="../static/css/homePage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@700&family=Averia+Serif+Libre:ital,wght@0,700;1,400&family=Fredoka+One&family=Martel+Sans:wght@600&family=Ruluko&family=Work+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div>
-            <img alt='logo' src="../static/images/more%20graphics/whiteLogo.png" class="mmg">
-        </div>
-    </header>
-    <nav>
-        <ul id="navtool">
-            <li><a href="homePage.html"><i class="fa fa-home fa-lg"></i><h2>HOME</h2></a></li>
-            <li><a href="templates.html"><i class="fa fa-file-audio-o fa-lg" aria-hidden="true"></i><h2>TEMPLATE</h2></a></li>
-            <li><a href="New_Audio_creator.html"><i class="fa fa-plus-square-o fa-lg" aria-hidden="true"></i><h2>CREATE</h2></a></li>
-            <li><a href="Profile.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><h2>PROFILE</h2></a></li>
-        </ul>
-    </nav>
-    <main>
+{% include 'components/header_nav.html' %}
+<main>
         <div id="animationDiv"> 
             <div class="divImgAnimation" id="divimg1">
                 <img src="../static/images/more graphics/af2388fc-50ae-4df6-ac9c-348496b14fe4.png" alt="yellowBaloon" class="animationImg" id="yellowBaloon">
@@ -47,19 +27,26 @@
             <div class="divImgAnimation" id="divimg7"> <img src="../static/images/more graphics/3f3b4dfe-0c54-4e4c-8933-708010848247.png" alt="bigLeftHeart" class="animationImg" id="bigLeftHeart"></div>
             <div id="divimg8"><img src="../static/images/more%20graphics/logo3Dwhite.png" alt="companyLogo3d" ></div>
         </div>
-
-
     </main>
-    <aside>
-        <h1 >CARD 4 YOU</h1><br>
-        <h2><em> "you don't spell love, you feel it"</em></h2><br>
-        <h3>~Winnie the Pooh</h3><br>
-        <p >
-            <br> And what better way to feel if not through <em> music</em>? <br><br> Here you will create a <em> greeting card</em>. <br>
-            choose any  <em>audio</em> you want in order to delight, excite and show love to your loved one!!! <br><br></p>
-        <br><h2>So what you are waiting for?</h2>
-            <a href="logIn.html"> <button class="Button" id="logInButton">log In</button></a>
-        <br><br>
-    </aside>
+<aside>
+    {% block aside_homePage %}
+    <h1>CARD 4 YOU</h1><br>
+    <h2><em> "you don't spell love, you feel it"</em></h2><br>
+    <h3>~Winnie the Pooh</h3><br>
+    <p>
+        <br> And what better way to feel if not through <em> music</em>? <br><br> Here you will create a <em> greeting
+        card</em>. <br>
+        choose any <em>audio</em> you want in order to delight, excite and show love to your loved one!!! <br><br>
+    </p>
+    {% if not user%}
+    <br>
+    <h2>So what you are waiting for?</h2>
+    <a href="logIn.html">
+        <button class="Button" id="logInButton">log In</button>
+    </a>
+    <br><br>
+    {% endif %}
+    {% endblock %}
+</aside>
 </body>
 </html>

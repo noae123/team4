@@ -1,74 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="icon" href="../static/images/favicon.ico">
-    <link rel="stylesheet" href="../static/css/global.css">
-    <link rel="stylesheet" href="../static/css/homePage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@700&family=Averia+Serif+Libre:ital,wght@0,700;1,400&family=Fredoka+One&family=Martel+Sans:wght@600&family=Ruluko&family=Work+Sans&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div>
-            <img alt='logo' src="../static/images/more%20graphics/whiteLogo.png" class="mmg">
-        </div>
-    </header>
-    <nav>
-        <ul id="navtool">
-            <li><a href="homePage.html"><i class="fa fa-home fa-lg"></i><h2>HOME</h2></a></li>
-            <li><a href="templates.html"><i class="fa fa-file-audio-o fa-lg" aria-hidden="true"></i><h2>TEMPLATE</h2></a></li>
-            <li><a href="New_Audio_creator.html"><i class="fa fa-plus-square-o fa-lg" aria-hidden="true"></i><h2>CREATE</h2></a></li>
-            <li><a href="Profile.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><h2>PROFILE</h2></a></li>
-        </ul>
-    </nav>
-    <main>
-        <div id="animationDiv">
-            <div class="divImgAnimation" id="divimg1">
-                <img src="../static/images/more graphics/af2388fc-50ae-4df6-ac9c-348496b14fe4.png" alt="yellowBaloon" class="animationImg" id="yellowBaloon">
-                <img src="../static/images/more graphics/29809d39-ae4c-4b7e-9002-e37adc5b9ade.png" alt="bigHeart" class="animationImg" id="bigHeart">
-            </div>
-            <div class="divImgAnimation" id="divimg2">
-                <img src="../static/images/more graphics/ad2cbb9b-395d-4078-94fc-3b7f14eced06.png" alt="blueBaloon" class="animationImg" id="blueBaloon">
-                <img src="../static/images/more graphics/51079f52-9cab-4d8c-8da5-6eac0223df04.png" alt="smallHeart" class="animationImg" id="smallHeart">
-            </div>
-            <div class="divImgAnimation" id="divimg3">
-                <img src="../static/images/more graphics/02522268-d5d8-4886-8c0c-ffa7ebacf2b2.png" alt="star" class="animationImg" id="star">
-                <img src="../static/images/more graphics/8949941f-1602-43f7-82f0-b8eed46316eb.png" alt="pinkBaloon" class="animationImg" id="pinkBaloon">
-            </div>
-            <div class="divImgAnimation" id="divimg4">  <img src="../static/images/more graphics/f67e011a-0231-44aa-87aa-91ee2ab04b3d.png" alt="yellowGuitar" class="animationImg" id="yellowGuitar"></div>
-            <div class="divImgAnimation" id="divimg5"><img src="../static/images/more graphics/3a543b0e-6619-4b45-b516-2b4d2ee25572.png" alt="blueGuitar" class="animationImg" id="blueGuitar"></div>
-            <div class="divImgAnimation" id="divimg6"> <img src="../static/images/more graphics/3a1966bc-2f9a-4721-accd-a849b5ae9bad.png" alt="brightYellowBaloon" class="animationImg" id="brightYellowBaloon"></div>
-            <div class="divImgAnimation" id="divimg7"> <img src="../static/images/more graphics/3f3b4dfe-0c54-4e4c-8933-708010848247.png" alt="bigLeftHeart" class="animationImg" id="bigLeftHeart"></div>
-            <div id="divimg8"><img src="../static/images/more%20graphics/logo3Dwhite.png" alt="companyLogo3d" ></div>
-        </div>
-    </main>
+{% extends 'homePage.html' %}
 
-    <aside>
-            <form action="Profile.html" method="POST">
-                <h1>Log In</h1><br><br>
-                <div>
-                    <br><label for="inputUserName">User Name</label>
-                    <input type="text" id="inputUserName" placeholder="Enter your username..." autocomplete="on"
-                           class="formInput" required></div>
-                <div>
-                    <br><label for="inputPassword">Password</label>
-                    <input type="password" id="inputPassword" placeholder="Enter your password..." class="formInput"
-                           required></div>
-                <br><input id="inputLogin" type="submit" value="log in" class="submitButton Button">
-                <br>
-            </form>
-        <h3>Don't have user yet?</h3>
-            <a href="Register.html">
-            <input id="input4" type="submit" value="Join Us!" class="submitButton Button">
-            </a>
-        <br><br><br>
-    </aside>
-    
-</body>
-</html>
+{% block title %}
+Login
+{% endblock %}
+
+{% block aside_homePage %}
+<form action="Profile.html" method="POST">
+    <h1>Log In</h1><br><br>
+    <div>
+        <br><label for="inputUserName">User Name</label>
+        <input type="text" id="inputUserName" placeholder="Enter your username..." autocomplete="on" class="formInput"
+               required>
+    </div>
+    <div>
+        <br><label for="inputPassword">Password</label>
+        <input type="password" id="inputPassword" placeholder="Enter your password..." class="formInput" required>
+    </div>
+    <br><input id="inputLogin" type="submit" value="log in" class="submitButton Button"><br>
+</form>
+<h3>Don't have user yet?</h3>
+<a href="Register.html">
+    <input id="input4" type="submit" value="Join Us!" class="submitButton Button">
+</a>
+<br><br><br>
+{% endblock %}
