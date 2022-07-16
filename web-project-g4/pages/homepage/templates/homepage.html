@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Homepage' %}
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('homepage.static', filename='css/homepage.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div id="animationDiv">
+        <div class="divImgAnimation" id="divimg1">
+            <img src="{{ url_for('static', filename='media/img/more graphics/af2388fc-50ae-4df6-ac9c-348496b14fe4.png')}}" alt="yellowBaloon" class="animationImg" id="yellowBaloon">
+            <img src="{{ url_for('static', filename='media/img/more graphics/29809d39-ae4c-4b7e-9002-e37adc5b9ade.png')}}" alt="bigHeart" class="animationImg" id="bigHeart">
+        </div>
+        <div class="divImgAnimation" id="divimg2">
+                <img src="{{ url_for('static', filename='media/img/more graphics/ad2cbb9b-395d-4078-94fc-3b7f14eced06.png')}}" alt="blueBaloon" class="animationImg" id="blueBaloon">
+                <img src="{{ url_for('static', filename='media/img/more graphics/51079f52-9cab-4d8c-8da5-6eac0223df04.png')}}" class="animationImg" id="smallHeart">
+            </div>
+            <div class="divImgAnimation" id="divimg3">
+                <img src="{{ url_for('static', filename='media/img/more graphics/02522268-d5d8-4886-8c0c-ffa7ebacf2b2.png')}}" alt="star" class="animationImg" id="star">
+                <img src="{{ url_for('static', filename='media/img/more graphics/8949941f-1602-43f7-82f0-b8eed46316eb.png')}}" alt="pinkBaloon" class="animationImg" id="pinkBaloon">
+            </div>
+            <div class="divImgAnimation" id="divimg4">  <img src="{{ url_for('static', filename='media/img/more graphics/f67e011a-0231-44aa-87aa-91ee2ab04b3d.png')}}" alt="yellowGuitar" class="animationImg" id="yellowGuitar"></div>
+            <div class="divImgAnimation" id="divimg5"><img src="{{ url_for('static', filename='media/img/more graphics/3a543b0e-6619-4b45-b516-2b4d2ee25572.png')}}" alt="blueGuitar" class="animationImg" id="blueGuitar"></div>
+            <div class="divImgAnimation" id="divimg6"> <img src="{{ url_for('static', filename='media/img/more graphics/3a1966bc-2f9a-4721-accd-a849b5ae9bad.png')}}" alt="brightYellowBaloon" class="animationImg" id="brightYellowBaloon"></div>
+            <div class="divImgAnimation" id="divimg7"> <img src="{{ url_for('static', filename='media/img/more graphics/3f3b4dfe-0c54-4e4c-8933-708010848247.png')}}" alt="bigLeftHeart" class="animationImg" id="bigLeftHeart"></div>
+            <div id="divimg8"><img src="{{ url_for('static', filename='media/img/more graphics/logo3Dwhite.png')}}" alt="companyLogo3d" ></div>
+    </div>
+{% endblock %}
+
+{% block page_body_aside_content %}
+    <h1 >CARD 4 YOU</h1><br>
+    <h2><em> "you don't spell love, you feel it"</em></h2><br>
+    <h3>~Winnie the Pooh</h3><br>
+    <p >
+        <br> And what better way to feel if not through <em> music</em>? <br><br> Here you will create a <em> greeting card</em>. <br>
+        choose any  <em>audio</em> you want in order to delight, excite and show love to your loved one!!! <br><br></p>
+    <br><h2>So what you are waiting for?</h2>
+        <a href="logIn.html"> <button class="Button" id="logInButton">log In</button></a>
+    <br><br>
+{% endblock %}

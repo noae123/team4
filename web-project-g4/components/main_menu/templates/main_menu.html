@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="{{ url_for('main_menu.static', filename='css/main-menu.css') }}"/>
+
+{%
+    set menu_items = {
+        'homepage': '/',
+        'catalog': url_for('catalog.index'),
+        'create': url_for('catalog.index'),
+        'profile': url_for('catalog.index')
+    }
+%}
+
+{% for item in menu_items %}
+    <li>
+        <a
+            href="{{ menu_items[item] }}"
+            {% if menu_items[item] == request.path %}
+                class="active"
+            {% endif %}
+        ><h2>{{ item | upper }}</h2></a>
+    </li>
+{% endfor %}

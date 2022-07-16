@@ -1,0 +1,57 @@
+:root {
+     /*space vars*/
+    --pading_asside: 30px;
+    --nav_height: 70px;
+    --img_size: 80px;
+    --img-corner: 15px;
+    --img_color_phone_size: calc((100vw  - var(--pading_asside))/5 - 1em - 1px);
+    --img_color_size: calc((40vw  - var(--pading_asside))/5 - 1em - 2px);
+    --img_shape_size: calc((40vw  - var(--pading_asside))/3 - 1.5em - 2px);
+    --img_shape_phone_size: calc((100vw  - var(--pading_asside))/3 - 1.5em);
+
+    /*colors var*/
+    --yellow: #FEE555;
+    --orange:#F0732B;
+    --pink: #F31066;
+    --blue: #1463B8;
+    --brown: #403233;
+
+    /*colors for audio animation*/
+    --red: #eb2513;
+    --green: #96d130;
+    --purple: #B32784;
+
+    /*hue var*/
+    --webkit_grad_white: -webkit-linear-gradient(to left, var(--cardWhite), white);
+    --grad_white: linear-gradient(to left, var(--cardWhite), white);
+    --webkit_grad_orane: -webkit-linear-gradient(to left, var(--yellow), var(--orange));
+    --grad_orange: linear-gradient(to left, var(--yellow), var(--orange));
+
+    --bordderColorButton: #e14f25;
+    --yellowNav: #C7552F;
+    --brightNav:#fada96;
+    --cardWhite:#F1F3F4;
+    --darkMain3: rgba(248, 105, 43, 0.42);
+
+    /* color Fonts */
+    --greyBlue: #A9C9D8;
+    --Darkerblue: #124E78;
+    --Darkestblue: #06437A;
+
+    /*font size var*/
+    --fontH1: 3.5em;
+    --fontH2: 2em;
+    --fontButton: 1.5em;
+    --fontH3: 1.25em;
+    --fontp: 1.125em;
+
+    /*resizing rule*/
+    --resizeR: 0.6;
+
+    /*fonts*/
+    --bigFontType: 'Fredoka One', cursive;
+    --mediumFontType: 'Averia Sans Libre', cursive;
+    --smallFontType: 'Work Sans', sans-serif;
+
+    --previewOpenInMoblie: inherit;
+}
