@@ -7,19 +7,14 @@ body{
     'main main';
 }
 
+.player {
+    margin: var(--pading_asside) auto;
+    width: 80vw;
+    max-width: 768px;
+}
+
 main{
     overflow-y: auto;
-    text-align: center;
-}
-
-h2{
-    color: white;
-}
-
-.templateHeader{
-    font-size: 4em;
-    width: calc(100vw - 2*var(--pading_asside) - 350px);
-    color: white;
 }
 
 @media only screen and (max-width: 768px){
@@ -31,9 +26,5 @@ h2{
     }
     main {
         height: calc(100vh - 2*var(--nav_height));
-    }
-    .templateHeader{
-        margin: var(--pading_asside) auto;
-        width: auto;
     }
 }

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Join Us' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('register.static', filename='css/register.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    {% include 'baloons.html' %}
+{% endblock %}
+
+{% block page_body_aside_content %}
+   <h1 >Create Profile</h1><br><br>
+    {% include 'profile_form.html' %}
+{% endblock %}

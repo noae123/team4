@@ -1,0 +1,82 @@
+/******************media player design*********************************/
+.player {
+    margin: var(--pading_asside);
+    position: relative;
+    height: calc(100% - 2*var(--pading_asside));
+    width: calc(60vw - 2*var(--pading_asside));
+    background-color: var(--cardWhite);
+    border-radius: var(--img-corner);
+    box-shadow: calc(var(--img-corner)/3) calc(var(--img-corner)/3) var(--img-corner) var(--darkMain3);
+}
+
+.player .imgbox {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 5*var(--pading_asside));
+    cursor: pointer;
+}
+
+.player .imgbox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Audio_Title {
+    font-size: var(--fontH3);
+    font-family: var(--mediumFontType);
+    margin-left: 5%;
+    display: flex;
+    position: relative;
+    padding-top: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 90%;
+}
+.scrollTitle{
+    font-size: var(--fontH3);
+    font-family: var(--mediumFontType);
+}
+.place_holder{
+    color: var(--greyBlue);
+}
+.UserProfileName {
+    margin-left: 12px;
+}
+
+.userUploader {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.user_img {
+    margin-left: 5%;
+    width: 32px;
+    height: 32px;
+}
+
+.player audio {
+    width: 100%;
+    outline: none;
+    text-align: center;
+}
+
+.Audio_Title ul {
+    width: 48.6vw;
+    display: flex;
+}
+
+.player h1{
+    letter-spacing: 0;
+}
+
+@media only screen and (max-width: 768px){
+    .player {
+        width: calc(100vw - 2*var(--pading_asside));
+    }
+}

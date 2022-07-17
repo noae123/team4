@@ -135,6 +135,10 @@ nav li:hover{
     background-color: var(--brightNav);
 }
 
+aside{
+    background-color: white;
+}
+
 main{
     height: calc(100vh - var(--nav_height));
     overflow-x: hidden;

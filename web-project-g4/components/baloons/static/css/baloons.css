@@ -1,0 +1,111 @@
+#animationDiv{
+    height: calc(100vh - var(--nav_height));
+    width: 60vw;
+}
+
+.animationImg {
+    height: 55vh;
+    width: 55vh;
+    margin: 0;
+    object-fit: cover;
+}
+
+.divImgAnimation{
+    height: 55vh;
+    width: 55vh;
+    position: relative;
+    display: flex;
+    z-index: 1;
+}
+
+/**** divs of image animation ****/
+#divimg1{
+    animation-name: topBottom;
+    animation-duration: 11s;
+    animation-delay: 0s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+#divimg2{
+    left: 60%;
+    animation-name: topBottom;
+    animation-duration: 13s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+#divimg3{
+    left: 45%;
+    flex-direction: row-reverse;
+    animation-name: topBottom;
+    animation-duration: 12s;
+    animation-delay: 0s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+#divimg4{
+    left: 30%;
+    animation-name: topBottom;
+    animation-duration: 6s;
+    animation-delay: 0s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+
+}
+
+#divimg5{
+    animation-name: topBottom;
+    animation-duration: 9s;
+    animation-delay: 1s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    z-index: 1;
+}
+
+
+#divimg6{
+    left: 15%;
+    bottom: 20%;
+    animation-name: topBottom;
+    animation-duration: 5s;
+    animation-delay: 1s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    z-index: 1;
+}
+
+#divimg7{
+    left: 19%;
+    animation-name: topBottom;
+    animation-duration: 13s;
+    animation-delay: 1s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+#divimg8{
+    z-index: 0;
+    position: absolute;
+    right: 20vw;
+    bottom: -15vh;
+    height: 40vw;
+    width: 40vw;
+    display: flex;
+    user-drag: none;
+}
+
+/***** end of divs of imgage animation *****/
+
+/* the animation */
+@keyframes topBottom {
+        0%   { Bottom:0; }
+        100% {Bottom:200%; }
+}
+
+@media only screen and (max-width: 768px){
+    #divimg8{
+        display: none;
+    }
+}

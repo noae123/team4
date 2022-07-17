@@ -1,0 +1,13 @@
+<div class="player" id="p{{ player_id }}">
+    <div class="imgbox">
+        <img alt='background_music' src="{{ url_for('audio_player.static', filename='media/img/Black.png') }}" class="mmg">
+    </div>
+        <div class="Audio_Title">
+            <h1 class="scrollTitle" id="message">Card Banner</h1>
+        </div>
+        <div class="Audio_Title">
+            <h1 class="scrollTitle" id="sender">Sender Name</h1>
+        </div>
+    <audio src="{{ url_for('audio_player.static', filename='media/music/happybday.mp3') }}" controls controlsList="nodownload"></audio>
+</div>
+

@@ -1,0 +1,213 @@
+main{
+    overflow-y: auto;
+}
+
+main li{
+    height: calc(100vh - 2*var(--pading_asside));
+    margin-bottom: calc(5*var(--pading_asside));
+}
+
+.Edit{
+    width:60%;
+    display: inline-block;
+    float: right;
+}
+
+.Delete{
+    width:35%;
+    display: inline-block;
+    float: left;
+}
+
+#audioPreview::before {
+    content: "Close your Cards";
+}
+
+.previewClosed #audioPreview::before {
+    content: "Watch your Cards";
+}
+
+.uploadMusic{
+    grid-area: audio_upload;
+    width:100%;
+}
+
+.colors{
+    text-align: center;
+}
+
+.color{
+    width: calc(var(--img_color_size) - 0.1em - 2px);
+    height: calc(var(--img_color_size) - 0.1em - 2px);
+    display: inline-block;
+    margin-top: 0.5em;
+    margin-right: 0.1em;
+    border-radius: var(--img-corner);
+    cursor: pointer;
+    border:none;
+}
+
+#red{
+    background: var(--red);
+}
+.color:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px,  rgb(0,0,0,0.2) 0 -4px 4px inset;
+    transform: translateY(-2px);
+}
+.color:active {
+    box-shadow: rgb(0,0,0,0.2) 0 3px 7px inset;
+    transform: translateY(2px);
+}
+#orange{
+    background: var(--orange);
+}
+#yellow{
+    background: var(--yellow);
+}
+#green{
+    background: var(--green);
+}
+#blue{
+    background: var(--blue);
+}
+#purple{
+    background: var(--purple);
+}
+#pink{
+    background: var(--pink);
+}
+#brown{
+    background: var(--brown);
+}
+#black{
+    background: black;
+}
+#white{
+    background: white;
+}
+
+.shapes{
+    text-align: center;
+}
+.shape{
+    width: calc(var(--img_shape_size) - 0.1em);
+    height: calc(var(--img_shape_size) - 0.1em);
+    display: inline-block;
+    margin-top: 0.5em;
+    margin-right: 0.1em;
+    border-radius: var(--img-corner);
+    cursor: pointer;
+    border:none;
+    box-shadow: calc(var(--img-corner)/8) calc(var(--img-corner)/8) calc(var(--img-corner)/3) var(--greyBlue);
+}
+.shape:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, black 0 -6px 0 inset;
+    transform: translateY(-2px);
+}
+.shape:active {
+    box-shadow: black 0 3px 7px inset;
+    transform: translateY(2px);
+}
+button img{
+    width: var(--img_shape_size);
+    height: var(--img_shape_size);
+    object-fit: cover;
+    user-drag: none;
+    -webkit-user-drag: none;
+    border-radius: var(--img-corner);
+}
+
+#radioDir{
+    display: inline-block;
+}
+
+/* media editor*/
+
+input[type="file"] {
+    display: none;
+}
+input[type="radio"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+#input4{
+    margin-bottom: calc(2*var(--pading_asside));
+}
+/***************************form design***********************************/
+textarea{
+    padding: 4%;
+    resize: none;
+}
+
+label h3{
+    display: inline-block;
+}
+
+input[type="checkbox"] {
+    width: var(--fontH3);
+    height: var(--fontH3);
+}
+
+@media only screen and (max-width: 768px){
+    body{
+        grid-template-columns: 100%;
+        grid-template-areas: 'head'
+        'btn'
+        'main'
+        'nav';
+    }
+    section{
+        display: block;
+        grid-area: btn;
+        padding: 0 var(--pading_asside) var(--img-corner) var(--pading_asside);
+    }
+    main {
+        height: calc(100vh - 2*var(--nav_height) - 3* var(--pading_asside));
+    }
+    aside {
+        height: calc(100vh - 2*var(--nav_height) - 5* var(--pading_asside));
+    }
+
+    .previewClosed {
+        grid-template-areas: 'head'
+        'btn'
+        'aside'
+        'nav';
+    }
+
+    #audioPreview::before {
+        content: "Close Preview";
+    }
+
+    .previewClosed #audioPreview::before {
+        content: "Open Preview";
+    }
+
+    #audioPreview{
+        margin-bottom: 0;
+    }
+
+    textarea{
+        padding: 12px 4%;
+    }
+
+    .color{
+        width: calc(var(--img_color_phone_size) - 1px);
+        height: var(--img_color_phone_size);
+    }
+
+    .shape{
+        width: var(--img_shape_phone_size);
+        height: var(--img_shape_phone_size);
+    }
+
+    button img{
+        width: var(--img_shape_phone_size);
+        height: var(--img_shape_phone_size);
+    }
+}

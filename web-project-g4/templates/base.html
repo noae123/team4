@@ -51,10 +51,18 @@ Base page blocks:
 
         {# CSS #}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+        <!-- todo change this place!!!!-->
+        <link rel="stylesheet" href="{{ url_for('audio_player.static', filename='css/audio_player.css') }}"/>
         {% block page_head_css %}{% endblock %}
+
+        <script src="{{ url_for('static', filename='lib/p5/p5.js') }}"></script>
+        <script src="{{ url_for('static', filename='lib/p5/addons/p5.sound.js') }}"></script>
+        <!-- todo change location when done -->
+        <script src="{{ url_for('audio_player.static', filename='js/audio_player.js') }}"></script>
+
     {% endblock %}
     </head>
-    <body>
+    <body class="{{ page_main_class | default('unknown_page',true) }}">
         {% block page_body_content %}
 
             {# Header #}
@@ -62,7 +70,7 @@ Base page blocks:
                 <header class="page-header">
                     {% block page_body_header_content %}
                         <div>
-                            <img alt='logo' src="{{ url_for('static', filename='media/img/more graphics/whiteLogo.png') }}" class="mmg">
+                            <img alt='logo' src="{{ url_for('static', filename='media/img/whiteLogo.png') }}" class="mmg">
                         </div>
                     {% endblock %}
                 </header>
@@ -89,6 +97,13 @@ Base page blocks:
                 </main>
             {% endblock %}
 
+            {# Section #}
+            {% block page_body_section %}
+                <section>
+                    <button id="audioPreview" onclick="changeDisplay()" class="Button"><!--Close Preview--></button>
+                </section>
+            {% endblock %}
+
             {# Aside #}
             {% block page_body_aside %}
                 <aside class="page-aside">
@@ -109,6 +124,7 @@ Base page blocks:
 
         {# JS #}
         <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+
         {% block page_body_js %}{% endblock %}
     </body>
 </html>

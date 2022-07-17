@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Audio Creator' %}
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('new_audio_creator.static', filename='css/new_audio_craetor.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    {% with player_id='creationPlayer' %}
+        {% include 'audio_player.html' %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_body_aside_content %}
+    <form action="published.html" method="POST" onload="loadMessage()">
+            <h1>Customize <br>Your Card</h1><br><br><br>
+            <label for="audio-upload" class="Button">Upload Audio</label>
+            <input id="audio-upload" onchange="replace_music(this.files)" type="file" accept="audio/*">
+            <label for="file-upload" class="Button">Add Image</label>
+            <input id="file-upload" onchange="replace_image(this.files)" type="file" accept="image/*"><br><br>
+            <label for="Audio_Name">Add Sender Name:</label>
+            <input placeholder="Enter Sender Name..." required maxlength="30" type="text" id="Audio_Name" name="Audio_Name" class="formInput" onchange="change_sender(this.value)"><br>
+            <label for="Choose_Categories">Add Card Banner:</label>
+            <textarea required placeholder="Enter Card Banner..." rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput" maxlength="2500" onchange="change_message(this.value)"></textarea><br><br>
+            <h2>Choose Your Color:</h2>
+            <div class="colors">
+                <label for="radioRed">
+                    <input name="playerColor" type="radio" id="radioRed">
+                    <button id="red" class="color" type="button"></button>
+                </label>
+                <label for="radioOrange">
+                    <input name="playerColor" type="radio" id="radioOrange">
+                    <button id="orange" class="color" type="button"></button>
+                </label>
+                <label for="radioYellow">
+                    <input name="playerColor" type="radio" id="radioYellow">
+                    <button id="yellow" class="color" type="button"></button>
+                </label>
+                <label for="radioGreen">
+                    <input name="playerColor" type="radio" id="radioGreen">
+                    <button id="green" class="color" type="button"></button>
+                </label>
+                <label for="radioWhite">
+                    <input name="playerColor" type="radio" id="radioWhite">
+                    <button id="white" class="color" type="button"></button>
+                </label>
+                <label for="radioBlue">
+                    <input name="playerColor" type="radio" id="radioBlue">
+                    <button id="blue" class="color" type="button"></button>
+                </label>
+                <label for="radioPurple">
+                    <input name="playerColor" type="radio" id="radioPurple">
+                    <button id="purple" class="color" type="button"></button>
+                </label>
+                <label for="radioPink">
+                    <input name="playerColor" type="radio" id="radioPink">
+                    <button id="pink" class="color" type="button"></button>
+                </label>
+                <label for="radioBrown">
+                    <input name="playerColor" type="radio" id="radioBrown">
+                    <button id="brown" class="color" type="button"></button>
+                </label>
+                <label for="radioBlack">
+                    <input name="playerColor" type="radio" id="radioBlack">
+                    <button id="black" class="color" type="button"></button>
+                </label>
+            </div><br><br>
+            <h2>Choose Your Shape:</h2>
+            <div class="shapes">
+                <label for="radioCircle">
+                    <input name="playerShape" type="radio" id="radioCircle">
+                    <button id="circle" class="shape" type="button">
+                        <img src="{{ url_for('new_audio_creator.static', filename='media/img/circle.png') }}" alt="circle" />
+                    </button>
+                </label>
+                <label for="radioSquare">
+                    <input name="playerShape" type="radio" id="radioSquare">
+                    <button id="square" class="shape" type="button">
+                        <img src="{{ url_for('new_audio_creator.static', filename='media/img/square.png') }}" alt="square" />
+                    </button>
+                </label>
+                <label for="radioTri">
+                    <input name="playerShape" type="radio" id="radioTri">
+                    <button id="tri" class="shape" type="button">
+                        <img src="{{ url_for('new_audio_creator.static', filename='media/img/triangle.png') }}" alt="triangle" />
+                    </button>
+                </label>
+                <label for="radioButterfly">
+                    <input name="playerShape" type="radio" id="radioButterfly">
+                    <button id="butterfly" class="shape" type="button">
+                        <img src="{{ url_for('new_audio_creator.static', filename='media/img/butterfly.png') }}" alt="butterfly" />
+                    </button>
+                </label>
+                <label for="radioHeart">
+                    <input name="playerShape" type="radio" id="radioHeart">
+                    <button id="heart" class="shape" type="button">
+                        <img src="{{ url_for('new_audio_creator.static', filename='media/img/heart.png') }}" alt="heart" />
+                    </button>
+                </label>
+                <label for="radioTear">
+                    <input name="playerShape" type="radio" id="radioTear">
+                    <button id="tear" class="shape" type="button">
+                        <img src="{{ url_for('new_audio_creator.static', filename='media/img/tear.png') }}" alt="tear" />
+                    </button>
+                </label>
+            </div><br><br>
+            <input name="textDir" onchange="changTextDir(this.checked)" type="checkbox" id="radioDir">
+            <label class="Lsmall" for="radioDir">Change text direction right to left</label><br>
+            <a href="published.html">
+                <input id="input4" type="submit" value="Get Done!" class="submitButton Button">
+            </a>
+        </form>
+    <script>animateElement_selector("#pcreationPlayer", false, "pink", "butterfly");</script>
+{% endblock %}
+
+{% block page_body_js %}<script src="{{ url_for('new_audio_creator.static', filename='js/new_audio_craetor.js') }}"></script>{% endblock %}

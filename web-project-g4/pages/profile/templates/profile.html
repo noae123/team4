@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Profile' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('profile.static', filename='css/profile.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <h1 class="templateHeader">Your Cards:</h1>
+    <ul>
+        <li>
+            {% include 'audio_player.html' %}
+        </li>
+    </ul>
+{% endblock %}
+
+{% block page_body_aside_content %}
+    <h1>Welcome</h1>
+    <h2>User Name</h2>
+    <br><br><br>
+    <h3>Here you can see your profile and all the awsome cards you created with <em>CARD4YOU!</em></h3><br>
+    <p>you can watch, edit and even delete your cards.</p>
+
+    <div class="footerAside">
+        <h3>You can also change your profile info here</h3>
+        <a href="{{ url_for('profile_edit.index') }}"><button class="Button">edit profile</button></a>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Profile Edit' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('profile_edit.static', filename='css/profile_edit.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <h1 class="templateHeader">Your Cards:</h1>
+    <ul>
+        <li>
+            {% include 'audio_player.html' %}
+        </li>
+    </ul>
+{% endblock %}
+
+{% block page_body_aside_content %}
+    <h1>Change Info</h1>
+    <br><br>
+    {% include 'profile_form.html' %}
+{% endblock %}
