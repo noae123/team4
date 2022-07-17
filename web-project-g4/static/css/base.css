@@ -188,7 +188,7 @@ form{
     font-family: var(--mediumFontType);
     font-weight: bolder;
     color: white;
-    background-image: radial-gradient(100% 100% at 100% 0, var(--yellow) 0, var(--orange) 100%);;
+    background-image: radial-gradient(100% 100% at 100% 0, var(--yellow) 0, var(--orange) 100%);
     cursor: pointer;
     border: none;
     border-radius: 20px;

@@ -1,13 +1,24 @@
 <link rel="stylesheet" href="{{ url_for('main_menu.static', filename='css/main-menu.css') }}"/>
 
-{%
-    set menu_items = {
-        'homepage': '/',
-        'catalog': url_for('catalog.index'),
-        'create': url_for('new_audio_creator.index'),
-        'profile': url_for('profile.index')
-    }
-%}
+{% if session['logedIn'] == True %}
+    {%
+        set menu_items = {
+            'homepage': '/',
+            'catalog': url_for('catalog.index'),
+            'create': url_for('new_audio_creator.index'),
+            'profile': url_for('profile.index')
+        }
+    %}
+{% else %}
+    {%
+        set menu_items = {
+            'homepage': '/',
+            'catalog': url_for('catalog.index'),
+            'login': url_for('login.index'),
+            'register': url_for('register.index')
+        }
+    %}
+{% endif %}
 
 {% for item in menu_items %}
     <li>

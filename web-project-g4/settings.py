@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from datetime import timedelta
 load_dotenv()
 
 # Secret key setting from .env for Flask sessions
@@ -12,3 +13,6 @@ DB = {
     'password': os.environ.get('DB_PASSWORD'),
     'database': os.environ.get('DB_NAME')
 }
+
+SESSION_PERMANENT = True
+PERMANENT_SESSION_LIFETIME = timedelta(days=30)

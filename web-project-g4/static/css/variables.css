@@ -10,7 +10,7 @@
     --img_shape_phone_size: calc((100vw  - var(--pading_asside))/3 - 1.5em);
 
     /*colors var*/
-    --yellow: #FEE555;
+    --yellow: rgb(254, 229, 85);
     --orange:#F0732B;
     --pink: #F31066;
     --blue: #1463B8;

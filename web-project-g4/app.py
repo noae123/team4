@@ -1,12 +1,13 @@
 from flask import Flask
+import os
 
 ###### App setup
 app = Flask(__name__)
-try: #todo when subbmit remove this line
+try: #todo when subbmit remove this try except thingy, stay only with what is in try
     app.config.from_pyfile('settings.py')
 except:
+    app.secret_key = os.environ.get('SECRET_KEY')
     print('using a pc without .env')
-#
 
 ###### Pages
 ## Homepage

@@ -6,9 +6,7 @@
 {% endblock %}
 
 {% block page_body_main_content %}
-    {% with player_id='creationPlayer' %}
-        {% include 'audio_player.html' %}
-    {% endwith %}
+    {% include 'audio_player.html' %}
 {% endblock %}
 
 {% block page_body_aside_content %}
@@ -110,7 +108,7 @@
                 <input id="input4" type="submit" value="Get Done!" class="submitButton Button">
             </a>
         </form>
-    <script>animateElement_selector("#pcreationPlayer", false, "pink", "butterfly");</script>
+    <script>animateElement_selector("{{ video_id }}", {{ video_info['dir']|lower }}, "{{ video_info['color'] }}", "{{ video_info['shape'] }}");</script>
 {% endblock %}
 
 {% block page_body_js %}<script src="{{ url_for('new_audio_creator.static', filename='js/new_audio_craetor.js') }}"></script>{% endblock %}

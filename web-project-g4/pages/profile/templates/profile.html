@@ -21,9 +21,15 @@
     <br><br><br>
     <h3>Here you can see your profile and all the awsome cards you created with <em>CARD4YOU!</em></h3><br>
     <p>you can watch, edit and even delete your cards.</p>
+    <br>
+    <br>
 
-    <div class="footerAside">
-        <h3>You can also change your profile info here</h3>
-        <a href="{{ url_for('profile_edit.index') }}"><button class="Button">edit profile</button></a>
-    </div>
+    <br>
+    <br>
+    <h3>You can also change your profile info here</h3>
+    <a href="{{ url_for('profile_edit.index') }}"><button class="Button">edit profile</button></a>
+    <br>
+    <h3>You can also log out:</h3>
+    <a href="{{ url_for('profile.index') }}"><button class="Button logout">log out</button></a><br>
+    <br>
 {% endblock %}

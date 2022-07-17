@@ -167,7 +167,7 @@ function animateElement_selector(
   /**string {{color}}*/ colorA= "{{ colorA }}",
   /**string {{color}}*/ shapeA = "{{ colorA }}"
 ) {
-  return animateElement(document.querySelector(mainDiv), backwards, colorA, shapeA);
+  return animateElement(document.getElementById(mainDiv), backwards, colorA, shapeA);
 }
 
 function animateElement(
@@ -275,7 +275,7 @@ function animateElement(
 
       fft.analyze();
       amp = fft.getEnergy(20, [200]);
-      sp5.stroke(colorA); /**TODO color her*/
+      sp5.stroke(colorA);
 
       sp5.translate(sp5.width / 2, sp5.height / 2);
 
@@ -364,7 +364,7 @@ class Particle {
     this.vel = p5.createVector(p5.random(0.0002, 0.00001));
     this.acc = this.pos.copy().mult(p5.random(0.0002, 0.00001));
     this.w = p5.random(3, 10);
-    this.color = [...colorA]; /**TODO color her p5.random(255 - amp, 255) + 40*/
+    this.color = [...colorA];
     this.color[3] = p5.random(255 - amp, 255) + 40
   }
 

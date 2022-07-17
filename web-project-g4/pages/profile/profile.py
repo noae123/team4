@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session
 
 # homepage blueprint definition
 profile = Blueprint('profile', __name__, static_folder='static', static_url_path='/profile', template_folder='templates')
