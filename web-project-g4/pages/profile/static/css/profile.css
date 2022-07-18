@@ -8,12 +8,14 @@ main li{
 }
 
 .Edit{
-    width:60%;
+    margin-right: calc(0.56*var(--pading_asside));
     display: inline-block;
+    width:50%;
     float: right;
 }
 
 .Delete{
+    margin-left: var(--pading_asside);
     width:35%;
     display: inline-block;
     float: left;
