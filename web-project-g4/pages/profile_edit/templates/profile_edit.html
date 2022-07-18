@@ -11,6 +11,8 @@
     <ul>
         <li>
             {% include 'audio_player.html' %}
+            <a href="Profile.html"><button class="Button Delete logout">Delete</button></a>
+            <a href="New_Audio_creator.html"><button class="Button Edit">Edit Your card</button></a>
         </li>
     </ul>
 {% endblock %}
@@ -19,4 +21,7 @@
     <h1>Change Info</h1>
     <br><br>
     {% include 'profile_form.html' %}
+    <h3>You can also delete your user:</h3>
+    <a href="{{ url_for('profile.index') }}"><button class="Button logout">delete your user</button></a><br>
+    <br>
 {% endblock %}

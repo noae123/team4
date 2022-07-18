@@ -8,15 +8,31 @@ main li{
 }
 
 .Edit{
-    width:60%;
+    margin-right: calc(0.56*var(--pading_asside));
     display: inline-block;
+    width:50%;
     float: right;
 }
 
 .Delete{
+    margin-left: var(--pading_asside);
     width:35%;
     display: inline-block;
     float: left;
+}
+
+.logout{
+    background-image: radial-gradient(100% 100% at 100% 0, var(--greyBlue) 0, var(--blue) 100%);
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, var(--Darkerblue) 0 -6px 0 inset;
+}
+
+.logout:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, var(--Darkerblue) 0 -6px 0 inset;
+    transform: translateY(-2px);
+}
+.logout:active {
+    box-shadow: var(--Darkerblue) 0 3px 7px inset;
+    transform: translateY(2px);
 }
 
 #audioPreview::before {
