@@ -19,6 +19,8 @@ INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (5, 'Yarden', 'Yardi90', 'Aa123456', 'yar@gmail.com');
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (6, 'Noa', 'Nuni66', 'Nn123456', 'Noa@gmail.com');
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (7, 'Gal', 'Galim15/08', 'Gg123456', 'Gal@gmail.com');
+INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (8, 'Don', 'dondon5', 'Don12345', 'don@gmail.com');
+INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (9, 'Tali', 'Talic536', 'Tt12345', 'tal@gmail.com');
 
 
 create table videos
@@ -44,9 +46,8 @@ create table videos
         check (length(`sender_name`) <= 30)
 );
 
-INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (1, 2, null, null, 'eden', 'tami', 'red', 'triangle', 2, 'var');
-INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (3, 4, null, null, 'Aviv', 'Tomi', 'green', 'squre', 5, 'songi');
-INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (4, 5, null, null, 'Dan', 'Hili', 'yellow', 'circle', 8, 'stars');
-INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (5, 6, null, null, 'Yotam', 'Roni', 'blue', 'rectangle', 9, 'moon');
-INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (6, 7, null, null, 'Yossi', 'Avi', 'orange', 'star', 10, 'sunshine');
-
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (1, 2, null, null, 'eden', 'tami', 'red', 'triangle', null, 'var');
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (3, 4, null, null, 'Aviv', 'Tomi', 'green', 'squre', null, 'songi');
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (4, 5, null, null, 'Dan', 'Hili', 'yellow', 'circle', null, 'stars');
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (5, 6, null, null, 'Yotam', 'Roni', 'blue', 'rectangle', null, 'moon');
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (6, 7, null, null, 'Yossi', 'Avi', 'orange', 'star', null, 'sunshine');
