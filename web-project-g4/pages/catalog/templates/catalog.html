@@ -10,17 +10,22 @@
 {% block page_body_main_content %}
     <br><h1 class="templateHeader">Templates:</h1><br><br>
     <ul>
+        {% for video_id in video_dict %}
         <li>
-            <h2>Happy Birthday Card</h2><br>
-            {% with player_id="123" %}
-                {% include 'audio_player.html' %}
-                <script>animateElement_selector("#p{{ player_id }}", false, "blue", "butterfly");</script>
-            {% endwith %}
-
-            {% with player_id="1234" %}
-                {% include 'audio_player.html' %}
-                <script>animateElement_selector("#p{{ player_id }}", false, "pink", "butterfly");</script>
-            {% endwith %}
+            {% set video_info = video_dict[video_id] %}
+            <h2>{{ video_info['title'] }}</h2><br>
+            {% include 'audio_player.html' %}
+            {% if session['logedIn'] %}
+                <a href="{{ url_for('new_audio_creator.index_template', VIDEO_ID=video_id[1:]) }}"><button class="Button">Edit Template</button></a>
+            {% endif %}
+            <script>animateElement_selector("{{ video_id }}", {{ video_info['dir']|lower }}, "{{ video_info['color'] }}", "{{ video_info['shape'] }}");</script>
         </li>
+        {% endfor %}
     </ul>
 {% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('catalog.static', filename='js/catalog.js') }}"></script>
+{% endblock %}
+
+

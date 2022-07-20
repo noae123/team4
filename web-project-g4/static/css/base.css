@@ -210,6 +210,10 @@ a{
     text-decoration: none;
 }
 
+li{
+    text-decoration: none;
+}
+
 /************Form design**********/
 .formInput{
     display: block;

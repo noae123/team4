@@ -2,10 +2,15 @@
     <div class="imgbox">
         <img alt='background_music' src="{{ video_info['img'] }}" class="mmg">
     </div>
-        <div class="Audio_Title">
+    {% if video_info['dir'] == True %}
+        {% set dir='rtl' %}
+    {% else %}
+        {% set dir='ltr' %}
+    {% endif %}
+        <div class="Audio_Title" dir="{{ dir }}">
             <h1 class="scrollTitle" id="message">{{ video_info['card_banner'] }}</h1>
         </div>
-        <div class="Audio_Title">
+        <div class="Audio_Title" dir="{{ dir }}">
             <h1 class="scrollTitle" id="sender">{{ video_info['sender_name'] }}</h1>
         </div>
     <audio src="{{ video_info['audio'] }}" controls controlsList="nodownload"></audio>

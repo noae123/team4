@@ -27,4 +27,5 @@
 
 {% block page_body_js %}
     <script src="{{ url_for('published.static', filename='js/published.js') }}"></script>
+    <script>animateElement_selector("{{ video_id }}", {{ video_info['dir']|lower }}, "{{ video_info['color'] }}", "{{ video_info['shape'] }}");</script>
 {% endblock %}

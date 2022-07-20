@@ -51,14 +51,17 @@ Base page blocks:
 
         {# CSS #}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
-        <!-- todo change this place!!!!-->
-        <link rel="stylesheet" href="{{ url_for('audio_player.static', filename='css/audio_player.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/audio_player.css') }}"/>
         {% block page_head_css %}{% endblock %}
 
         <script src="{{ url_for('static', filename='lib/p5/p5.js') }}"></script>
         <script src="{{ url_for('static', filename='lib/p5/addons/p5.sound.js') }}"></script>
-        <!-- todo change location when done -->
-        <script src="{{ url_for('audio_player.static', filename='js/audio_player.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/audio_player.js') }}"></script>
+
+        {# font links #}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@700&family=Averia+Serif+Libre:ital,wght@0,700;1,400&family=Fredoka+One&family=Martel+Sans:wght@600&family=Ruluko&family=Work+Sans&display=swap" rel="stylesheet">
 
     {% endblock %}
     </head>

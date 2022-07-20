@@ -1,8 +1,3 @@
-function loadAnime() {
-  myP = document.querySelectorAll(".player");
-  animateElement(myP[0], false, "pink", "butterfly");
-}
-
 function onPlay() {
   userStartAudio();
 }

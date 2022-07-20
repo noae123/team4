@@ -33,6 +33,12 @@ body.catalog{
     margin-left: calc((100vw - min(80vw, 768px))/2 - var(--pading_asside));
 }
 
+li a .Button{
+    margin-left: calc((100vw - min(80vw, 768px))/2 - var(--pading_asside));
+    width: 80vw;
+    max-width: 768px;
+}
+
 @media only screen and (max-width: 768px){
     body{
         grid-template-columns: 100%;
