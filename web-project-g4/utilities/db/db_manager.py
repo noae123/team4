@@ -1,4 +1,13 @@
-from settings import DB
+# to do remove it on uplaoad project
+try:
+    from settings import DB
+except:
+    import os
+    DB = {
+        'host': os.environ.get('DB_HOST'),
+        'user': os.environ.get('DB_USER'),
+        'database': os.environ.get('DB_NAME')
+    }
 import mysql.connector
 
 
