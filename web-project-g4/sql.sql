@@ -25,25 +25,25 @@ INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email
 
 create table videos
 (
-    id_video    int auto_increment,
-    user_id     int           not null
+    id_video    int auto_increment
         primary key,
+    user_id     int           not null,
     audio       varchar(200)  null,
     image       varchar(200)  null,
-    sender_name varchar(30)   not null,
-    card_banner varchar(2500) not null,
+    sender_name varchar(30)   null,
+    card_banner varchar(2500) null,
     color       varchar(20)   null,
     shape       varchar(20)   null,
-    dir         tinyint(1)    null,
     video_name  varchar(250)  null,
+    dir         bit           null,
     constraint videos_id_video_uindex
         unique (id_video),
     constraint fk_user_id
         foreign key (user_id) references customers (id),
     constraint ck_max_card
-        check (length(`card_banner`) <= 2500),
+        check (octet_length(`card_banner`) <= 2500),
     constraint ck_max_sender
-        check (length(`sender_name`) <= 30)
+        check (octet_length(`sender_name`) <= 30)
 );
 
 INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, dir, video_name) VALUES (1, 2, null, null, 'eden', 'tami', 'red', 'triangle', null, 'var');
