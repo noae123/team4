@@ -1,5 +1,6 @@
 <div class="player" id="{{ video_id }}">
     <div class="imgbox">
+        <!-- check here -->
         <img alt='background_music' src="{{ video_info['img'] }}" class="mmg">
     </div>
     {% if video_info['dir'] == True %}
@@ -13,6 +14,7 @@
         <div class="Audio_Title" dir="{{ dir }}">
             <h1 class="scrollTitle" id="sender">{{ video_info['sender_name'] }}</h1>
         </div>
+    <!-- check here -->
     <audio src="{{ video_info['audio'] }}" controls controlsList="nodownload"></audio>
 </div>
 

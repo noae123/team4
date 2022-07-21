@@ -186,6 +186,7 @@ function animateElement(
   // endregion
 
   //region color changer
+  const playerColorSelected = document.getElementById("playerColorSelected");
   for(let i =0; i< colorChanger.length; i++){
     colorChanger[i].onclick = theirColor;
     function theirColor(){
@@ -195,11 +196,14 @@ function animateElement(
         setTimeout(play_pause_music, 10);
       }
       colorA = translateColor(this.id);
+      playerColorSelected.value = this.id
     }
   }
   //endregion
 
   //region color changer
+    const playerShapeSelected = document.getElementById("playerShapeSelected");
+
   for(let i =0; i< shapeChanger.length; i++){
     shapeChanger[i].onclick = theirShape;
     function theirShape(){
@@ -209,6 +213,7 @@ function animateElement(
         setTimeout(play_pause_music, 10);
       }
       shapeA = this.id;
+      playerShapeSelected.value = this.id;
     }
   }
   //endregion

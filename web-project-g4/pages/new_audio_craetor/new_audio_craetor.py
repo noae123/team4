@@ -12,6 +12,7 @@ new_audio_creator = Blueprint('new_audio_creator', __name__, static_folder='stat
 @new_audio_creator.route('/new_audio_creator/<int:VIDEO_ID>')
 def index(VIDEO_ID: int):
     session["userId"] = 2
+    session['logedIn'] = True
     if("logedIn" in session and session['logedIn'] == True):
         message = None
         if VIDEO_ID == None:

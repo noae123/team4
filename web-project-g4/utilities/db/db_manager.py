@@ -24,7 +24,10 @@ class DBManager:
         self.__connect()
         self.__execute(query, args)
         self.__connection.commit()
-        affected_rows = self.__cursor.rowcount
+        try:
+            affected_rows = self.__cursor.lastrowid
+        except:
+            affected_rows = self.__cursor.rowcount
         self.__close_connection()
         return affected_rows
 

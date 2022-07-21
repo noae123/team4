@@ -9,6 +9,11 @@ except:
     app.secret_key = os.environ.get('SECRET_KEY')
     print('using a pc without .env')
 
+# files folder
+UPLOAD_FOLDER = './static/media_users'
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 ###### Pages
 ## Homepage
 from pages.homepage.homepage import homepage

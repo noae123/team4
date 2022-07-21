@@ -15,14 +15,20 @@
     {% else %}
         {% set dir='ltr' %}
     {% endif %}
-    <form action="{{ url_for('published.index', VIDEO_ID=video_id) }}" method="POST" onload="loadMessage()">
+
+    {% if video_id == -1 %}
+        {% set action = url_for('published.create', VIDEO_ID=video_id)  %}
+    {% else %}
+        {% set action =  url_for('published.update', VIDEO_ID=video_id)  %}
+    {% endif %}
+    <form action="{{ action }}" method="POST" onload="loadMessage()" enctype="multipart/form-data">
         <h1>Customize <br>Your Card</h1><br><br><br>
 
         <label for="audio-upload" class="Button">Upload Audio</label>
-        <input id="audio-upload" onchange="replace_music(this.files)" type="file" accept="audio/*">
+        <input id="audio-upload" onchange="replace_music(this.files)" type="file" name="audio" accept="audio/*">
 
         <label for="file-upload" class="Button">Add Image</label>
-        <input id="file-upload" onchange="replace_image(this.files)" type="file" accept="image/*"><br><br>
+        <input id="file-upload" onchange="replace_image(this.files)" type="file" name="image" accept="image/*"><br><br>
 
         {% if video_id== -1 %}
             {% set sender_value = '' %}
@@ -37,47 +43,48 @@
 
         <label for="Choose_Categories">Add Card Banner:</label>
         <textarea dir="{{ dir }}" placeholder="Enter Card Banner..." rows="10" id="Choose_Categories" name="Choose_Categories" class="formInput" maxlength="2500" onchange="change_message(this.value)">{{ card_value }}</textarea><br><br>
-
+        <input type="text" name="playerColorStr" id="playerColorSelected" hidden>
+        <input type="text" name="shape" id="playerShapeSelected" hidden>
         <h2>Choose Your Color:</h2>
         <div class="colors">
             <label for="radioRed">
-                <input name="playerColor" type="radio" id="radioRed">
+                <input name="playerColor" type="radio" id="radioRed" value="red" >
                 <button id="red" class="color" type="button"></button>
             </label>
             <label for="radioOrange">
-                <input name="playerColor" type="radio" id="radioOrange">
+                <input name="playerColor" type="radio" id="radioOrange" value="orange">
                 <button id="orange" class="color" type="button"></button>
             </label>
             <label for="radioYellow">
-                <input name="playerColor" type="radio" id="radioYellow">
+                <input name="playerColor" type="radio" id="radioYellow" value="yellow">
                 <button id="yellow" class="color" type="button"></button>
             </label>
             <label for="radioGreen">
-                <input name="playerColor" type="radio" id="radioGreen">
+                <input name="playerColor" type="radio" id="radioGreen" value="green">
                 <button id="green" class="color" type="button"></button>
             </label>
             <label for="radioWhite">
-                <input name="playerColor" type="radio" id="radioWhite">
+                <input name="playerColor" type="radio" id="radioWhite" value="white">
                 <button id="white" class="color" type="button"></button>
             </label>
             <label for="radioBlue">
-                <input name="playerColor" type="radio" id="radioBlue">
+                <input name="playerColor" type="radio" id="radioBlue" value="blue">
                 <button id="blue" class="color" type="button"></button>
             </label>
             <label for="radioPurple">
-                <input name="playerColor" type="radio" id="radioPurple">
+                <input name="playerColor" type="radio" id="radioPurple" value="purple">
                 <button id="purple" class="color" type="button"></button>
             </label>
             <label for="radioPink">
-                <input name="playerColor" type="radio" id="radioPink">
+                <input name="playerColor" type="radio" id="radioPink" value="pink">
                 <button id="pink" class="color" type="button"></button>
             </label>
             <label for="radioBrown">
-                <input name="playerColor" type="radio" id="radioBrown">
+                <input name="playerColor" type="radio" id="radioBrown" value="brown">
                 <button id="brown" class="color" type="button"></button>
             </label>
             <label for="radioBlack">
-                <input name="playerColor" type="radio" id="radioBlack">
+                <input name="playerColor" type="radio" id="radioBlack" value="black">
                 <button id="black" class="color" type="button"></button>
             </label>
         </div><br><br>
