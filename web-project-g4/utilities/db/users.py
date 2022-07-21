@@ -33,9 +33,8 @@ def create_user(name,user_nickname,user_password,user_email):
         bool_ans = False
     else:
         query = "Insert into customers (user_name,nickname,password,email) VALUES ( '%s', '%s', '%s', '%s')" % (name, user_nickname, user_password, user_email)
-        db_man.commit(query)
-    return(bool_ans)
-
+        last_row_effected=db_man.commit(query)
+    return(last_row_effected,bool_ans)
 
 
 def update_user(id,user_name,user_nickname,user_email,user_password):
@@ -59,4 +58,24 @@ def delete_user(id):
     else:
         bool_ans = False
     return(bool_ans)
+
+def get_user_id_by_name_password(user_name,password):
+    query="SELECT id FROM customers WHERE user_name='%s'and password='%s';"%(user_name,password)
+    user_id = db_man.fetch(query)
+    if user_id == False or user_id == []:
+        print('dont found')
+        bool_ans= False
+    else:
+        bool_ans=True
+    return(user_id,bool_ans)
+
+def get_user_id_by_name(user_name):
+    query="SELECT id FROM customers WHERE user_name='%s';" %user_name
+    user_id=db_man.fetch(query)
+    if user_id == False or user_id==[]:
+        bool_ans=False
+    else:
+        bool_ans=True
+    return (user_id,bool_ans)
+
 
