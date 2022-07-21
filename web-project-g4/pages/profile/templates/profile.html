@@ -9,11 +9,15 @@
 {% block page_body_main_content %}
     <h1 class="templateHeader">Your Cards:</h1>
     <ul>
-        <li>
-            {% include 'audio_player.html' %}
-            <a href="Profile.html"><button class="Button Delete logout">Delete</button></a>
-            <a href="New_Audio_creator.html"><button class="Button Edit">Edit Your card</button></a>
-        </li>
+        {% for video_id in video_dict %}
+            <li>
+                {% set video_info = video_dict[video_id] %}
+                {% include 'audio_player.html' %}
+                <button onclick="makeRequest('{{ url_for('profile.delete_a_video', id_video = video_id[1:]) }}')" class="Button Delete logout">Delete</button>
+                <a href="{{ url_for('new_audio_creator.index', VIDEO_ID = video_id[1:]) }}"><button class="Button Edit">Edit Your card</button></a>
+                <script>animateElement_selector("{{ video_id }}", {{ video_info['dir']|lower }}, "{{ video_info['color'] }}", "{{ video_info['shape'] }}");</script>
+            </li>
+        {% endfor %}
     </ul>
 {% endblock %}
 
@@ -23,11 +27,7 @@
     <br><br><br>
     <h3>Here you can see your profile and all the awsome cards you created with <em>CARD4YOU!</em></h3><br>
     <p>you can watch, edit and even delete your cards.</p>
-    <br>
-    <br>
-
-    <br>
-    <br>
+    <br><br><br><br>
     <h3>You can also change your profile info here</h3>
     <a href="{{ url_for('profile_edit.index') }}"><button class="Button">edit profile</button></a>
     <br>
@@ -37,5 +37,5 @@
 {% endblock %}
 
 {% block page_body_js %}
-    <script>animateElement_selector("{{ video_id }}", {{ video_info['dir']|lower }}, "{{ video_info['color'] }}", "{{ video_info['shape'] }}");</script>
+    <script src="{{ url_for('profile.static', filename='js/profile.js') }}"></script>
 {% endblock %}

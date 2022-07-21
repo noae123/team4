@@ -19,10 +19,10 @@
     <h2>Amazing! congratulations  on creating such a beautiful card!</h2><br><br><br>
     <p>You did such an amazing job! We really hope you enjoyed making this card, <b>CARD4YOU</b> wishing you best of luck with that card and hope it will achieve your goal!</p><br><br><br>
     <h3>Now, all you need to do is copy this link and share it!</h3><br>
-    <button class="Button" onclick="copyTextToClipboard()">copy link</button>
-    <input type="text" class="formInput" readonly id="CiteLink"><br><br><br><br>
+    <button class="Button" onclick="copyTextToClipboard('{{ url_for('shared.index', VIDEO_ID= video_id, USER_ID=session["userId"]) }}')">copy link</button>
+    <input placeholder="click the button to copy this link" type="text" class="formInput" readonly id="CiteLink"><br><br><br><br>
     <h3>Want to keep edit it? you can! click here to keep editing</h3><br>
-    <a href="New_Audio_creator.html"><button class="Button" id="goBackEdit">keep editing</button></a>
+    <a href="{{ url_for('new_audio_creator.index', VIDEO_ID= video_id) }}"><button class="Button" id="goBackEdit">keep editing</button></a>
 {% endblock %}
 
 {% block page_body_js %}

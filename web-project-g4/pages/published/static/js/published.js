@@ -1,5 +1,3 @@
-document.getElementById('CiteLink').value = window.location.href.split('published.html')[0]+'shared.html';
-
 function fallbackCopyTextToClipboard(text) {
     let textArea = document.createElement("textarea");
     textArea.value = text;
@@ -24,8 +22,9 @@ function fallbackCopyTextToClipboard(text) {
     document.body.removeChild(textArea);
 }
 
-function copyTextToClipboard() {
-    let text = window.location.href.split('published.html')[0]+'shared.html'
+function copyTextToClipboard(url) {
+    let text = window.location.href.split('/published/')[0]+url;
+    document.getElementById('CiteLink').value = text;
     if (!navigator.clipboard) {
         fallbackCopyTextToClipboard(text);
         return;
