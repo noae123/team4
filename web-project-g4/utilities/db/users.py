@@ -1,4 +1,4 @@
-from db_manager import dbManager
+from utilities.db.db_manager import dbManager
 
 def get_user_by_name(user_name):
     query = "select * from customers where user_name='%s';" % user_name

@@ -6,7 +6,8 @@ except:
     DB = {
         'host': os.environ.get('DB_HOST'),
         'user': os.environ.get('DB_USER'),
-        'database': os.environ.get('DB_NAME')
+        'database': os.environ.get('DB_NAME'),
+        'password': os.environ.get('DB_PASSWORD')
     }
 import mysql.connector
 

@@ -11,15 +11,15 @@
 {% endblock %}
 
 {% block page_body_aside_content %}
-    <form action="Profile.html" method="POST">
+    <form action="{{ url_for('login.try_login') }}" method="POST">
                 <h1>Log In</h1><br><br>
                 <div>
                     <br><label for="inputUserName">User Name</label>
-                    <input type="text" id="inputUserName" placeholder="Enter your username..." autocomplete="on"
+                    <input type="text" name="user_name" id="inputUserName" placeholder="Enter your username..." autocomplete="on"
                            class="formInput" required></div>
                 <div>
                     <br><label for="inputPassword">Password</label>
-                    <input type="password" id="inputPassword" placeholder="Enter your password..." class="formInput"
+                    <input type="password" name="password" id="inputPassword" placeholder="Enter your password..." class="formInput"
                            required></div>
                 <br><input id="inputLogin" type="submit" value="log in" class="submitButton Button">
                 <br>

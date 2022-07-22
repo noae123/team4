@@ -27,6 +27,33 @@ def index():
     else:
         return redirect(url_for('login.index'))
 
+
+
+#
+# @register.route('/create_profile', methods=['POST'])
+# def create_profile():
+#     name = request.form['user_name']
+#     nickname = request.form['nickname']
+#     password = request.form['password']
+#     confirm_password = request.form['password']
+#     if confirm_password != password:
+#         session['password'] = False
+#         return render_template('register.html',
+#                                message2='The passwords do not match!')
+#     email = request.form['email']
+#     print(f'{name} {nickname} {password} {email}')
+#     query = "INSERT INTO customers(name, nickname, password, email) VALUES ('%s','%s', '%s', '%s')" % (name, nickname, password, email)
+#     interact_db(query=query, query_type='commit')
+#     #session['message'] = 'the inset of User: ' + name + 'succeeded'
+#     return redirect('/users')
+
 # todo create a logout route
+
+#
+# @login.route('/log_out')
+# def logout_func():
+#     session['logedin'] = False
+#     session.clear()
+#     return redirect(url_for('index'))
 
 # todo create a delete route
