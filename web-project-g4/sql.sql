@@ -21,6 +21,8 @@ INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (7, 'Gal', 'Galim15/08', 'Gg123456', 'Gal@gmail.com');
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (8, 'Don', 'dondon5', 'Don12345', 'don@gmail.com');
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (9, 'Tali', 'Talic536', 'Tt12345', 'tal@gmail.com');
+INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (13, 'Roei', 'roei2107', 'Rr123456', 'Roei@gmail.com');
+
 
 
 create table videos
