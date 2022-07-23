@@ -1,18 +1,4 @@
-create table customers
-(
-    id        int auto_increment
-        primary key,
-    user_name varchar(30) not null,
-    nickname  varchar(30) not null,
-    password  varchar(30) not null,
-    email     varchar(50) not null,
-    constraint customers_id_uindex
-        unique (id),
-    constraint ck_email
-        check (`email` like '%@%.%'),
-	constraint ck_min_password
-		check (length(`password`) >= 6)
-);
+123
 
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (2, 'EDEN', 'ED77E77', '4567890', 'E@LJDN.T');
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (4, 'Aviv', 'Aviv123', 'E&T22/08/22', 'aviv12@gmail.com');
