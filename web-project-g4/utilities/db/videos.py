@@ -76,9 +76,8 @@ def get_video(video_id:int, user_id:int=None):
     video_list = dbManager.fetch(query)
 
     #check if something was returend
-    bool_ans = True
     if video_list == []:
-        bool_ans = False
+        return (None, False)
 
     video = video_list[0]
     res ={'audio': video.audio,
@@ -93,7 +92,7 @@ def get_video(video_id:int, user_id:int=None):
     generate_default_pararms(res, True)
 
     res['p' + str(video.id_video)] = res
-    return (res, bool_ans)
+    return (res, True)
 
 def create_empty_video():
     empty = {'audio': None,
@@ -153,7 +152,45 @@ def create_a_new_vid(requestForm, user_id:int):
     return last_row_effected
 
 # update a video
-def update(requestForm, user_id:int):
-    print('hi')
+def update_video(requestForm, user_id:int, id_video:int):
+    # update audio:
+    if 'audio' in requestForm.files and requestForm.files['audio'].filename.split('.')[-1] in ALLOWED_EXTENSIONS:
+        audioFilePath = saveFile(requestForm.files['audio'])
+        query = "UPDATE videos SET audio='%s' where user_id=%s and id_video=%s;" % (audioFilePath, user_id, id_video)
+        dbManager.commit(query)
+
+    # update image
+    if 'image' in requestForm.files and requestForm.files['image'].filename.split('.')[-1] in ALLOWED_EXTENSIONS:
+        imgFilePath = saveFile(requestForm.files['image'])
+        query = "UPDATE videos SET image='%s' where user_id=%s and id_video=%s;" % (imgFilePath, user_id, id_video)
+        dbManager.commit(query)
+
+    # update dir
+    dir = 0
+    if 'textDir' in requestForm.form:
+        dir = 1
+    query = "UPDATE videos SET dir=%s where user_id=%s and id_video=%s;" % (dir, user_id, id_video)
+    dbManager.commit(query)
+
+    # update sender_name, card_banner, color, shape
+    if 'Audio_Name' in requestForm.form and requestForm.form['Audio_Name'] != '' and requestForm.form['Audio_Name'] != 'None':
+        query = "UPDATE videos SET sender_name='%s' where user_id=%s and id_video='%s';" % (requestForm.form['Audio_Name'], user_id, id_video)
+        dbManager.commit(query)
+
+    if 'Choose_Categories' in requestForm.form and requestForm.form['Choose_Categories'] != '' and requestForm.form['Choose_Categories'] != 'None':
+        query = "UPDATE videos SET card_banner='%s' where user_id=%s and id_video='%s';" % (requestForm.form['Choose_Categories'], user_id, id_video)
+        dbManager.commit(query)
+
+    if 'playerColorStr' in requestForm.form and requestForm.form['playerColorStr'] != '' and requestForm.form['playerColorStr'] != 'None':
+        query = "UPDATE videos SET color='%s' where user_id=%s and id_video='%s';" % (requestForm.form['playerColorStr'], user_id, id_video)
+        dbManager.commit(query)
+
+    if 'shape' in requestForm.form and requestForm.form['shape'] != '' and requestForm.form['shape'] != 'None':
+        query = "UPDATE videos SET shape='%s' where user_id=%s and id_video='%s';" % (requestForm.form['shape'], user_id, id_video)
+        dbManager.commit(query)
+
 
 # delete a video
+def delete_video(id):
+    query="DELETE  FROM videos WHERE id_video='%s';" % id
+    dbManager.commit(query)

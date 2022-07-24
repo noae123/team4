@@ -5,7 +5,7 @@ profile_edit = Blueprint('profile_edit', __name__, static_folder='static', stati
 
 
 # Routes
-@profile_edit.route('/profile_edit/') #user must come from session
+@profile_edit.route('/profile_edit') #user must come from session
 def index():
     session["logedIn"] = True
     if ("logedIn" in session and session['logedIn'] == True):

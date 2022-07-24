@@ -3,7 +3,7 @@ try:
     from settings import DB
 except:
     import os
-    DB = {
+    DB = { #todo remove it
         'host': os.environ.get('DB_HOST'),
         'user': os.environ.get('DB_USER'),
         'database': os.environ.get('DB_NAME'),
