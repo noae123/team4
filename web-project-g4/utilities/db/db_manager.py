@@ -3,11 +3,12 @@ try:
     from settings import DB
 except:
     import os
-    DB = { #todo remove it
+
+    DB = { # todo remove
         'host': os.environ.get('DB_HOST'),
         'user': os.environ.get('DB_USER'),
-        'database': os.environ.get('DB_NAME'),
-        'password': os.environ.get('DB_PASSWORD')
+        'password': os.environ.get('DB_PASSWORD'),
+        'database': os.environ.get('DB_NAME')
     }
 import mysql.connector
 
