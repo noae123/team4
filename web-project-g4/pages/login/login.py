@@ -1,28 +1,31 @@
 from flask import Blueprint, redirect
 from flask import render_template, request, session, url_for
-from utilities.db.users import get_user_by_name
-
+from utilities.db.users import get_user_by_name, get_user_id_by_name
+import js2py
+from tkinter import *
+from tkinter import messagebox
 
 # homepage blueprint definition
 login = Blueprint('login', __name__, static_folder='static', static_url_path='/login', template_folder='templates')
 
 @login.route('/login', methods=['GET'])
-def index(message=None):
-    if message == None:
-        return render_template('login.html')
-    else:
-        return render_template('login.html', message=message)
+def index():
+    # if message == None:
+    return render_template('login.html')
+    # else:
+    #     return render_template('login.html', message=message)
 
 @login.route('/login', methods=['POST'])
 def try_login():
     print(request.form)
     if (get_user_by_name(request.form['user_name'])[1]): #todo wait to eden for another function
         session['logedIn'] = True
-        # session['userId'] = userId   todo wait to eden
-        print()
-        return redirect(url_for('profile.index')) #todo ask yarden funcrion that only open prifile
+        #messagebox.showinfo("improve", "success") #todo english not good
+        session['userId'] = get_user_id_by_name(request.form['user_name'])[1]
+        return redirect(url_for('profile.index'))
     else:
-        print('faild')
+        #print('faild')
+        #messagebox.showinfo("fail", "not in") #todo english not good
         return redirect(url_for('login.index', message='user not found')) #todo think
         #url_for('published.create', VIDEO_ID=video_id)
 
