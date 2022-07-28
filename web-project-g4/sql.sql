@@ -14,6 +14,7 @@ create table customers
 		check (length(`password`) >= 6)
 );
 
+INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (0, 'Card4You', 'card4u', 'CD123456', 'card4u@c4u.io');
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (2, 'EDEN', 'ED77E77', '4567890', 'E@LJDN.T');
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (4, 'Aviv', 'Aviv123', 'E&T22/08/22', 'aviv12@gmail.com');
 INSERT INTO `web-project-g4`.customers (id, user_name, nickname, password, email) VALUES (5, 'Yarden', 'Yardi90', 'Aa123456', 'yar@gmail.com');
