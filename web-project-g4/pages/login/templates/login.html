@@ -29,4 +29,10 @@
             <input id="input4" type="submit" value="Join Us!" class="submitButton Button">
             </a>
         <br><br><br>
+        {% if massage != None %}
+        <script>
+            alert("{{ massage }}");
+            window.location.replace("{{ url_for('login.index') }}");
+        </script>
+    {% endif %}
 {% endblock %}

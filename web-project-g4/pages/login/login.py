@@ -1,25 +1,34 @@
 from flask import Blueprint, redirect
 from flask import render_template, request, session, url_for
-from utilities.db.users import get_user_by_name, get_user_id_by_name
+from utilities.db.users import get_user_by_name, get_user_id_by_name, get_user_id_by_name_password, get_user_by_id
 
 # homepage blueprint definition
 login = Blueprint('login', __name__, static_folder='static', static_url_path='/login', template_folder='templates')
 
 @login.route('/login', methods=['GET', 'POST'])
-def index():
-    return render_template('login.html')
+def index(massage=None):
+    return render_template('login.html',massage=massage)
 
-@login.route('/login', methods=['POST'])
+@login.route('/login_try', methods=['POST'])
 def try_login():
-    print(request.form)
-    if (get_user_by_name(request.form['user_name'])[1]):
-        session['logedIn'] = True
-        session['userId'] = get_user_id_by_name(request.form['user_name'])[0]
-        session['nickname'] = request.args['nickname']
-        session['email'] = request.args['email']
-        return redirect(url_for('profile.index'))
+    user_name=request.arg['user_name']
+    password=request.arg['password']
+    if (get_user_by_name()[1]):
+        if(get_user_id_by_name_password(user_name, password)[1]):
+            session['logedIn'] = True
+            session['userId'] = get_user_id_by_name_password(user_name, password)[0]
+            session['nickname'] = get_user_by_id(session['userId'])[1]
+            session['email'] = get_user_by_id(session['userId'])[2]
+            session['password']=get_user_by_id(session['userId'])[3]
+            return redirect(url_for('profile.index'))
+
+        else:
+            massage="user name or password incorrect"
+            return redirect(url_for('login.index', massage=massage))
+
     else:
-        return redirect(url_for('login.index'))
+        massage = "user name incorrect"
+        return redirect(url_for('login.index',massage=massage))
 #
 # @login.route('/login', methods=['POST'])
 # def try_login():
