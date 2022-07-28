@@ -29,14 +29,12 @@ def index():
 # todo create a logout route
 @profile.route('/profile', methods=['POST'])
 def log_out():
-    #session['logedin'] = False #todo check if needed
     session.clear()
     return redirect(url_for('homepage.index'))
 
 # todo create a delete a video route
-@profile.route('/profile', methods=['POST'])
+@profile.route('/profile/delete_vid', methods=['GET'])
 def delete_a_video():
-    print('hi hello')
     delete_video(request.args['id_video'])
     return redirect(url_for('profile.index'))
 
