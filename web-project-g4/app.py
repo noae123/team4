@@ -2,6 +2,8 @@ from flask import Flask
 import os
 
 ###### App setup
+
+
 app = Flask(__name__)
 try: #todo when subbmit remove this try except thingy, stay only with what is in try
     app.config.from_pyfile('settings.py')
@@ -72,3 +74,4 @@ app.register_blueprint(audio_player)
 ## Profile Form
 from components.profile_form.profile_form import profile_form
 app.register_blueprint(profile_form)
+

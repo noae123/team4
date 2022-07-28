@@ -20,9 +20,12 @@
 {% block page_body_aside_content %}
     <h1>Change Info</h1>
     <br><br>
+    {% with user_name= user_name,nickname=nickname,password=password,email=email,update=True %}
     {% include 'profile_form.html' %}
+    {% endwith %}
+
     <h3>You can also delete your user:</h3>
-    <a href="{{ url_for('profile.index') }}"><button class="Button logout">delete your user</button></a><br>
+    <a href="{{ url_for('profile_edit.delete_account') }}"><button class="Button logout">delete your user</button></a><br>
     <br>
 {% endblock %}
 

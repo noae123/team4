@@ -13,6 +13,7 @@
             <li>
                 {% set video_info = video_dict[video_id] %}
                 {% include 'audio_player.html' %}
+                {{  url_for('profile.delete_a_video', id_video = video_id[1:])  }}
                 <button onclick="makeRequest('{{ url_for('profile.delete_a_video', id_video = video_id[1:]) }}')" class="Button Delete logout">Delete</button>
                 <a href="{{ url_for('new_audio_creator.index', VIDEO_ID = video_id[1:]) }}"><button class="Button Edit">Edit Your card</button></a>
                 <script>animateElement_selector("{{ video_id }}", {{ video_info['dir']|lower }}, "{{ video_info['color'] }}", "{{ video_info['shape'] }}");</script>
@@ -23,7 +24,7 @@
 
 {% block page_body_aside_content %}
     <h1>Welcome</h1>
-    <h2>User Name</h2>
+    <h2>{{user_name| capitalize}}</h2>
     <br><br><br>
     <h3>Here you can see your profile and all the awsome cards you created with <em>CARD4YOU!</em></h3><br>
     <p>you can watch, edit and even delete your cards.</p>
@@ -38,4 +39,5 @@
 
 {% block page_body_js %}
     <script src="{{ url_for('profile.static', filename='js/profile.js') }}"></script>
+
 {% endblock %}
