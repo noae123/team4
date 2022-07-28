@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, session, url_for, redirect, request
 
 from utilities.db.users import get_user_id_by_name_password, get_user_by_id, delete_user
-from utilities.db.videos import get_all_videos, delete_video
+from utilities.db.videos import get_all_videos, delete_video, delete_all_video
 
 # homepage blueprint definition
 profile = Blueprint('profile', __name__, static_folder='static', static_url_path='/profile', template_folder='templates')
@@ -19,10 +19,6 @@ def index():
         return render_template('profile.html', video_dict=video_dict, user_id=userID,
                            user_name=user_name)
 
-        # user_id= get_user_id_by_name_password(user_name, password)[0]
-        # video_dict = get_all_videos(user_id)[0]
-        # video_dict = get_all_videos(session["userId"])[0]  # get a video from user 0
-
     else:
         return redirect(url_for('login.index'))
 
@@ -33,14 +29,23 @@ def log_out():
     session.clear()
     return redirect(url_for('homepage.index'))
 
-# todo create a delete a video route
-@profile.route('/profile', methods=['POST'])
+# create a delete a video route
+@profile.route('/profile/delete_vid', methods=['GET'])
 def delete_a_video():
-    print('hi hello')
     delete_video(request.args['id_video'])
     return redirect(url_for('profile.index'))
 
 
+# todo create a delete account route in edit profile
+@profile.route('/delete_profile')
+def delete_account():
+    # userid=session['userId']
+    userid=14
+    session.clear()
+    delete_all_video(14)
+    delete_user(14)
+    massage="user was deleted"
+    return redirect(url_for('homepage.index', massage=massage))
 
 
 

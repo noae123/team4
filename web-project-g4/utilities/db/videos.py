@@ -30,6 +30,13 @@ def get_all_videos(user_id: int):
         res['p' + str(video.id_video)] = new_video
     return (res, bool_ans)
 
+def delete_all_video(userid:int):
+    query="DELETE  FROM videos WHERE user_id=%s;" % userid
+    dbManager.commit(query)
+
+
+
+
 def generate_default_pararms(video: dict, default_text: bool = False):
     try:
         if video['audio'] == None or video['audio'] == '' or video['audio'] == 'None':
