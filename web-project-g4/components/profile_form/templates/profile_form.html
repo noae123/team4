@@ -13,7 +13,7 @@
     {% set value_Password = "" %}
     {% set value_Email = "" %}
     {% set value_submit = "Register" %}
-    {% set value_action = "/login_try" %}
+    {% set value_action = "/register/try_register" %}
 {% endif %}
 {{ value_action }}
 
@@ -41,7 +41,7 @@
 
             <div>
                 <label for="inputConfirmPassword">Confirm Password</label>
-                <input onchange="validatePassword()" class="formInput" type="password" id="inputConfirmPassword" value="{{ value_Password }}" required minlength="6" maxlength="30" placeholder="********"><br>
+                <input onchange="validatePassword()" class="formInput" type="password" id="inputConfirmPassword" name="inputConfirmPassword"" value="{{ value_Password }}" required minlength="6" maxlength="30" placeholder="********"><br>
             </div>
 
             <div>
