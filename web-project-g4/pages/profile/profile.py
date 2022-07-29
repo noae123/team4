@@ -9,6 +9,7 @@ profile = Blueprint('profile', __name__, static_folder='static', static_url_path
 def index():
     session["logedIn"] = True
     session["userId"] = 0
+
     if ("logedIn" in session and session['logedIn'] == True):
         video_dict = get_all_videos(session["userId"])[0]  # get a video from user 0
         return render_template('profile.html', video_dict=video_dict)

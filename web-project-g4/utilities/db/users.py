@@ -1,7 +1,7 @@
+from utilities.db import db_manager
+# import utilities.db.db_manager
+# from db_manager import dbManager
 
-from db_manager import dbManager
-
-import db_manager
 
 db_man = db_manager.DBManager()
 users=db_man.fetch('SELECT * FROM customers')
@@ -16,6 +16,10 @@ def get_user_by_name(user_name):
         bool_ans = False
     return (user_list, bool_ans)
 
+# def get_password_by_name(user_name):
+#     query = "select * from customers where user_name='%s';" % user_name
+#     password = db_man.fetch(query)
+#     return (password)
 
 def get_user_by_id(id):
     query = "select * from customers where id='%s';" % id
@@ -23,12 +27,12 @@ def get_user_by_id(id):
     bool_ans = True
     if user_row == []:
         bool_ans = False
-    user_name=db_man.fetch("select user_name from customers where id='%s';"%id)
-    user_nickname=db_man.fetch("select nickname from customers where id='%s';"%id)
-    user_email=db_man.fetch("select email from customers where id='%s';"%id)
-    user_password=db_man.fetch("select password from customers where id='%s';"%id)
-    return (user_name,user_nickname,user_email, user_password, bool_ans)
-
+    # user_name=db_man.fetch("select user_name from customers where id='%s';"%id)
+    # user_nickname=db_man.fetch("select nickname from customers where id='%s';"%id)
+    # user_email=db_man.fetch("select email from customers where id='%s';"%id)
+    # user_password=db_man.fetch("select password from customers where id='%s';"%id)
+    user=db_man.fetch("select user_name, nickname, email, password  from customers where id='%s';"%id)[0]
+    return (user[0],user[1],user[2], user[3], bool_ans)
 
 def create_user(name,user_nickname,user_password,user_email):
     bool_ans=True
@@ -63,14 +67,14 @@ def delete_user(id):
     return(bool_ans)
 
 def get_user_id_by_name_password(user_name,password):
-    query="SELECT id FROM customers WHERE user_name='%s'and password='%s';"%(user_name,password)
-    user_id = db_man.fetch(query)
+    query=("SELECT id FROM customers WHERE user_name='%s'and password='%s';"%(user_name,password))
+    user_id = db_man.fetch(query)[0]
     if user_id == False or user_id == []:
         print('dont found')
         bool_ans= False
     else:
         bool_ans=True
-    return(user_id,bool_ans)
+    return(user_id[0],bool_ans)
 
 def get_user_id_by_name(user_name):
     query="SELECT id FROM customers WHERE user_name='%s';" %user_name
@@ -80,5 +84,7 @@ def get_user_id_by_name(user_name):
     else:
         bool_ans=True
     return (user_id,bool_ans)
+
+
 
 
