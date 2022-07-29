@@ -13,7 +13,6 @@ new_audio_creator = Blueprint('new_audio_creator', __name__, static_folder='stat
 def index(VIDEO_ID: int):
     print(session['userId'])
     if("logedIn" in session and session['logedIn'] == True):
-
         message = None
         if VIDEO_ID == None:
             VIDEO_ID,  video_info = create_empty_video()
