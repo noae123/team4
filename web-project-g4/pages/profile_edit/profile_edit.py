@@ -24,14 +24,11 @@ def index():
         }
         #todo check if work after login page is ready
 
-        # user_name = session['user_name']
-        # nickname = session['nickname']
-        # password = session['password']
-        # email = session['email']
-        user_name = get_user_by_id(5)[0]
-        nickname = get_user_by_id(5)[1]
-        password = get_user_by_id(5)[3]
-        email = get_user_by_id(5)[2]
+        user_name = session['user_name']
+        nickname = session['nickname']
+        password = session['password']
+        email = session['email']
+
         # else go to the db and get me the video
 
         # make this to some kind of string
@@ -45,12 +42,12 @@ def index():
 def update_profile():
     print('enter to function')
     # id=session['userId'] #todo check if work after login page is ready
-    id=5
+    userID= session['userId']
     user_name = request.args['inputUserName']
     nickname = request.args['inputNickname']
     password = request.args['inputPassword']
     email = request.args['inputEmail']
-    update_user(id, user_name, nickname, email, password)
+    update_user(userID, user_name, nickname, email, password)
     return redirect(url_for('profile.index'))
 
 
