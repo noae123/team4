@@ -2,7 +2,7 @@ from flask import Flask
 import os
 
 ###### App setup
-
+from utilities.db.users import get_user_id_by_name_password
 
 app = Flask(__name__)
 try: #todo when subbmit remove this try except thingy, stay only with what is in try
@@ -74,4 +74,3 @@ app.register_blueprint(audio_player)
 ## Profile Form
 from components.profile_form.profile_form import profile_form
 app.register_blueprint(profile_form)
-

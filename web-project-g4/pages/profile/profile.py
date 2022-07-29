@@ -9,9 +9,6 @@ profile = Blueprint('profile', __name__, static_folder='static', static_url_path
 # Routes
 @profile.route('/profile')
 def index():
-    session["logedIn"] = True
-    session["userId"] = 5
-    session["user_name"]=get_user_by_id(5)[0]
     if ("userId" in session and session['logedIn'] == True):
         user_name = session['user_name'] #todo check if work after login page ready
         userID= session['userId']
@@ -23,9 +20,9 @@ def index():
         return redirect(url_for('login.index'))
 
 # todo create a logout route
-@profile.route('/profile', methods=['POST'])
-def log_out():
-    #session['logedin'] = False #todo check if needed
+@profile.route('/logout')
+def logout():
+    session['logedin'] = False
     session.clear()
     return redirect(url_for('homepage.index'))
 
@@ -39,11 +36,10 @@ def delete_a_video():
 # todo create a delete account route in edit profile
 @profile.route('/delete_profile')
 def delete_account():
-    # userid=session['userId']
-    userid=14
+    userid=session['userId']
     session.clear()
-    delete_all_video(14)
-    delete_user(14)
+    delete_all_video(userid)
+    delete_user(userid)
     massage="user was deleted"
     return redirect(url_for('homepage.index', massage=massage))
 

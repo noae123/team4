@@ -61,14 +61,14 @@ def delete_user(id):
     return(bool_ans)
 
 def get_user_id_by_name_password(user_name,password):
-    query="SELECT id FROM customers WHERE user_name='%s'and password='%s';"%(user_name,password)
-    user_id = db_man.fetch(query)
+    query=("SELECT id FROM customers WHERE user_name='%s'and password='%s';"%(user_name,password))
+    user_id = db_man.fetch(query)[0]
     if user_id == False or user_id == []:
         print('dont found')
         bool_ans= False
     else:
         bool_ans=True
-    return(user_id,bool_ans)
+    return(user_id[0],bool_ans)
 
 def get_user_id_by_name(user_name):
     query="SELECT id FROM customers WHERE user_name='%s';" %user_name

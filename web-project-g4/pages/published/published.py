@@ -17,7 +17,6 @@ def index(VIDEO_ID: int):
 # updating existing video
 @published.route('/published/<VIDEO_ID>', methods=['POST']) #user must come from session
 def update(VIDEO_ID: int):
-    print(session['userId'])
     session["logedIn"] = True
     update_video(request, session['userId'], VIDEO_ID)
     return redirect(url_for('published.index', VIDEO_ID=VIDEO_ID))
@@ -25,7 +24,6 @@ def update(VIDEO_ID: int):
 # creating new video
 @published.route('/published', methods=['POST']) #user must come from session
 def create():
-    print(session['userId'])
     creation_row = create_a_new_vid(request, session['userId'])
     return redirect(url_for('published.index', VIDEO_ID=creation_row))
 

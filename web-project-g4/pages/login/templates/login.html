@@ -11,15 +11,21 @@
 {% endblock %}
 
 {% block page_body_aside_content %}
-    <form action="Profile.html" method="POST">
+            {% if massage != None %}
+        <script>
+            alert("{{ massage }}");
+            window.location.replace("{{ url_for('login.index') }}");
+        </script>
+    {% endif %}
+    <form action="/login_try" method="POST">
                 <h1>Log In</h1><br><br>
                 <div>
                     <br><label for="inputUserName">User Name</label>
-                    <input type="text" id="inputUserName" placeholder="Enter your username..." autocomplete="on"
+                    <input type="text" id="inputUserName" name="inputUserName" placeholder="Enter your username..." autocomplete="on"
                            class="formInput" required></div>
                 <div>
                     <br><label for="inputPassword">Password</label>
-                    <input type="password" id="inputPassword" placeholder="Enter your password..." class="formInput"
+                    <input type="password" id="inputPassword" name="inputPassword" placeholder="Enter your password..." class="formInput"
                            required></div>
                 <br><input id="inputLogin" type="submit" value="log in" class="submitButton Button">
                 <br>
@@ -29,10 +35,5 @@
             <input id="input4" type="submit" value="Join Us!" class="submitButton Button">
             </a>
         <br><br><br>
-        {% if massage != None %}
-        <script>
-            alert("{{ massage }}");
-            window.location.replace("{{ url_for('login.index') }}");
-        </script>
-    {% endif %}
+
 {% endblock %}
