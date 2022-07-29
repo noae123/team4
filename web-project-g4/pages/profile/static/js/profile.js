@@ -1,4 +1,6 @@
 function makeRequest(url) {
+    window.location = url;
+    return;
     httpRequest = new XMLHttpRequest();
 
     if (!httpRequest) {

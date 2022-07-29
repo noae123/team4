@@ -23,7 +23,7 @@
 
 {% block page_body_aside_content %}
     <h1>Welcome</h1>
-    <h2>User Name</h2>
+    <h2>{{user_name| capitalize}}</h2>
     <br><br><br>
     <h3>Here you can see your profile and all the awsome cards you created with <em>CARD4YOU!</em></h3><br>
     <p>you can watch, edit and even delete your cards.</p>
@@ -38,4 +38,5 @@
 
 {% block page_body_js %}
     <script src="{{ url_for('profile.static', filename='js/profile.js') }}"></script>
+
 {% endblock %}

@@ -6,8 +6,8 @@ homepage = Blueprint('homepage', __name__, static_folder='static', static_url_pa
 
 # Routes
 @homepage.route('/')
-def index():
-    return render_template('homepage.html')
+def index(massage=None):
+    return render_template('homepage.html' ,massage=massage)
 
 
 @homepage.route('/homepage')

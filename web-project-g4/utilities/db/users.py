@@ -1,4 +1,4 @@
-import db_manager
+from utilities.db import db_manager
 
 db_man = db_manager.DBManager()
 users=db_man.fetch('SELECT * FROM customers')
@@ -20,11 +20,12 @@ def get_user_by_id(id):
     bool_ans = True
     if user_row == []:
         bool_ans = False
-    user_name=db_man.fetch("select user_name from customers where id='%s';"%id)
-    user_nickname=db_man.fetch("select nickname from customers where id='%s';"%id)
-    user_email=db_man.fetch("select email from customers where id='%s';"%id)
-    user_password=db_man.fetch("select password from customers where id='%s';"%id)
-    return (user_name,user_nickname,user_email, user_password, bool_ans)
+    # user_name=db_man.fetch("select user_name from customers where id='%s';"%id)
+    # user_nickname=db_man.fetch("select nickname from customers where id='%s';"%id)
+    # user_email=db_man.fetch("select email from customers where id='%s';"%id)
+    # user_password=db_man.fetch("select password from customers where id='%s';"%id)
+    user=db_man.fetch("select user_name, nickname, email, password  from customers where id='%s';"%id)[0]
+    return (user[0],user[1],user[2], user[3], bool_ans)
 
 
 def create_user(name,user_nickname,user_password,user_email):
