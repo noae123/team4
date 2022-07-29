@@ -47,3 +47,10 @@ create table videos
     constraint ck_max_sender
         check (octet_length(`sender_name`) <= 30)
 );
+
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, video_name, dir) VALUES (1, 1, '', 'happybdaycard.jpeg', 'card4u', 'Happy birthday, dear friend', 'pink', 'butterfly', 'Happy Birthday Card', false);
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, video_name, dir) VALUES (2, 1, 'wedding.mp3', 'wedding.jpeg', 'card4u', 'You are invited to our wedding', '', 'heart', 'Wedding Invitation', false);
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, video_name, dir) VALUES (3, 1, 'web.mp3', 'web.jpeg', 'team4', 'Thank you to all the web course teachers, for a great experience! we really enjoyed the course and we learnt a-lot! :)', 'brown', 'heart', 'Thank you web team', false);
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, video_name, dir) VALUES (4, 6, null, null, null, null, null, null, null, null);
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, video_name, dir) VALUES (5, 6, null, null, 'noa', 'team4check', 'green', 'heart', null, null);
+INSERT INTO `web-project-g4`.videos (id_video, user_id, audio, image, sender_name, card_banner, color, shape, video_name, dir) VALUES (6, 5, null, null, 'card4u', 'someblessinghere', null, null, null, null);
