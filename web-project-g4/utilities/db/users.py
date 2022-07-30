@@ -1,10 +1,6 @@
 from utilities.db import db_manager
 
 db_man = db_manager.DBManager()
-users=db_man.fetch('SELECT * FROM customers')
-print(users)
-
-
 def get_user_by_name(user_name):
     query = "select * from customers where user_name='%s';" % user_name
     user_list = db_man.fetch(query)

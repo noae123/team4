@@ -12,7 +12,6 @@ def index():
 
 @register.route('/register/try_register', methods=['GET'])
 def try_register():
-    print(request.form)
     if('inputUserName' in request.args or 'inputNickname' in request.args or 'inputPassword'  in request.args or 'inputEmail' in request.args):
             password = request.args['inputPassword']
             confirm_password = request.args['inputConfirmPassword']

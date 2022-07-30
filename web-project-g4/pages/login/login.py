@@ -7,20 +7,16 @@ login = Blueprint('login', __name__, static_folder='static', static_url_path='/l
 
 @login.route('/login', methods=['GET', 'POST'])
 def index(massage=None):
-    print(massage)
     return render_template('login.html',massage=massage)
 
 @login.route('/login_try', methods=['POST'])
 def try_login():
     user_name=request.form['inputUserName']
-    print(user_name)
     password=request.form['inputPassword']
-    print(password)
     if (get_user_by_name(user_name)[1]):
         if(get_user_id_by_name_password(user_name, password)[1]):
             session['logedIn'] = True
             session['userId'] = get_user_id_by_name_password(user_name, password)[0]
-            print(session['userId'])
             session['user_name']=get_user_by_id(session['userId'])[0]
             session['nickname'] = get_user_by_id(session['userId'])[1]
             session['email'] = get_user_by_id(session['userId'])[2]
