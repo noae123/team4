@@ -10,7 +10,7 @@ profile = Blueprint('profile', __name__, static_folder='static', static_url_path
 @profile.route('/profile')
 def index():
     if ("userId" in session and session['logedIn'] == True):
-        user_name = session['user_name'] #todo check if work after login page ready
+        user_name = session['user_name']
         userID= session['userId']
         video_dict = get_all_videos(userID)[0]
         return render_template('profile.html', video_dict=video_dict, user_id=userID,
@@ -19,7 +19,7 @@ def index():
     else:
         return redirect(url_for('login.index'))
 
-# todo create a logout route
+#logout route
 @profile.route('/logout')
 def logout():
     session['logedin'] = False
@@ -33,7 +33,7 @@ def delete_a_video():
     return redirect(url_for('profile.index'))
 
 
-# todo create a delete account route in edit profile
+#  delete account
 @profile.route('/delete_profile')
 def delete_account():
     userid=session['userId']

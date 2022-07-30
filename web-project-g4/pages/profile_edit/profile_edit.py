@@ -22,7 +22,6 @@ def index():
             'shape': 'circle',
             'dir': False
         }
-        #todo check if work after login page is ready
 
         user_name = session['user_name']
         nickname = session['nickname']
@@ -40,8 +39,6 @@ def index():
 
 @profile_edit.route('/update_profile') #user must come from session
 def update_profile():
-    print('enter to function')
-    # id=session['userId'] #todo check if work after login page is ready
     userID= session['userId']
     user_name = request.args['inputUserName']
     nickname = request.args['inputNickname']
