@@ -19,9 +19,13 @@
     <br>
 
     <!-- hide it if user is in session-->
-    <h2>So what are you waiting for?</h2>
-        <a href="{{ url_for('login.index') }}"> <button class="Button" id="logInButton">log In</button></a>
-    <br><br>
+    {% if session['logedIn'] %}
+    {% else %}
+        <h2>So what are you waiting for?</h2>
+            <a href="{{ url_for('login.index') }}"> <button class="Button" id="logInButton">log In</button></a>
+        <br><br>
+    {% endif %}
+
     {% if massage != None %}
         <script>
             alert("{{ massage }}");
